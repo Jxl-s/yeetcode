@@ -22,7 +22,7 @@ app.post("/submit", async (req, res) => {
 
     // Map language to Judge0 language ID
     const languageId =
-        language === "python3" ? 34 : language === "cpp14" ? 45 : 0;
+        language === "python3" ? 71 : language === "cpp14" ? 54 : 0;
 
     // Prepare request body for Judge0
     const requestBody = {
@@ -38,11 +38,12 @@ app.post("/submit", async (req, res) => {
                 "Content-Type": "application/json",
             },
         });
-
+        
         res.json({
             output: response.data.stdout || response.data.stderr || "No output",
         });
     } catch (error) {
+        console.log(error);
         res.status(500).json({ output: "Error communicating with Judge0" });
     }
 });
@@ -80,7 +81,7 @@ print(twoSum(${testCase.input}))`;
 
             const requestBody = {
                 source_code: code,
-                language_id: 34, // Python 3
+                language_id: 71, // Python 3
                 stdin: "",
                 expected_output: testCase.output,
             };
