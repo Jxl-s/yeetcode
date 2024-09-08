@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini LeetCode Clone - Two Sum</title>
+</head>
+<body>
+    <h1>Two Sum</h1>
+    <p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
+    
+    <form id="codeForm">
+        <label for="language">Language:</label>
+        <select id="language" name="language">
+            <option value="python3">Python 3</option>
+            <option value="cpp14">C++ 14</option>
+            <!-- Add more languages as needed -->
+        </select><br>
+
+        <label for="code">Code:</label><br>
+        <textarea id="code" name="code" rows="10" cols="30" placeholder="def twoSum(nums, target): ..."></textarea><br>
+
+        <button type="button" onclick="submitCode()">Submit</button>
+    </form>
+
+    <h2>Output</h2>
+    <pre id="output"></pre>
+
+    <h2>Test Cases</h2>
+    <button type="button" onclick="runTests()">Run Tests</button>
+    <pre id="testResults"></pre>
+
+    <script>
+        async function submitCode() {
+            const formData = new FormData(document.getElementById('codeForm'));
+            const response = await fetch('/submit', {
+                method: 'POST',
+                body: JSON.stringify({
+                    language: formData.get('language'),
+                    code: formData.get('code')
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            const result = await response.json();
+            document.getElementById('output').textContent = result.output;
+        }
+
+        async function runTests() {
+            const response = await fetch('/run-tests');
+            const results = await response.json();
+            document.getElementById('testResults').textContent = JSON.stringify(results, null, 2);
+        }
+    </script>
+</body>
+</html>
