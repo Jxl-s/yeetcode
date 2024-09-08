@@ -51,8 +51,19 @@ services:
     <<: *default-logging
     restart: always
 
+  app_db:
+    image: postgres:16.2
+    env_file: ./backend/.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - app_data:/var/lib/postgresql/data/
+    <<: *default-logging
+    restart: always
+
 volumes:
   data:
+  app_data:
 
 networks:
   default:
