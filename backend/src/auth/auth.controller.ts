@@ -26,8 +26,9 @@ export class AuthController {
     @GetUser() user: { email: string },
     @Res() res: Response,
   ) {
-    const { accessToken, refreshToken } =
-      await this.authService.handleGoogleSignIn(user.email);
+    const { refreshToken } = await this.authService.handleGoogleSignIn(
+      user.email,
+    );
 
     res.cookie('refresh_token', refreshToken, {
       httpOnly: true,
@@ -35,7 +36,7 @@ export class AuthController {
       path: '/',
     });
 
-    return res.json({ accessToken });
+    return res.redirect('/');
   }
 
   @Get('token')

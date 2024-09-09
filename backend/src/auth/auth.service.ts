@@ -30,9 +30,8 @@ export class AuthService {
     }
 
     // Generate tokens
-    const accessToken = this.generateAccessToken(user.id);
     const refreshToken = await this.generateRefreshToken(user.id);
-    return { accessToken, refreshToken };
+    return { refreshToken };
   }
 
   public generateAccessToken(userId: number) {
