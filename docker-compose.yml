@@ -74,6 +74,17 @@ services:
     depends_on:
       - judge0_server
       - app_db
+  
+  app_frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    env_file: ./frontend/.env
 
 volumes:
   judge0_data:
