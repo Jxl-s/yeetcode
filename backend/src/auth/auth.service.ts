@@ -35,7 +35,7 @@ export class AuthService {
     return { accessToken, refreshToken };
   }
 
-  generateAccessToken(userId: number) {
+  public generateAccessToken(userId: number) {
     const payload = { sub: userId };
     return this.jwtService.sign(payload, {
       secret: process.env.JWT_SECRET,
@@ -43,7 +43,7 @@ export class AuthService {
     });
   }
 
-  async generateRefreshToken(userId: number, oldRefreshToken?: string) {
+  public async generateRefreshToken(userId: number, oldRefreshToken?: string) {
     const payload = { sub: userId };
     const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
 
@@ -80,7 +80,7 @@ export class AuthService {
     }
   }
 
-  async validateRefreshToken(token: string) {
+  public async validateRefreshToken(token: string) {
     try {
       const payload = this.jwtService.verify(token, {
         secret: process.env.JWT_REFRESH_SECRET,
