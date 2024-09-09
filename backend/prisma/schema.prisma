@@ -19,18 +19,19 @@ enum Role {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
-  role     Role   @default(USER)
+  id    Int    @id @default(autoincrement())
+  email String @unique
+  role  Role   @default(USER)
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
   profile Profile?
+  tokens  RefreshToken[]
 }
 
 model Profile {
-  user_id Int     @id
+  user_id  Int    @id
   username String @unique
 
   picture String
@@ -38,6 +39,16 @@ model Profile {
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+
+  user User @relation(fields: [user_id], references: [id])
+}
+
+model RefreshToken {
+  user_id       Int
+  refresh_token String @unique
+
+  expires_at DateTime
+  created_at DateTime @default(now())
 
   user User @relation(fields: [user_id], references: [id])
 }

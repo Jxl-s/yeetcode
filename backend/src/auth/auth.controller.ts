@@ -1,8 +1,8 @@
-import { Controller, Get, Post, Res, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Req, Res, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthGuard } from '@nestjs/passport';
 import { AppUser, GetUser } from './decorator/get-user.decorator';
-import type { Response } from 'express';
+import type { Request, Response } from 'express';
 import { JwtGuard } from './guards/jwt.guard';
 import { RefreshGuard } from './guards/refresh.guard';
 
@@ -40,9 +40,16 @@ export class AuthController {
 
   @Post('refresh')
   @UseGuards(RefreshGuard)
-  public async refresh(@GetUser() user: { sub: number }, @Res() res: Response) {
+  public async refresh(
+    @GetUser() user: { sub: number },
+    @Req() req: Request,
+    @Res() res: Response,
+  ) {
     const accessToken = this.authService.generateAccessToken(user.sub);
-    const refreshToken = this.authService.generateRefreshToken(user.sub);
+    const refreshToken = await this.authService.generateRefreshToken(
+      user.sub,
+      req.cookies.refresh_token,
+    );
 
     res.cookie('refresh_token', refreshToken, {
       httpOnly: true,
