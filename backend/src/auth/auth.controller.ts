@@ -38,6 +38,13 @@ export class AuthController {
     return res.json({ accessToken });
   }
 
+  @Get('token')
+  @UseGuards(RefreshGuard)
+  public async token(@GetUser() user: { sub: number }) {
+    const accessToken = this.authService.generateAccessToken(user.sub);
+    return { accessToken };
+  }
+
   @Post('refresh')
   @UseGuards(RefreshGuard)
   public async refresh(
