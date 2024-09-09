@@ -7,6 +7,7 @@ RUN yarn
 
 COPY . .
 RUN yarn prisma generate
+RUN yarn prisma migrate dev
 
 EXPOSE 5001
 
