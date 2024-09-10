@@ -12,7 +12,7 @@ export class AuthController {
 
   @Get('protected')
   @UseGuards(JwtGuard)
-  public async protected(@GetUser() user: AppUser) {
+  public async protected(@GetUser() user: AppUser, @Req() req: Request) {
     return `you are logged in as user #${user.userId}`;
   }
 
@@ -30,10 +30,11 @@ export class AuthController {
       user.email,
     );
 
-    res.cookie('refresh_token', refreshToken, {
+    res.cookie(this.authService.REFRESH_TOKEN_COOKIE, refreshToken, {
       httpOnly: true,
       secure: true,
       path: '/',
+      expires: new Date(Date.now() + this.authService.REFRESH_TOKEN_EXPIRES * 1000),
     });
 
     return res.redirect('/');
@@ -59,10 +60,11 @@ export class AuthController {
       req.cookies.refresh_token,
     );
 
-    res.cookie('refresh_token', refreshToken, {
+    res.cookie(this.authService.REFRESH_TOKEN_COOKIE, refreshToken, {
       httpOnly: true,
       secure: true,
       path: '/',
+      expires: new Date(Date.now() + this.authService.REFRESH_TOKEN_EXPIRES * 1000),
     });
 
     return res.json({ accessToken });

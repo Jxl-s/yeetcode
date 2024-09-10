@@ -4,6 +4,10 @@ import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class AuthService {
+  public REFRESH_TOKEN_COOKIE = 'refresh_token';
+  public REFRESH_TOKEN_EXPIRES = 7 * 24 * 60 * 60;
+  public ACCESS_TOKEN_EXPIRES = 1 * 60;
+
   constructor(
     private readonly jwtService: JwtService,
     private readonly prismaService: PrismaService,
@@ -38,17 +42,17 @@ export class AuthService {
     const payload = { sub: userId };
     return this.jwtService.sign(payload, {
       secret: process.env.JWT_SECRET,
-      expiresIn: '15m',
+      expiresIn: this.ACCESS_TOKEN_EXPIRES,
     });
   }
 
   public async generateRefreshToken(userId: number, oldRefreshToken?: string) {
     const payload = { sub: userId };
-    const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+    const expiresAt = new Date(Date.now() + this.REFRESH_TOKEN_EXPIRES * 1000);
 
     const refreshToken = this.jwtService.sign(payload, {
       secret: process.env.JWT_REFRESH_SECRET,
-      expiresIn: '7d',
+      expiresIn: this.REFRESH_TOKEN_EXPIRES,
     });
 
     try {

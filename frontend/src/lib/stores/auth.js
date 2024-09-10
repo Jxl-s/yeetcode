@@ -1,5 +1,6 @@
 import { get, writable } from 'svelte/store';
 import axios from 'axios';
+import { PUBLIC_API_BASE_URL } from '$env/static/public';
 
 export const AuthState = {
 	None: 0,
@@ -12,9 +13,14 @@ export const authStore = writable({
 	state: AuthState.None
 });
 
-export async function fetchToken() {
+export async function fetchToken(isRefresh = false) {
 	try {
-		const res = await axios.get('/api/auth/token', {
+        let url = '/api/auth/token';
+        if (isRefresh) {
+            url = '/api/auth/refresh';
+        }
+
+		const res = await axios.get(url, {
 			withCredentials: true
 		});
 
@@ -41,31 +47,44 @@ export async function fetchToken() {
 
 	return false;
 }
-/**
- * @param {"GET" | "POST" | "PUT" | "PATCH" | "DELETE"} method The HTTP method to use
- * @param {string} url The URL to call
- * @param {Object | null} data The data to send with the request
- * @returns
- */
-export async function apiCall(method, url, data = null, afterAuth = false) {
-	const { token } = get(authStore);
 
-	const config = {
-		method,
-		url,
-		headers: {
-			Authorization: `Bearer ${token}`
-		},
-		data
-	};
-
-	try {
-		const response = await axios(config);
-		return response.data;
-	} catch (error) {
-		if (error.status === 401 && !afterAuth) {
-			await fetchToken();
-			return apiCall(method, url, data, true);
-		}
+export const axiosInstance = axios.create({
+	baseURL: PUBLIC_API_BASE_URL,
+	withCredentials: false,
+	headers: {
+		'Content-Type': 'application/json'
 	}
-}
+});
+
+axiosInstance.interceptors.request.use(
+	(config) => {
+		const { token } = get(authStore);
+		if (token) {
+			config.headers.Authorization = `Bearer ${token}`;
+		}
+
+		return config;
+	},
+	(error) => Promise.reject(error)
+);
+
+axiosInstance.interceptors.response.use(
+	(response) => response,
+	async (error) => {
+		const originalRequest = error.config;
+
+		if (error.response && error.response.status === 401 && !originalRequest._retry) {
+			originalRequest._retry = true;
+
+            // Fetch a new token and retry
+			const newToken = await fetchToken();
+			if (!newToken) return Promise.reject(error);
+
+            const { token } = get(authStore);
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+            return axiosInstance(originalRequest);
+		}
+
+		return Promise.reject(error);
+	}
+);
