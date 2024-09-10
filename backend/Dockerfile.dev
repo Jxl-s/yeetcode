@@ -6,9 +6,8 @@ COPY package.json yarn.lock ./
 RUN yarn
 
 COPY . .
-RUN yarn prisma generate
-RUN yarn prisma migrate dev
 
+COPY docker-entrypoint.sh /usr/local/bin/
 EXPOSE 5001
 
-CMD ["yarn", "start:dev"]
+CMD ["docker-entrypoint.sh"]
