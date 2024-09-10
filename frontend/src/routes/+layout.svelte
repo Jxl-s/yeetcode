@@ -13,9 +13,7 @@
 </script>
 
 <main class="p-4">
-	{#if $authStore.state === AuthState.None}
-		<p>Loading...</p>
-	{:else}
+	{#if $authStore.state !== AuthState.None}
 		<slot />
 	{/if}
 </main>
