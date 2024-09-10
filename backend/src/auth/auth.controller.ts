@@ -8,65 +8,80 @@ import { RefreshGuard } from './guards/refresh.guard';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+    constructor(private readonly authService: AuthService) {}
 
-  @Get('protected')
-  @UseGuards(JwtGuard)
-  public async protected(@GetUser() user: AppUser, @Req() req: Request) {
-    return `you are logged in as user #${user.userId}`;
-  }
+    @Get('protected')
+    @UseGuards(JwtGuard)
+    public async protected(@GetUser() user: AppUser, @Req() req: Request) {
+        return `you are logged in as user #${user.userId}`;
+    }
 
-  @Get('google')
-  @UseGuards(AuthGuard('google'))
-  public async googleSignIn() {}
+    @Get('google')
+    @UseGuards(AuthGuard('google'))
+    public async googleSignIn() {}
 
-  @Get('google/callback')
-  @UseGuards(AuthGuard('google'))
-  public async googleSignInCallback(
-    @GetUser() user: { email: string },
-    @Res() res: Response,
-  ) {
-    const { refreshToken } = await this.authService.handleGoogleSignIn(
-      user.email,
-    );
+    @Get('google/callback')
+    @UseGuards(AuthGuard('google'))
+    public async googleSignInCallback(
+        @GetUser() user: { email: string },
+        @Res() res: Response,
+    ) {
+        const refreshToken = await this.authService.handleGoogleSignIn(
+            user.email,
+        );
 
-    res.cookie(this.authService.REFRESH_TOKEN_COOKIE, refreshToken, {
-      httpOnly: true,
-      secure: true,
-      path: '/',
-      expires: new Date(Date.now() + this.authService.REFRESH_TOKEN_EXPIRES * 1000),
-    });
+        res.cookie(this.authService.REFRESH_TOKEN_COOKIE, refreshToken, {
+            httpOnly: true,
+            secure: true,
+            path: '/',
+            expires: new Date(
+                Date.now() + this.authService.REFRESH_TOKEN_EXPIRES * 1000,
+            ),
+        });
 
-    return res.redirect('/');
-  }
+        return res.redirect('/');
+    }
 
-  @Get('token')
-  @UseGuards(RefreshGuard)
-  public async token(@GetUser() user: { sub: number }) {
-    const accessToken = this.authService.generateAccessToken(user.sub);
-    return { accessToken };
-  }
+    @Get('token')
+    @UseGuards(RefreshGuard)
+    public async token(@GetUser() user: { sub: number }) {
+        const accessToken = this.authService.generateAccessToken(user.sub);
+        return { accessToken };
+    }
 
-  @Post('refresh')
-  @UseGuards(RefreshGuard)
-  public async refresh(
-    @GetUser() user: { sub: number },
-    @Req() req: Request,
-    @Res() res: Response,
-  ) {
-    const accessToken = this.authService.generateAccessToken(user.sub);
-    const refreshToken = await this.authService.generateRefreshToken(
-      user.sub,
-      req.cookies.refresh_token,
-    );
+    @Post('signout')
+    @UseGuards(RefreshGuard)
+    public async signOut(@Req() req: Request, @Res() res: Response) {
+        // Revoke refresh token
+        await this.authService.deleteRefreshToken(req.cookies.refresh_token);
+        res.clearCookie(this.authService.REFRESH_TOKEN_COOKIE);
 
-    res.cookie(this.authService.REFRESH_TOKEN_COOKIE, refreshToken, {
-      httpOnly: true,
-      secure: true,
-      path: '/',
-      expires: new Date(Date.now() + this.authService.REFRESH_TOKEN_EXPIRES * 1000),
-    });
+        // Return 200
+        return res.sendStatus(200);
+    }
 
-    return res.json({ accessToken });
-  }
+    @Post('refresh')
+    @UseGuards(RefreshGuard)
+    public async refresh(
+        @GetUser() user: { sub: number },
+        @Req() req: Request,
+        @Res() res: Response,
+    ) {
+        const accessToken = this.authService.generateAccessToken(user.sub);
+        const refreshToken = await this.authService.generateRefreshToken(
+            user.sub,
+            req.cookies.refresh_token,
+        );
+
+        res.cookie(this.authService.REFRESH_TOKEN_COOKIE, refreshToken, {
+            httpOnly: true,
+            secure: true,
+            path: '/',
+            expires: new Date(
+                Date.now() + this.authService.REFRESH_TOKEN_EXPIRES * 1000,
+            ),
+        });
+
+        return res.json({ accessToken });
+    }
 }

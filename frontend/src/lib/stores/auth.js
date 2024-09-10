@@ -15,12 +15,17 @@ export const authStore = writable({
 
 export async function fetchToken(isRefresh = false) {
 	try {
-        let url = '/api/auth/token';
-        if (isRefresh) {
-            url = '/api/auth/refresh';
-        }
+		let url = '/api/auth/token';
+		let method = 'get';
 
-		const res = await axios.get(url, {
+		if (isRefresh) {
+			url = '/api/auth/refresh';
+			method = 'post';
+		}
+
+		const res = await axios.request({
+			url,
+			method,
 			withCredentials: true
 		});
 
@@ -76,14 +81,22 @@ axiosInstance.interceptors.response.use(
 		if (error.response && error.response.status === 401 && !originalRequest._retry) {
 			originalRequest._retry = true;
 
-            // Fetch a new token and retry
-			const newToken = await fetchToken();
-			if (!newToken) return Promise.reject(error);
-
-            const { token } = get(authStore);
-            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-            return axiosInstance(originalRequest);
+			// Fetch a new token and retry
+			const newTokenSuccess = await fetchToken(true);
+			if (newTokenSuccess) {
+                // Update token, re-try request
+				const { token } = get(authStore);
+				axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+				return axiosInstance(originalRequest);
+			}
 		}
+
+        // Failed to refresh token
+		authStore.update((store) => ({
+			...store,
+			state: AuthState.SignedOut,
+			token: null
+		}));
 
 		return Promise.reject(error);
 	}

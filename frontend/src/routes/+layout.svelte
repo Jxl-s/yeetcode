@@ -21,6 +21,16 @@
 		on:click={async () => {
 			const res = await axiosInstance.get('/auth/protected');
 			console.log('res', res);
-		}}>Try protected</button
+		}}
 	>
+		Try protected
+	</button>
+	<button
+		on:click={async () => {
+			const res = await axiosInstance.post('/auth/signout');
+			console.log('res', res);
+		}}
+	>
+		Sign Out
+	</button>
 {/if}
