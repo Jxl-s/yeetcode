@@ -53,6 +53,27 @@ export async function fetchToken(isRefresh = false) {
 	return false;
 }
 
+export async function signOut() {
+	try {
+		const res = await axios.post('/api/auth/signout', {
+			withCredentials: true
+		});
+
+		if (res.status === 200) {
+			authStore.update((store) => ({
+				...store,
+				state: AuthState.SignedOut,
+				token: null
+			}));
+
+			return true;
+		}
+	} catch (e) {
+		console.error('Error signing out:', e);
+		return false;
+	}
+}
+
 export const axiosInstance = axios.create({
 	baseURL: PUBLIC_API_BASE_URL,
 	withCredentials: false,
@@ -84,14 +105,14 @@ axiosInstance.interceptors.response.use(
 			// Fetch a new token and retry
 			const newTokenSuccess = await fetchToken(true);
 			if (newTokenSuccess) {
-                // Update token, re-try request
+				// Update token, re-try request
 				const { token } = get(authStore);
 				axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 				return axiosInstance(originalRequest);
 			}
 		}
 
-        // Failed to refresh token
+		// Failed to refresh token
 		authStore.update((store) => ({
 			...store,
 			state: AuthState.SignedOut,

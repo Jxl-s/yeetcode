@@ -1,8 +1,7 @@
 <script>
 	import '../app.css';
-	import { AuthState, authStore, axiosInstance, fetchToken } from '$lib/stores/auth';
+	import { AuthState, authStore, axiosInstance, fetchToken, signOut } from '$lib/stores/auth';
 	import { onMount } from 'svelte';
-	import axios from 'axios';
 
 	onMount(async () => {
 		// Try to sign in
@@ -13,24 +12,10 @@
 	});
 </script>
 
-{#if $authStore.state === AuthState.None}
-	<p>Loading...</p>
-{:else}
-	<slot />
-	<button
-		on:click={async () => {
-			const res = await axiosInstance.get('/auth/protected');
-			console.log('res', res);
-		}}
-	>
-		Try protected
-	</button>
-	<button
-		on:click={async () => {
-			const res = await axiosInstance.post('/auth/signout');
-			console.log('res', res);
-		}}
-	>
-		Sign Out
-	</button>
-{/if}
+<main class="p-4">
+	{#if $authStore.state === AuthState.None}
+		<p>Loading...</p>
+	{:else}
+		<slot />
+	{/if}
+</main>
