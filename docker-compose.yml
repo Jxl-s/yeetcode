@@ -19,6 +19,7 @@ services:
     depends_on:
       - judge0_db
       - judge0_redis
+      - judge0_workers
 
   judge0_workers:
     image: judge0/judge0:1.13.1
