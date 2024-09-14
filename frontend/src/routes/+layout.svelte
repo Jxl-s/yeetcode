@@ -13,9 +13,11 @@
 	});
 </script>
 
-<main class="p-4">
+<main>
 	{#if $authStore.state !== AuthState.None}
 		<NavBar />
-		<slot />
+		<main class="p-4">
+			<slot />
+		</main>
 	{/if}
 </main>
