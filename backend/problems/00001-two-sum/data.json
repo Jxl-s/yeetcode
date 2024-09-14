@@ -1,0 +1,6 @@
+{
+    "id": "two-sum",
+    "title": "Two Sum",
+    "difficulty": "EASY",
+    "tags": ["array", "hash-table"]
+}
