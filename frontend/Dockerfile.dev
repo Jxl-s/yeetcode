@@ -9,4 +9,6 @@ COPY . .
 
 EXPOSE 5173
 
-CMD ["yarn", "dev", "--host"]
+COPY ./docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]

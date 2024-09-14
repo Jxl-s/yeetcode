@@ -1,4 +1,5 @@
 #!/bin/sh
+yarn
 
 # Generate Prisma client
 yarn prisma generate
