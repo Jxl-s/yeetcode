@@ -72,7 +72,7 @@ model Problem {
 }
 
 model Tags {
-  id  Int    @id @default(autoincrement())
+  id   String @id
   name String @unique
 
   problems Problem[]
