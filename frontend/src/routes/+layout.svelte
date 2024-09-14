@@ -13,10 +13,8 @@
 	});
 </script>
 
-<main>
-	{#if $authStore.state === AuthState.None}
-		<p>Loading...</p>
-	{:else}
+<main class="p-4">
+	{#if $authStore.state !== AuthState.None}
 		<NavBar />
 		<slot />
 	{/if}
