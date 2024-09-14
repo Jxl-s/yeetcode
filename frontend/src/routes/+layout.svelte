@@ -2,6 +2,7 @@
 	import '../app.css';
 	import { AuthState, authStore, axiosInstance, fetchToken, signOut } from '$lib/stores/auth';
 	import { onMount } from 'svelte';
+	import NavBar from '$lib/components/NavBar.svelte';
 
 	onMount(async () => {
 		// Try to sign in
@@ -12,10 +13,11 @@
 	});
 </script>
 
-<main class="p-4">
+<main>
 	{#if $authStore.state === AuthState.None}
 		<p>Loading...</p>
 	{:else}
+		<NavBar />
 		<slot />
 	{/if}
 </main>

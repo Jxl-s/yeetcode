@@ -1,6 +1,6 @@
 <script>
 	import LogOut from 'lucide-svelte/icons/log-out';
-	import IDCard from 'lucide-svelte/icons/id-card';
+	import ScrollText from 'lucide-svelte/icons/scroll-text';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { AuthState, authStore, axiosInstance, signOut } from '$lib/stores/auth';
 
@@ -22,8 +22,14 @@
 	{#if signedIn}
 		<li>
 			<Button variant="destructive" on:click={signOut}>
-				<LogOut class="mr-2 h-4 w-4" />
+				<ScrollText class="mr-2 h-4 w-4" />
 				Sign Out
+			</Button>
+		</li>
+		<li>
+			<Button>
+				<LogOut class="mr-2 h-4 w-4" />
+				<a href="/problems">Problems</a>
 			</Button>
 		</li>
 		<li>
@@ -34,7 +40,7 @@
 					console.log('res', res);
 				}}
 			>
-				Try protected
+				Try protected call
 			</Button>
 		</li>
 	{/if}
