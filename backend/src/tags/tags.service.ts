@@ -4,7 +4,9 @@ import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class TagsService {
-    constructor(private readonly prisma: PrismaService) {}
+    constructor(private readonly prisma: PrismaService) {
+        this.default();
+    }
 
     async default() {
         const count = await this.prisma.tags.count();
