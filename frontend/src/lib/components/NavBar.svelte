@@ -5,14 +5,17 @@
 	import NavUser from './NavUser.svelte';
 	import Button from './ui/button/button.svelte';
 
+	/**
+	 * @type {{ title: string; href: string; current: (page: string) => boolean; }[]}
+	 */
 	const pages = [
 		{
-			name: 'Explore',
+			title: 'Explore',
 			href: '/explore',
-			current: (page) => page === '/'
+			current: (page) => page === '/explore'
 		},
 		{
-			name: 'Problems',
+			title: 'Problems',
 			href: '/problems',
 			current: (page) => page === '/problems'
 		}
@@ -25,8 +28,8 @@
 	<div class="flex items-center px-4 h-16">
 		<a href="/" class="font-bold text-2xl">YeetCode</a>
 		<div class="flex items-center space-x-4 lg:space-x-6 mx-6">
-			{#each pages as { name, href, current }}
-				<NavLink {href} active={current($page.url.pathname)}>{name}</NavLink>
+			{#each pages as { title, href, current }}
+				<NavLink {href} active={current($page.url.pathname)}>{title}</NavLink>
 			{/each}
 		</div>
 		<div class="ml-auto flex items-center space-x-4 text-sm">
