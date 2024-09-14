@@ -18,6 +18,12 @@ enum Role {
   ADMIN
 }
 
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
 model User {
   id    Int    @id @default(autoincrement())
   email String @unique
@@ -51,4 +57,23 @@ model RefreshToken {
   created_at DateTime @default(now())
 
   user User @relation(fields: [user_id], references: [id])
+}
+
+model Problem {
+  id          String     @id
+  title       String
+  description String
+  difficulty  Difficulty
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  tags Tags[]
+}
+
+model Tags {
+  id  Int    @id @default(autoincrement())
+  name String @unique
+
+  problems Problem[]
 }
