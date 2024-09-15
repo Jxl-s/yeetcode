@@ -60,7 +60,7 @@ model RefreshToken {
 }
 
 model Problem {
-  id          String     @id
+  id          Int        @id
   title       String
   description String
   difficulty  Difficulty
@@ -72,8 +72,6 @@ model Problem {
 }
 
 model Tags {
-  id   String @id
-  name String @unique
-
+  id       String    @id
   problems Problem[]
 }

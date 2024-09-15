@@ -2,27 +2,16 @@
 	import { PUBLIC_API_BASE_URL } from '$env/static/public';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Table from '$lib/components/ui/table';
+	import { diffColors, diffText } from '$lib/data/problems';
 	import { axiosInstance } from '$lib/stores/auth.js';
 	import CircleCheckBig from 'lucide-svelte/icons/circle-check-big';
 	import { onMount } from 'svelte';
 
 	// TODO: Centralize this, because it will be used later on
-	const diffColors = {
-		EASY: 'text-green-500',
-		MEDIUM: 'text-yellow-500',
-		HARD: 'text-red-500'
-	};
-
-	const diffText = {
-		EASY: 'Easy',
-		MEDIUM: 'Medium',
-		HARD: 'Hard'
-	};
-
 	let page = 1;
 	let loading = true;
 
-	// TODO: Typpe this and centralize this
+	/** @type {import('$lib/data/problems').Problem[]} */
 	let problems = [];
 
 	/**
@@ -84,8 +73,8 @@
 								{i + 1}. {question.title}
 							</a>
 						</Table.Cell>
-						<Table.Cell class={`${diffColors[question.difficulty]} font-semibold`}>
-							{diffText[question.difficulty]}
+						<Table.Cell class={`${diffColors[question.difficulty] ?? ''} font-semibold`}>
+							{diffText[question.difficulty] ?? ''}
 						</Table.Cell>
 					</Table.Row>
 				{/each}

@@ -15,7 +15,6 @@ export class ProblemsService {
         if (count > 0) return;
 
         // TODO: Add test cases
-        const batch = [];
         try {
             const problemsPath = path.join(__dirname, '../../problems');
             const files = fs.readdirSync(problemsPath);
@@ -41,18 +40,16 @@ export class ProblemsService {
                         difficulty: dataJson.difficulty,
 
                         tags: {
-                            connect: dataJson.tags.map((tag: string) => ({
-                                id: tag,
-                            })),
+                            connectOrCreate: dataJson.tags.map(
+                                (tag: string) => ({
+                                    where: { id: tag },
+                                    create: { id: tag },
+                                }),
+                            ),
                         },
                     },
                 });
             }
-
-            // Add the remaining
-            await this.prisma.problem.createMany({
-                data: batch,
-            });
         } catch (e) {
             console.log(e);
         }
