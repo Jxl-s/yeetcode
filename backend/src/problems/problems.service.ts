@@ -67,6 +67,12 @@ export class ProblemsService {
             },
             skip: (dto.page - 1) * dto.limit,
             take: dto.limit,
+            select: {
+                id: true,
+                tags: true,
+                difficulty: true,
+                title: true,
+            },
         });
 
         return { data: problems };

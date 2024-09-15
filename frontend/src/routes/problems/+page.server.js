@@ -1,6 +1,28 @@
+import { PRIVATE_API_URL } from '$env/static/private';
+import axios from 'axios';
+
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ params }) {
-    // Fetch data from the database
+export async function load() {
+	// Fetch data from the database
+	try {
+		const res = await axios.get(PRIVATE_API_URL + '/problems');
+		if (res.status !== 200) {
+			throw new Error('Failed to fetch data');
+		}
+
+		const { data } = res.data;
+		return {
+			problems: data.map((problem) => ({
+				id: problem.id,
+				title: problem.title,
+				difficulty: problem.difficulty,
+				status: 'Completed'
+			}))
+		};
+	} catch (error) {
+		console.log(error);
+	}
+
 	return {
 		problems: [
 			{

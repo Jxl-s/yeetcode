@@ -1,12 +1,17 @@
 <script>
 	import * as Table from '$lib/components/ui/table';
 	import CircleCheckBig from 'lucide-svelte/icons/circle-check-big';
-	import { goto } from '$app/navigation';
 
 	const diffColors = {
-		Easy: 'text-green-500',
-		Medium: 'text-yellow-500',
-		Hard: 'text-red-500'
+		EASY: 'text-green-500',
+		MEDIUM: 'text-yellow-500',
+		HARD: 'text-red-500'
+	};
+
+	const diffText = {
+		EASY: 'Easy',
+		MEDIUM: 'Medium',
+		HARD: 'Hard'
 	};
 
 	export let data;
@@ -33,7 +38,7 @@
 						</a>
 					</Table.Cell>
 					<Table.Cell class={`${diffColors[question.difficulty]} font-semibold`}>
-						{question.difficulty}
+						{diffText[question.difficulty]}
 					</Table.Cell>
 				</Table.Row>
 			{/each}
