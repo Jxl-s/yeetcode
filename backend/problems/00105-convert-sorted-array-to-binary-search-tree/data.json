@@ -1,0 +1,6 @@
+{
+    "id": "convert-sorted-array-to-binary-search-tree",
+    "title": "Convert Sorted Array To Binary Search Tree",
+    "difficulty": "EASY",
+    "tags": ["array","divide-and-conquer","tree","binary-search-tree","binary-tree"]
+}

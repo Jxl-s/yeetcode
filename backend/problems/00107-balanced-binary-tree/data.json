@@ -1,0 +1,6 @@
+{
+    "id": "balanced-binary-tree",
+    "title": "Balanced Binary Tree",
+    "difficulty": "EASY",
+    "tags": ["tree","depth-first-search","binary-tree"]
+}

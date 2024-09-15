@@ -1,0 +1,6 @@
+{
+    "id": "maximum-subarray",
+    "title": "Maximum Subarray",
+    "difficulty": "MEDIUM",
+    "tags": ["array","divide-and-conquer","dynamic-programming"]
+}

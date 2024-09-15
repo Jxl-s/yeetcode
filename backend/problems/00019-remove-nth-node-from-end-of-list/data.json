@@ -1,0 +1,6 @@
+{
+    "id": "remove-nth-node-from-end-of-list",
+    "title": "Remove Nth Node From End Of List",
+    "difficulty": "MEDIUM",
+    "tags": ["linked-list","two-pointers"]
+}

@@ -1,0 +1,6 @@
+{
+    "id": "maximum-depth-of-binary-tree",
+    "title": "Maximum Depth Of Binary Tree",
+    "difficulty": "EASY",
+    "tags": ["tree","depth-first-search","breadth-first-search","binary-tree"]
+}

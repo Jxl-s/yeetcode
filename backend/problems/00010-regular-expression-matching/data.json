@@ -1,0 +1,6 @@
+{
+    "id": "regular-expression-matching",
+    "title": "Regular Expression Matching",
+    "difficulty": "HARD",
+    "tags": ["string","dynamic-programming","recursion"]
+}

@@ -70,7 +70,7 @@
 						</Table.Cell>
 						<Table.Cell class="font-semibold">
 							<a href={`/problems/${question.id}`} class="hover:underline">
-								{i + 1}. {question.title}
+								{question.number}. {question.title}
 							</a>
 						</Table.Cell>
 						<Table.Cell class={`${diffColors[question.difficulty] ?? ''} font-semibold`}>

@@ -1,0 +1,6 @@
+{
+    "id": "largest-rectangle-in-histogram",
+    "title": "Largest Rectangle In Histogram",
+    "difficulty": "HARD",
+    "tags": ["array","stack","monotonic-stack"]
+}

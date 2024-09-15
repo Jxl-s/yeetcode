@@ -1,0 +1,6 @@
+{
+    "id": "word-break-ii",
+    "title": "Word Break Ii",
+    "difficulty": "HARD",
+    "tags": ["hash-table","string","dynamic-programming","backtracking","trie","memoization"]
+}

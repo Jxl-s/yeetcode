@@ -1,0 +1,6 @@
+{
+    "id": "minimum-window-substring",
+    "title": "Minimum Window Substring",
+    "difficulty": "HARD",
+    "tags": ["hash-table","string","sliding-window"]
+}

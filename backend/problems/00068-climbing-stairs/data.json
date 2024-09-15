@@ -1,0 +1,6 @@
+{
+    "id": "climbing-stairs",
+    "title": "Climbing Stairs",
+    "difficulty": "EASY",
+    "tags": ["dynamic-programming","math","memoization"]
+}

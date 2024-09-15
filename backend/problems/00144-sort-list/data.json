@@ -1,0 +1,6 @@
+{
+    "id": "sort-list",
+    "title": "Sort List",
+    "difficulty": "MEDIUM",
+    "tags": ["linked-list","two-pointers","divide-and-conquer","sorting","merge-sort"]
+}

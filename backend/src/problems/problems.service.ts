@@ -69,6 +69,10 @@ export class ProblemsService {
                 tags: true,
                 difficulty: true,
                 title: true,
+                number: true,
+            },
+            orderBy: {
+                number: 'asc',
             },
         });
 

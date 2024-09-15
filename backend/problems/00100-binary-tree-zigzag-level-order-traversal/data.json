@@ -1,0 +1,6 @@
+{
+    "id": "binary-tree-zigzag-level-order-traversal",
+    "title": "Binary Tree Zigzag Level Order Traversal",
+    "difficulty": "MEDIUM",
+    "tags": ["tree","breadth-first-search","binary-tree"]
+}

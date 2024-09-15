@@ -1,0 +1,6 @@
+{
+    "id": "longest-palindromic-substring",
+    "title": "Longest Palindromic Substring",
+    "difficulty": "MEDIUM",
+    "tags": ["string","dynamic-programming"]
+}

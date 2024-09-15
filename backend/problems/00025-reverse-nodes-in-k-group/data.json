@@ -1,0 +1,6 @@
+{
+    "id": "reverse-nodes-in-k-group",
+    "title": "Reverse Nodes In K Group",
+    "difficulty": "HARD",
+    "tags": ["linked-list","recursion"]
+}

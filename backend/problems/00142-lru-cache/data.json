@@ -1,0 +1,6 @@
+{
+    "id": "lru-cache",
+    "title": "Lru Cache",
+    "difficulty": "MEDIUM",
+    "tags": ["hash-table","linked-list","design","doubly-linked-list"]
+}

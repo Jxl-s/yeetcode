@@ -1,0 +1,6 @@
+{
+    "id": "remove-duplicates-from-sorted-array",
+    "title": "Remove Duplicates From Sorted Array",
+    "difficulty": "EASY",
+    "tags": ["array","two-pointers"]
+}

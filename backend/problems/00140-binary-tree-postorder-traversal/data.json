@@ -1,0 +1,6 @@
+{
+    "id": "binary-tree-postorder-traversal",
+    "title": "Binary Tree Postorder Traversal",
+    "difficulty": "EASY",
+    "tags": ["stack","tree","depth-first-search","binary-tree"]
+}

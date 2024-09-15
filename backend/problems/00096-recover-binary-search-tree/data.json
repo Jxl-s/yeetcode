@@ -1,0 +1,6 @@
+{
+    "id": "recover-binary-search-tree",
+    "title": "Recover Binary Search Tree",
+    "difficulty": "HARD",
+    "tags": ["tree","depth-first-search","binary-search-tree","binary-tree"]
+}

@@ -1,0 +1,6 @@
+{
+    "id": "letter-combinations-of-a-phone-number",
+    "title": "Letter Combinations Of A Phone Number",
+    "difficulty": "MEDIUM",
+    "tags": ["hash-table","string","backtracking"]
+}

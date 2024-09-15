@@ -1,0 +1,6 @@
+{
+    "id": "word-search",
+    "title": "Word Search",
+    "difficulty": "MEDIUM",
+    "tags": ["array","backtracking","matrix"]
+}

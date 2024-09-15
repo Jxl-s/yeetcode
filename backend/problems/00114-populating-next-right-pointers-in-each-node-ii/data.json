@@ -1,0 +1,6 @@
+{
+    "id": "populating-next-right-pointers-in-each-node-ii",
+    "title": "Populating Next Right Pointers In Each Node Ii",
+    "difficulty": "MEDIUM",
+    "tags": ["linked-list","tree","depth-first-search","breadth-first-search","binary-tree"]
+}

@@ -1,0 +1,6 @@
+{
+    "id": "distinct-subsequences",
+    "title": "Distinct Subsequences",
+    "difficulty": "HARD",
+    "tags": ["string","dynamic-programming"]
+}

@@ -1,0 +1,6 @@
+{
+    "id": "generate-parentheses",
+    "title": "Generate Parentheses",
+    "difficulty": "MEDIUM",
+    "tags": ["string","dynamic-programming","backtracking"]
+}

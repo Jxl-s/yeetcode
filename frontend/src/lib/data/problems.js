@@ -12,6 +12,7 @@ export const diffText = {
 
 /**
  * @typedef {Object} Problem
+ * @property {number} number The problem number
  * @property {string} id The ID of the problem.
  * @property {string} title The title of the problem.
  * @property {keyof diffText} difficulty The difficulty of the problem.

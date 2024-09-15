@@ -1,0 +1,6 @@
+{
+    "id": "clone-graph",
+    "title": "Clone Graph",
+    "difficulty": "MEDIUM",
+    "tags": ["hash-table","depth-first-search","breadth-first-search","graph"]
+}

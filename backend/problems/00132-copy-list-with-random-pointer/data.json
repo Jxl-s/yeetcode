@@ -1,0 +1,6 @@
+{
+    "id": "copy-list-with-random-pointer",
+    "title": "Copy List With Random Pointer",
+    "difficulty": "MEDIUM",
+    "tags": ["hash-table","linked-list"]
+}

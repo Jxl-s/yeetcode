@@ -1,0 +1,6 @@
+{
+    "id": "surrounded-regions",
+    "title": "Surrounded Regions",
+    "difficulty": "MEDIUM",
+    "tags": ["array","depth-first-search","breadth-first-search","union-find","matrix"]
+}

@@ -1,0 +1,6 @@
+{
+    "id": "set-matrix-zeroes",
+    "title": "Set Matrix Zeroes",
+    "difficulty": "MEDIUM",
+    "tags": ["array","hash-table","matrix"]
+}

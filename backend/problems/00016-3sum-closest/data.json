@@ -1,0 +1,6 @@
+{
+    "id": "3sum-closest",
+    "title": "3sum Closest",
+    "difficulty": "MEDIUM",
+    "tags": ["array","two-pointers","sorting"]
+}

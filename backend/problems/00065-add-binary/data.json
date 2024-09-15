@@ -1,0 +1,6 @@
+{
+    "id": "add-binary",
+    "title": "Add Binary",
+    "difficulty": "EASY",
+    "tags": ["math","string","bit-manipulation","simulation"]
+}

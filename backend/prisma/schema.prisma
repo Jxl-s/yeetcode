@@ -60,7 +60,9 @@ model RefreshToken {
 }
 
 model Problem {
-  id          Int        @id
+  id          String     @id
+  number      Int        @default(autoincrement())
+
   title       String
   description String
   difficulty  Difficulty

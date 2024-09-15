@@ -1,0 +1,6 @@
+{
+    "id": "valid-sudoku",
+    "title": "Valid Sudoku",
+    "difficulty": "MEDIUM",
+    "tags": ["array","hash-table","matrix"]
+}

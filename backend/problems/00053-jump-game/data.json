@@ -1,0 +1,6 @@
+{
+    "id": "jump-game",
+    "title": "Jump Game",
+    "difficulty": "MEDIUM",
+    "tags": ["array","dynamic-programming","greedy"]
+}

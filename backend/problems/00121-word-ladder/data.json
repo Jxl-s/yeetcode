@@ -1,0 +1,6 @@
+{
+    "id": "word-ladder",
+    "title": "Word Ladder",
+    "difficulty": "HARD",
+    "tags": ["hash-table","string","breadth-first-search"]
+}

@@ -1,0 +1,6 @@
+{
+    "id": "swap-nodes-in-pairs",
+    "title": "Swap Nodes In Pairs",
+    "difficulty": "MEDIUM",
+    "tags": ["linked-list","recursion"]
+}

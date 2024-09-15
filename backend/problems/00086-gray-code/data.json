@@ -1,0 +1,6 @@
+{
+    "id": "gray-code",
+    "title": "Gray Code",
+    "difficulty": "MEDIUM",
+    "tags": ["math","backtracking","bit-manipulation"]
+}

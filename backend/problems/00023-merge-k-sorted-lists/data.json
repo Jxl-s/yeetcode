@@ -1,0 +1,6 @@
+{
+    "id": "merge-k-sorted-lists",
+    "title": "Merge K Sorted Lists",
+    "difficulty": "HARD",
+    "tags": ["linked-list","divide-and-conquer","heap-priority-queue","merge-sort"]
+}

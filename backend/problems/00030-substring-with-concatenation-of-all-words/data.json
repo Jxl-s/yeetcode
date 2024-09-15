@@ -1,0 +1,6 @@
+{
+    "id": "substring-with-concatenation-of-all-words",
+    "title": "Substring With Concatenation Of All Words",
+    "difficulty": "HARD",
+    "tags": ["hash-table","string","sliding-window"]
+}

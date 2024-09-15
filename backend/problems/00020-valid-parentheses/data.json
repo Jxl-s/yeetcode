@@ -1,0 +1,6 @@
+{
+    "id": "valid-parentheses",
+    "title": "Valid Parentheses",
+    "difficulty": "EASY",
+    "tags": ["string","stack"]
+}

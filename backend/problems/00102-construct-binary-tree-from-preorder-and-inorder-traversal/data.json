@@ -1,0 +1,6 @@
+{
+    "id": "construct-binary-tree-from-preorder-and-inorder-traversal",
+    "title": "Construct Binary Tree From Preorder And Inorder Traversal",
+    "difficulty": "MEDIUM",
+    "tags": ["array","hash-table","divide-and-conquer","tree","binary-tree"]
+}

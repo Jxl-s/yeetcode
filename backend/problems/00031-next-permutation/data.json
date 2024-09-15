@@ -1,0 +1,6 @@
+{
+    "id": "next-permutation",
+    "title": "Next Permutation",
+    "difficulty": "MEDIUM",
+    "tags": ["array","two-pointers"]
+}

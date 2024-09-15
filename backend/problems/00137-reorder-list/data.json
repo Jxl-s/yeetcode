@@ -1,0 +1,6 @@
+{
+    "id": "reorder-list",
+    "title": "Reorder List",
+    "difficulty": "MEDIUM",
+    "tags": ["linked-list","two-pointers","stack","recursion"]
+}
