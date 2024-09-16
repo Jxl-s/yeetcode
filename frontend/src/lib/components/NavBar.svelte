@@ -37,9 +37,7 @@
 			{#if signedIn}
 				<NavUser />
 			{:else}
-				<Button variant="outline" asChild>
-					<a href={PUBLIC_API_BASE_URL + '/auth/google'}>Sign In</a>
-				</Button>
+				<Button variant="outline" href={PUBLIC_API_BASE_URL + '/auth/google'}>Sign In</Button>
 			{/if}
 		</div>
 	</div>
