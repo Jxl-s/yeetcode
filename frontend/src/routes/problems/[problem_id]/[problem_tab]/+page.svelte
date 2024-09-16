@@ -1,6 +1,7 @@
 <script>
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Resizable from '$lib/components/ui/resizable/index.js';
+	import * as Select from '$lib/components/ui/select';
 
 	import NotebookText from 'lucide-svelte/icons/notebook-text';
 	import ThumbsUp from 'lucide-svelte/icons/thumbs-up';
@@ -71,8 +72,22 @@
 	<Resizable.Pane defaultSize={50}>
 		<Resizable.PaneGroup direction="vertical" class="h-full">
 			<Resizable.Pane defaultSize={50} class="ps-2 pb-2">
-				<div class="bg-primary-foreground w-full h-full rounded-md">
-					<Monaco />
+				<div class="bg-primary-foreground w-full h-full rounded-md p-2 flex flex-col">
+					<header>
+						<Select.Root>
+							<Select.Trigger class="w-[180px]">
+								<Select.Value placeholder="Language" />
+							</Select.Trigger>
+							<Select.Content>
+								<!-- <Select.Item value="light">Light</Select.Item>
+								<Select.Item value="dark">Dark</Select.Item>
+								<Select.Item value="system">System</Select.Item> -->
+							</Select.Content>
+						</Select.Root>
+					</header>
+					<div class="flex-grow mt-2">
+						<Monaco />
+					</div>
 				</div>
 			</Resizable.Pane>
 			<Resizable.Handle class="opacity-0 hover:opacity-100 bg-blue-500 duration-300" withHandle />

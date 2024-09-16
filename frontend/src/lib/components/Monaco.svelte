@@ -21,10 +21,23 @@
 		};
 
 		Monaco = await import('monaco-editor');
+		Monaco.editor.defineTheme('no-background', {
+			base: 'vs-dark',
+			inherit: true,
+			rules: [],
+			colors: {
+				'editor.background': '#00000000',
+				focusBorder: '#00000000'
+			}
+		});
+
 		editor = Monaco.editor.create(divEl, {
 			value: ['class Solution:', '\tdef __init__(self):', '\t\tpass'].join('\n'),
 			language: 'python',
-			theme: 'vs-dark'
+			theme: 'no-background',
+			minimap: {
+				enabled: false
+			}
 		});
 
 		return () => {
@@ -33,4 +46,4 @@
 	});
 </script>
 
-<div bind:this={divEl} class="w-full h-full" />
+<div bind:this={divEl} class="w-full h-full rounded-md overflow-hidden" />
