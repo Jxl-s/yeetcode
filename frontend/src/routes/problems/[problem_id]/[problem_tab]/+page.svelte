@@ -10,6 +10,7 @@
 	import { page } from '$app/stores';
 	import { axiosInstance } from '$lib/stores/auth';
 	import ProblemDescription from '$lib/components/problems/ProblemDescription.svelte';
+	import Monaco from '$lib/components/Monaco.svelte';
 
 	/** @type {import('$lib/data/problems').Problem | null} */
 	let problem = null;
@@ -70,7 +71,9 @@
 	<Resizable.Pane defaultSize={50}>
 		<Resizable.PaneGroup direction="vertical" class="h-full">
 			<Resizable.Pane defaultSize={50} class="ps-2 pb-2">
-				<div class="bg-primary-foreground w-full h-full rounded-md"></div>
+				<div class="bg-primary-foreground w-full h-full rounded-md">
+					<Monaco />
+				</div>
 			</Resizable.Pane>
 			<Resizable.Handle class="opacity-0 hover:opacity-100 bg-blue-500 duration-300" withHandle />
 			<Resizable.Pane defaultSize={50} class="pt-2 ps-2">
