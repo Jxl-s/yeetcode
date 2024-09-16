@@ -16,6 +16,7 @@ export const diffText = {
  * @property {string} id The ID of the problem.
  * @property {string} title The title of the problem.
  * @property {keyof diffText} difficulty The difficulty of the problem.
+ * @property {number} acceptance The acceptance rate of the problem.
  */
 
 /**

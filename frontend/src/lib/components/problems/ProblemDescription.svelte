@@ -97,7 +97,7 @@
 		</Accordion.Item>
 	</Accordion.Root>
 	<div class="mt-8 text-sm text-white/50">
-		Copyright ©️ 2021-2022 LeetCode. All Rights Reserved.
+		Copyright ©️ 2024 YeetCode. All Rights Reserved.
 	</div>
 {/if}
 

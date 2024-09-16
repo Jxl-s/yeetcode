@@ -97,12 +97,54 @@ export class ProblemsService {
                 difficulty: true,
                 title: true,
                 number: true,
+                _count: {
+                    select: {
+                        submissions: true,
+                    },
+                },
             },
             orderBy: {
                 number: 'asc',
             },
         });
 
-        return { data: problems, count: problemCount };
+        // Also count the number of accepted submissions
+        const acceptedCounts = await this.prisma.submission.groupBy({
+            by: ['problem_id'],
+            where: {
+                status: 'ACCEPTED',
+                problem_id: {
+                    in: problems.map((problem) => problem.id),
+                },
+            },
+            _count: {
+                _all: true,
+            },
+        });
+
+        // Map the accepted counts to a dictionary
+        const acceptedCountMap = acceptedCounts.reduce((acc, curr) => {
+            acc[curr.problem_id] = curr._count._all;
+            return acc;
+        }, {});
+
+        // Add the acceptance rate to the problems
+        const problemsWithAcceptance = problems.map((problem) => {
+            const totalSubmissions = problem._count.submissions;
+            const acceptedSubmissions = acceptedCountMap[problem.id] || 0;
+            const acceptanceRate =
+                totalSubmissions > 0
+                    ? (acceptedSubmissions / totalSubmissions) * 100
+                    : 0;
+
+            delete problem._count;
+            return {
+                ...problem,
+                acceptance: acceptanceRate,
+            };
+        });
+
+        // Return the modified problems with the acceptance rates
+        return { data: problemsWithAcceptance, count: problemCount };
     }
 }

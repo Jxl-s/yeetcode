@@ -50,7 +50,7 @@
 	onMount(fetchProblems);
 </script>
 
-<div class="max-w-2xl">
+<div>
 	<Table.Root id="table-top">
 		<Table.Caption>
 			<Pagination.Root {count} perPage={limit} let:pages let:currentPage>
@@ -85,6 +85,7 @@
 			<Table.Row>
 				<Table.Head class="w-[100px]">Status</Table.Head>
 				<Table.Head class="w-[500px]">Title</Table.Head>
+				<Table.Head class="w-[100px]">Acceptance</Table.Head>
 				<Table.Head class="w-[100px]">Difficulty</Table.Head>
 			</Table.Row>
 		</Table.Header>
@@ -98,6 +99,9 @@
 						<a href={`/problems/${problem.id}`} class="hover:underline">
 							{problem.number}. {problem.title}
 						</a>
+					</Table.Cell>
+					<Table.Cell>
+						{problem.acceptance}%
 					</Table.Cell>
 					<Table.Cell class={`${diffColors[problem.difficulty] ?? ''} font-semibold`}>
 						{diffText[problem.difficulty] ?? ''}
