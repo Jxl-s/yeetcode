@@ -28,7 +28,7 @@
 
 <Resizable.PaneGroup direction="horizontal">
 	<Resizable.Pane defaultSize={50} class="pe-2">
-		<section class="bg-primary-foreground w-full h-full rounded-md px-4 pb-4 overflow-auto">
+		<section class="bg-primary-foreground w-full h-full rounded-md px-4 pb-4">
 			<header class="sticky top-0 pt-4 pb-2 flex gap-2 bg-primary-foreground z-10">
 				<Button
 					variant={$page.params.problem_tab === 'description' ? 'default' : 'ghost'}
@@ -47,7 +47,9 @@
 					Submissions
 				</Button>
 			</header>
-			<ProblemDescription {problem} />
+			<div class="overflow-auto h-full">
+				<ProblemDescription {problem} />
+			</div>
 		</section>
 	</Resizable.Pane>
 	<Resizable.Handle class="opacity-0 hover:opacity-100 bg-blue-500 duration-300" withHandle />
