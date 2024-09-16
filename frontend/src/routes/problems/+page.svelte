@@ -89,18 +89,18 @@
 			</Table.Row>
 		</Table.Header>
 		<Table.Body>
-			{#each problems as question, i}
+			{#each problems as problem, i}
 				<Table.Row>
 					<Table.Cell>
 						<CircleCheckBig class="w-4 h-4 text-green-500" />
 					</Table.Cell>
 					<Table.Cell class="font-semibold">
-						<a href={`/problems/${question.id}`} class="hover:underline">
-							{question.number}. {question.title}
+						<a href={`/problems/${problem.id}`} class="hover:underline">
+							{problem.number}. {problem.title}
 						</a>
 					</Table.Cell>
-					<Table.Cell class={`${diffColors[question.difficulty] ?? ''} font-semibold`}>
-						{diffText[question.difficulty] ?? ''}
+					<Table.Cell class={`${diffColors[problem.difficulty] ?? ''} font-semibold`}>
+						{diffText[problem.difficulty] ?? ''}
 					</Table.Cell>
 				</Table.Row>
 			{/each}
