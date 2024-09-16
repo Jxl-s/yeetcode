@@ -29,7 +29,7 @@
 <Resizable.PaneGroup direction="horizontal">
 	<Resizable.Pane defaultSize={50} class="pe-2">
 		<section class="bg-primary-foreground w-full h-full rounded-md px-4 pb-4 overflow-auto">
-			<header class="py-4 flex gap-2">
+			<header class="sticky top-0 pt-4 pb-2 flex gap-2 bg-primary-foreground z-10">
 				<Button
 					variant={$page.params.problem_tab === 'description' ? 'default' : 'ghost'}
 					class="flex items-center gap-2"
