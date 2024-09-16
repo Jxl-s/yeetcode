@@ -1,15 +1,15 @@
 <script>
 	import { PUBLIC_API_BASE_URL } from '$env/static/public';
-	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Table from '$lib/components/ui/table';
 	import { diffColors, diffText } from '$lib/data/problems';
 	import { axiosInstance } from '$lib/stores/auth.js';
 	import CircleCheckBig from 'lucide-svelte/icons/circle-check-big';
 	import { onMount } from 'svelte';
+	import * as Pagination from '$lib/components/ui/pagination';
 
-	// TODO: Centralize this, because it will be used later on
 	let page = 1;
-	let pages = 1;
+	let limit = 50;
+	let count = 0;
 	let loading = true;
 
 	/** @type {import('$lib/data/problems').Problem[]} */
@@ -21,7 +21,7 @@
 	async function fetchProblems() {
 		try {
 			const { status, data } = await axiosInstance.get(
-				`${PUBLIC_API_BASE_URL}/problems?page=${page}&limit=30`
+				`${PUBLIC_API_BASE_URL}/problems?page=${page}&limit=${limit}`
 			);
 
 			if (status !== 200) {
@@ -29,7 +29,7 @@
 			}
 
 			problems = data.data;
-			pages = data.pages;
+			count = data.count;
 		} catch (err) {
 			console.log(err);
 		} finally {
@@ -53,32 +53,33 @@
 <div class="max-w-2xl">
 	<Table.Root id="table-top">
 		<Table.Caption>
-			<Button
-				on:click={() => fetchPage(page - 1)}
-				variant="ghost"
-				disabled={page === 1 || loading}
-				size="icon"
-			>
-				{'<'}
-			</Button>
-			{#each Array.from({ length: Math.min(pages, 5) }, (_, i) => i + 1) as p}
-				<Button
-					variant={page === p ? 'secondary' : 'outline'}
-					on:click={() => fetchPage(p)}
-					disabled={page === p || loading}
-					class="mx-1"
-				>
-					{p}
-				</Button>
-			{/each}
-			<Button
-				on:click={() => fetchPage(page + 1)}
-				variant="ghost"
-				disabled={page === pages || loading}
-				size="icon"
-			>
-				{'>'}
-			</Button>
+			<Pagination.Root {count} perPage={limit} let:pages let:currentPage>
+				<Pagination.Content>
+					<Pagination.Item>
+						<Pagination.PrevButton on:click={() => fetchPage(currentPage - 1)} />
+					</Pagination.Item>
+					{#each pages as p (p.key)}
+						{#if p.type === 'ellipsis'}
+							<Pagination.Item>
+								<Pagination.Ellipsis />
+							</Pagination.Item>
+						{:else}
+							<Pagination.Item isVisible={currentPage == p.value}>
+								<Pagination.Link
+									page={p}
+									isActive={currentPage == p.value}
+									on:click={() => fetchPage(p.value)}
+								>
+									{p.value}
+								</Pagination.Link>
+							</Pagination.Item>
+						{/if}
+					{/each}
+					<Pagination.Item>
+						<Pagination.NextButton on:click={() => fetchPage(currentPage + 1)} />
+					</Pagination.Item>
+				</Pagination.Content>
+			</Pagination.Root>
 		</Table.Caption>
 		<Table.Header>
 			<Table.Row>

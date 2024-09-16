@@ -24,6 +24,15 @@ enum Difficulty {
   HARD
 }
 
+enum SubmitStatus {
+  ACCEPTED
+  WRONG_ANSWER
+  TIME_LIMIT_EXCEEDED
+  MEMORY_LIMIT_EXCEEDED
+  RUNTIME_ERROR
+  COMPILATION_ERROR
+}
+
 model User {
   id    Int    @id @default(autoincrement())
   email String @unique
@@ -32,8 +41,9 @@ model User {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  profile Profile?
-  tokens  RefreshToken[]
+  profile     Profile?
+  tokens      RefreshToken[]
+  submissions Submission[]
 }
 
 model Profile {
@@ -60,8 +70,8 @@ model RefreshToken {
 }
 
 model Problem {
-  id          String     @id
-  number      Int        @default(autoincrement())
+  id     String @id
+  number Int    @default(autoincrement())
 
   title       String
   description String
@@ -70,10 +80,36 @@ model Problem {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  tags Tags[]
+  tags        Tags[]
+  submissions Submission[]
 }
 
 model Tags {
   id       String    @id
   problems Problem[]
+}
+
+model Submission {
+  id             Int          @id @default(autoincrement())
+  user_id        Int
+  problem_id     String
+  language_id    Int
+  code           String
+  status         SubmitStatus
+  execution_time Int
+  memory_usage   Int
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  user     User     @relation(fields: [user_id], references: [id])
+  problem  Problem  @relation(fields: [problem_id], references: [id])
+  language Language @relation(fields: [language_id], references: [id])
+}
+
+model Language {
+  id   Int    @id
+  name String
+
+  submissions Submission[]
 }

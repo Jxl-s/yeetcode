@@ -64,8 +64,6 @@ export class ProblemsService {
             },
         });
 
-        const pages = Math.ceil(problemCount / dto.limit);
-
         const problems = await this.prisma.problem.findMany({
             where: {
                 title: {
@@ -86,6 +84,6 @@ export class ProblemsService {
             },
         });
 
-        return { data: problems, pages: pages };
+        return { data: problems, count: problemCount };
     }
 }
