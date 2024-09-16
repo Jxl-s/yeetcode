@@ -1,17 +1,25 @@
-<script lang="ts">
-	import type monaco from 'monaco-editor';
+<script lang="js">
 	import { onMount } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 	import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
 	import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
 
-	let divEl: HTMLDivElement = null;
-	let editor: monaco.editor.IStandaloneCodeEditor;
-	let Monaco;
+	export let value = '';
+	export let language = 'python';
 
-	onMount(async () => {
-		// @ts-ignore
+	/** @type {HTMLDivElement} */
+	let divEl;
+
+	/** @type {import("monaco-editor").editor.IStandaloneCodeEditor} */
+	let editor;
+
+	/** @type {import("monaco-editor")} */
+	let Monaco;
+	const dispatch = createEventDispatcher();
+
+	async function monacoInit() {
 		self.MonacoEnvironment = {
-			getWorker: function (_moduleId: any, label: string) {
+			getWorker: function (_moduleId, label) {
 				if (label === 'typescript' || label === 'javascript') {
 					return new tsWorker();
 				}
@@ -32,18 +40,34 @@
 		});
 
 		editor = Monaco.editor.create(divEl, {
-			value: ['class Solution:', '\tdef __init__(self):', '\t\tpass'].join('\n'),
-			language: 'python',
+			value: value,
+			language: language,
 			theme: 'no-background',
 			minimap: {
 				enabled: false
 			}
 		});
 
-		return () => {
-			editor.dispose();
-		};
+		editor.onDidChangeModelContent(() => {
+			dispatch('input', editor.getValue());
+		});
+	}
+
+	onMount(() => {
+		monacoInit();
+		return () => editor?.dispose();
 	});
+
+	$: if (editor) {
+		if (editor.getValue() !== value) {
+			editor.setValue(value);
+		}
+
+		const model = editor.getModel();
+		if (model) {
+			Monaco.editor.setModelLanguage(model, language);
+		}
+	}
 </script>
 
 <div bind:this={divEl} class="w-full h-full rounded-md overflow-hidden" />
