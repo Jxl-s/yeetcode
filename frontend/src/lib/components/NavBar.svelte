@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	import { PUBLIC_API_BASE_URL } from '$env/static/public';
 	import { AuthState, authStore } from '$lib/stores/auth';
 	import NavLink from './NavLink.svelte';
 	import NavUser from './NavUser.svelte';
@@ -36,7 +37,9 @@
 			{#if signedIn}
 				<NavUser />
 			{:else}
-				<Button disabled={true} variant="outline">Sign In</Button>
+				<Button variant="outline" asChild>
+					<a href={PUBLIC_API_BASE_URL + '/auth/google'}>Sign In</a>
+				</Button>
 			{/if}
 		</div>
 	</div>

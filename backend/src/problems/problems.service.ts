@@ -56,6 +56,16 @@ export class ProblemsService {
     }
 
     public async getProblems(dto: GetProblemsDto) {
+        const problemCount = await this.prisma.problem.count({
+            where: {
+                title: {
+                    contains: dto.q,
+                },
+            },
+        });
+
+        const pages = Math.ceil(problemCount / dto.limit);
+
         const problems = await this.prisma.problem.findMany({
             where: {
                 title: {
@@ -76,6 +86,6 @@ export class ProblemsService {
             },
         });
 
-        return { data: problems };
+        return { data: problems, pages: pages };
     }
 }

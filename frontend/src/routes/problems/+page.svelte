@@ -9,6 +9,7 @@
 
 	// TODO: Centralize this, because it will be used later on
 	let page = 1;
+	let pages = 1;
 	let loading = true;
 
 	/** @type {import('$lib/data/problems').Problem[]} */
@@ -20,7 +21,7 @@
 	async function fetchProblems() {
 		try {
 			const { status, data } = await axiosInstance.get(
-				`${PUBLIC_API_BASE_URL}/problems?page=${page}`
+				`${PUBLIC_API_BASE_URL}/problems?page=${page}&limit=30`
 			);
 
 			if (status !== 200) {
@@ -28,6 +29,7 @@
 			}
 
 			problems = data.data;
+			pages = data.pages;
 		} catch (err) {
 			console.log(err);
 		} finally {
@@ -49,36 +51,58 @@
 </script>
 
 <div class="max-w-2xl">
-	<Table.Root>
+	<Table.Root id="table-top">
 		<Table.Caption>
-			<Button on:click={() => fetchPage(page - 1)}>Previous</Button>
-			<Button on:click={() => fetchPage(page + 1)}>Next</Button>
+			<Button
+				on:click={() => fetchPage(page - 1)}
+				variant="ghost"
+				disabled={page === 1 || loading}
+				size="icon"
+			>
+				{'<'}
+			</Button>
+			{#each Array.from({ length: Math.min(pages, 5) }, (_, i) => i + 1) as p}
+				<Button
+					variant={page === p ? 'secondary' : 'outline'}
+					on:click={() => fetchPage(p)}
+					disabled={page === p || loading}
+					class="mx-1"
+				>
+					{p}
+				</Button>
+			{/each}
+			<Button
+				on:click={() => fetchPage(page + 1)}
+				variant="ghost"
+				disabled={page === pages || loading}
+				size="icon"
+			>
+				{'>'}
+			</Button>
 		</Table.Caption>
 		<Table.Header>
 			<Table.Row>
 				<Table.Head class="w-[100px]">Status</Table.Head>
-				<Table.Head class="w-[300px]">Title</Table.Head>
+				<Table.Head class="w-[500px]">Title</Table.Head>
 				<Table.Head class="w-[100px]">Difficulty</Table.Head>
 			</Table.Row>
 		</Table.Header>
 		<Table.Body>
-			{#if !loading}
-				{#each problems as question, i}
-					<Table.Row>
-						<Table.Cell>
-							<CircleCheckBig class="w-4 h-4 text-green-500" />
-						</Table.Cell>
-						<Table.Cell class="font-semibold">
-							<a href={`/problems/${question.id}`} class="hover:underline">
-								{question.number}. {question.title}
-							</a>
-						</Table.Cell>
-						<Table.Cell class={`${diffColors[question.difficulty] ?? ''} font-semibold`}>
-							{diffText[question.difficulty] ?? ''}
-						</Table.Cell>
-					</Table.Row>
-				{/each}
-			{/if}
+			{#each problems as question, i}
+				<Table.Row>
+					<Table.Cell>
+						<CircleCheckBig class="w-4 h-4 text-green-500" />
+					</Table.Cell>
+					<Table.Cell class="font-semibold">
+						<a href={`/problems/${question.id}`} class="hover:underline">
+							{question.number}. {question.title}
+						</a>
+					</Table.Cell>
+					<Table.Cell class={`${diffColors[question.difficulty] ?? ''} font-semibold`}>
+						{diffText[question.difficulty] ?? ''}
+					</Table.Cell>
+				</Table.Row>
+			{/each}
 		</Table.Body>
 	</Table.Root>
 </div>

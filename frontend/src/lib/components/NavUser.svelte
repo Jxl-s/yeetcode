@@ -2,6 +2,7 @@
 	import * as DropdownMenu from './ui/dropdown-menu';
 	import * as Avatar from './ui/avatar';
 	import Button from './ui/button/button.svelte';
+	import { signOut } from '$lib/stores/auth';
 </script>
 
 <DropdownMenu.Root>
@@ -24,6 +25,8 @@
 		<DropdownMenu.Item on:click={() => {}}>Profile</DropdownMenu.Item>
 		<DropdownMenu.Item on:click={() => {}}>Settings</DropdownMenu.Item>
 		<DropdownMenu.Separator />
-		<DropdownMenu.Item on:click={() => {}} class="font-medium text-red-500">Log out</DropdownMenu.Item>
+		<DropdownMenu.Item on:click={signOut} class="font-medium text-red-500">
+			Log out
+		</DropdownMenu.Item>
 	</DropdownMenu.Content>
 </DropdownMenu.Root>
