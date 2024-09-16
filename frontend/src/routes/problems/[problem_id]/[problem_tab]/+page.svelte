@@ -1,8 +1,12 @@
 <script>
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Resizable from '$lib/components/ui/resizable/index.js';
+
 	import NotebookText from 'lucide-svelte/icons/notebook-text';
+	import ThumbsUp from 'lucide-svelte/icons/thumbs-up';
+	import ThumbsDown from 'lucide-svelte/icons/thumbs-down';
 	import FileJson from 'lucide-svelte/icons/file-json';
+
 	import { page } from '$app/stores';
 	import { axiosInstance } from '$lib/stores/auth';
 	import ProblemDescription from '$lib/components/problems/ProblemDescription.svelte';
@@ -27,8 +31,8 @@
 </script>
 
 <Resizable.PaneGroup direction="horizontal">
-	<Resizable.Pane defaultSize={50} class="pe-2">
-		<section class="bg-primary-foreground w-full h-full rounded-md px-4 pb-4">
+	<Resizable.Pane defaultSize={50} class="pe-2 h-full">
+		<section class="bg-primary-foreground w-full h-full flex flex-col rounded-md px-4 pb-4">
 			<header class="sticky top-0 pt-4 pb-2 flex gap-2 bg-primary-foreground z-10">
 				<Button
 					variant={$page.params.problem_tab === 'description' ? 'default' : 'ghost'}
@@ -47,9 +51,19 @@
 					Submissions
 				</Button>
 			</header>
-			<div class="overflow-auto h-full">
+			<div class="flex-grow overflow-auto px-2 mt-2 pb-4">
 				<ProblemDescription {problem} />
 			</div>
+			<footer class="px-2 pt-2 flex gap-2">
+				<Button variant="secondary" class="flex gap-2 items-center">
+					<ThumbsUp class="w-3 h-3" />
+					3.4K
+				</Button>
+				<Button variant="secondary" class="flex gap-2 items-center">
+					<ThumbsDown class="w-3 h-3" />
+					2.1K
+				</Button>
+			</footer>
 		</section>
 	</Resizable.Pane>
 	<Resizable.Handle class="opacity-0 hover:opacity-100 bg-blue-500 duration-300" withHandle />
