@@ -17,7 +17,7 @@
 	{#if $authStore.state !== AuthState.None}
 		<div class="flex flex-col w-full h-full">
 			<NavBar />
-			<section class="p-4 h-full flex-grow">
+			<section class="p-4 flex-grow overflow-auto">
 				<slot />
 			</section>
 		</div>

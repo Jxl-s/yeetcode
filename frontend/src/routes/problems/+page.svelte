@@ -12,7 +12,7 @@
 	let count = 0;
 	let loading = true;
 
-	/** @type {import('$lib/data/problems').Problem[]} */
+	/** @type {import('$lib/data/problems').ListedProblem[]} */
 	let problems = [];
 
 	/**

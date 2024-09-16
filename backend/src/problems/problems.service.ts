@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { GetProblemsDto } from './dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import * as fs from 'fs';
@@ -55,6 +55,26 @@ export class ProblemsService {
         }
     }
 
+    public async getProblem(id: string) {
+        const problem = await this.prisma.problem.findUnique({
+            where: { id },
+            select: {
+                number: true,
+                id: true,
+                title: true,
+                description: true,
+                difficulty: true,
+                tags: true,
+            },
+        });
+
+        if (!problem) {
+            throw new NotFoundException('Problem not found');
+        }
+
+        return { data: problem };
+    }
+
     public async getProblems(dto: GetProblemsDto) {
         const problemCount = await this.prisma.problem.count({
             where: {
@@ -74,7 +94,6 @@ export class ProblemsService {
             take: dto.limit,
             select: {
                 id: true,
-                tags: true,
                 difficulty: true,
                 title: true,
                 number: true,

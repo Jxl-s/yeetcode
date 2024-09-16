@@ -4,11 +4,31 @@
 	import NotebookText from 'lucide-svelte/icons/notebook-text';
 	import FileJson from 'lucide-svelte/icons/file-json';
 	import { page } from '$app/stores';
+	import { axiosInstance } from '$lib/stores/auth';
+	import ProblemDescription from '$lib/components/problems/ProblemDescription.svelte';
+
+	/** @type {import('$lib/data/problems').Problem | null} */
+	let problem = null;
+
+	async function fetchProblem() {
+		try {
+			const res = await axiosInstance.get(`/problems/${$page.params.problem_id}`);
+			if (res.status !== 200) {
+				throw new Error('Failed to fetch problem');
+			}
+
+			problem = res.data.data;
+		} catch (err) {
+			console.log(err);
+		}
+	}
+
+	fetchProblem();
 </script>
 
-<Resizable.PaneGroup direction="horizontal" class="h-screen">
+<Resizable.PaneGroup direction="horizontal">
 	<Resizable.Pane defaultSize={50} class="pe-2">
-		<section class="bg-primary-foreground w-full h-full rounded-md px-4">
+		<section class="bg-primary-foreground w-full h-full rounded-md px-4 pb-4 overflow-auto">
 			<header class="py-4 flex gap-2">
 				<Button
 					variant={$page.params.problem_tab === 'description' ? 'default' : 'ghost'}
@@ -27,22 +47,7 @@
 					Submissions
 				</Button>
 			</header>
-			<div class="mt-2 px-2">
-				<h1 class="text-3xl font-semibold">1. Two Sum</h1>
-				<br />
-				<div class="text-sm">
-					<p>
-						You are given two <b>non-empty</b> linked lists representing two non-negative integers.
-						The digits are stored in <b>reverse order</b>, and each of their nodes contains a single
-						digit. Add the two numbers and return the sum as a linked list.
-					</p>
-					<br />
-					<p>
-						You may assume the two numbers do not contain any leading zero, except the number 0
-						itself.
-					</p>
-				</div>
-			</div>
+			<ProblemDescription {problem} />
 		</section>
 	</Resizable.Pane>
 	<Resizable.Handle class="opacity-0 hover:opacity-100 bg-blue-500 duration-300" withHandle />
