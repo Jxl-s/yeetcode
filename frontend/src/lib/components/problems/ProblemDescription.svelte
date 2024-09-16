@@ -13,7 +13,7 @@
 </script>
 
 {#if problem}
-	<h1 class="text-3xl font-semibold">{problem.number}. {problem.title}</h1>
+	<h1 class="text-2xl font-semibold">{problem.number}. {problem.title}</h1>
 	<span class={`${diffColors[problem.difficulty] ?? ''} text-sm block mt-2`}>
 		{diffText[problem.difficulty] ?? ''}
 	</span>

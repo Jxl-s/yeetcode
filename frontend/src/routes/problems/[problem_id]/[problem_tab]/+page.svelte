@@ -51,7 +51,7 @@
 					Submissions
 				</Button>
 			</header>
-			<div class="flex-grow overflow-auto px-2 mt-2 pb-4">
+			<div class="flex-grow overflow-auto px-2 mt-2 pb-4 pe-8">
 				<ProblemDescription {problem} />
 			</div>
 			<footer class="px-2 pt-2 flex gap-2">
