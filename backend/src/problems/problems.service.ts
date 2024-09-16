@@ -65,6 +65,11 @@ export class ProblemsService {
                 description: true,
                 difficulty: true,
                 tags: true,
+                _count: {
+                    select: {
+                        submissions: true,
+                    },
+                },
             },
         });
 
@@ -72,7 +77,22 @@ export class ProblemsService {
             throw new NotFoundException('Problem not found');
         }
 
-        return { data: problem };
+        const acceptedCounts = await this.prisma.submission.count({
+            where: {
+                status: 'ACCEPTED',
+                problem_id: id,
+            },
+        });
+
+        let newProblem = {
+            ...problem,
+            tags: problem.tags.map((tag) => tag.id),
+            submissions: problem._count.submissions,
+            accepted: acceptedCounts,
+        };
+
+        delete newProblem._count;
+        return { data: newProblem };
     }
 
     public async getProblems(dto: GetProblemsDto) {
@@ -130,17 +150,14 @@ export class ProblemsService {
 
         // Add the acceptance rate to the problems
         const problemsWithAcceptance = problems.map((problem) => {
-            const totalSubmissions = problem._count.submissions;
-            const acceptedSubmissions = acceptedCountMap[problem.id] || 0;
-            const acceptanceRate =
-                totalSubmissions > 0
-                    ? (acceptedSubmissions / totalSubmissions) * 100
-                    : 0;
+            const submitCount = problem._count.submissions;
+            const acceptCount = acceptedCountMap[problem.id];
 
             delete problem._count;
             return {
                 ...problem,
-                acceptance: acceptanceRate,
+                submissions: submitCount,
+                accepted: acceptCount ?? 0,
             };
         });
 

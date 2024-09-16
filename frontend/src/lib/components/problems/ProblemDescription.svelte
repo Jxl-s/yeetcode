@@ -2,6 +2,7 @@
 	import { diffColors, diffText } from '$lib/data/problems';
 	import * as Accordion from '$lib/components/ui/accordion/index.js';
 	import Tags from 'lucide-svelte/icons/tags';
+	import { formatNumber } from '$lib/util/number';
 
 	/** @type {import('$lib/data/problems').Problem | null} */
 	export let problem;
@@ -64,15 +65,22 @@
 	</div>
 	<br />
 	<div class="flex w-full gap-8">
-		<span class="text-sm text-white/50"
-			>Accepted: <b class="font-semibold text-base text-white">143.5K</b></span
-		>
-		<span class="text-sm text-white/50"
-			>Submissions: <b class="font-semibold text-base text-white">334.1K</b></span
-		>
-		<span class="text-sm text-white/50"
-			>Acceptance Rate: <b class="font-semibold text-base text-white">42.9%</b></span
-		>
+		<span class="text-sm text-white/50">
+			Accepted:
+			<b class="font-semibold text-base text-white">{formatNumber(problem.accepted)}</b>
+		</span>
+		<span class="text-sm text-white/50">
+			Submissions:
+			<b class="font-semibold text-base text-white">{formatNumber(problem.submissions)}</b>
+		</span>
+		<span class="text-sm text-white/50">
+			Acceptance Rate:
+			<b class="font-semibold text-base text-white">
+				{problem.submissions > 0
+					? ((problem.accepted / problem.submissions) * 100).toFixed(1)
+					: '0.0'}%
+			</b>
+		</span>
 	</div>
 	<br />
 	<Accordion.Root class="w-full">
@@ -96,9 +104,7 @@
 			<Accordion.Content></Accordion.Content>
 		</Accordion.Item>
 	</Accordion.Root>
-	<div class="mt-8 text-sm text-white/50">
-		Copyright ©️ 2024 YeetCode. All Rights Reserved.
-	</div>
+	<div class="mt-8 text-sm text-white/50">Copyright ©️ 2024 YeetCode. All Rights Reserved.</div>
 {/if}
 
 <style>

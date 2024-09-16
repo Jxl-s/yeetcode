@@ -101,7 +101,9 @@
 						</a>
 					</Table.Cell>
 					<Table.Cell>
-						{problem.acceptance}%
+						{problem.submissions > 0
+							? ((problem.accepted / problem.submissions) * 100).toFixed(1)
+							: '0.0'}%
 					</Table.Cell>
 					<Table.Cell class={`${diffColors[problem.difficulty] ?? ''} font-semibold`}>
 						{diffText[problem.difficulty] ?? ''}
