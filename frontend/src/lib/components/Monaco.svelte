@@ -45,11 +45,12 @@
 			theme: 'no-background',
 			minimap: {
 				enabled: false
-			}
+			},
+			automaticLayout: true
 		});
 
 		editor.onDidChangeModelContent(() => {
-			dispatch('input', editor.getValue());
+			value = editor.getValue();
 		});
 	}
 
