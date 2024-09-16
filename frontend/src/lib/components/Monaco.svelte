@@ -34,7 +34,7 @@
 			inherit: true,
 			rules: [],
 			colors: {
-				'editor.background': '#00000000',
+				'editor.background': '#141414',
 				focusBorder: '#00000000'
 			}
 		});
@@ -46,7 +46,10 @@
 			minimap: {
 				enabled: false
 			},
-			automaticLayout: true
+			automaticLayout: true,
+			padding: {
+				top: 16
+			}
 		});
 
 		editor.onDidChangeModelContent(() => {

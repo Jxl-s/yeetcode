@@ -20,9 +20,7 @@
 	 */
 	async function fetchProblems() {
 		try {
-			const { status, data } = await axiosInstance.get(
-				`${PUBLIC_API_BASE_URL}/problems?page=${page}&limit=${limit}`
-			);
+			const { status, data } = await axiosInstance.get(`/problems?page=${page}&limit=${limit}`);
 
 			if (status !== 200) {
 				throw new Error('Failed to fetch data');

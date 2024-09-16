@@ -11,6 +11,7 @@
 	import { axiosInstance } from '$lib/stores/auth';
 	import ProblemDescription from '$lib/components/problems/ProblemDescription.svelte';
 	import CodeEditor from '$lib/components/problems/CodeEditor.svelte';
+	import ProblemDescriptionFooter from '$lib/components/problems/ProblemDescriptionFooter.svelte';
 
 	/** @type {import('$lib/data/problems').Problem | null} */
 	let problem = null;
@@ -52,19 +53,12 @@
 					Submissions
 				</Button>
 			</header>
-			<div class="flex-grow overflow-auto px-2 mt-2 pb-4 pe-8">
-				<ProblemDescription {problem} />
-			</div>
-			<footer class="px-2 pt-2 flex gap-2">
-				<Button variant="secondary" class="flex gap-2 items-center">
-					<ThumbsUp class="w-3 h-3" />
-					3.4K
-				</Button>
-				<Button variant="secondary" class="flex gap-2 items-center">
-					<ThumbsDown class="w-3 h-3" />
-					2.1K
-				</Button>
-			</footer>
+			{#if $page.params.problem_tab === 'description'}
+				<div class="flex-grow overflow-auto px-2 mt-2 pb-4 pe-8">
+					<ProblemDescription {problem} />
+				</div>
+				<ProblemDescriptionFooter {problem} />
+			{/if}
 		</section>
 	</Resizable.Pane>
 	<Resizable.Handle class="opacity-0 hover:opacity-100 bg-blue-500 duration-300" withHandle />

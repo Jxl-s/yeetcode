@@ -1,6 +1,5 @@
 import { get, writable } from 'svelte/store';
 import axios from 'axios';
-import { PUBLIC_API_BASE_URL } from '$env/static/public';
 
 export const AuthState = {
 	None: 0,
@@ -75,7 +74,7 @@ export async function signOut() {
 }
 
 export const axiosInstance = axios.create({
-	baseURL: PUBLIC_API_BASE_URL,
+	baseURL: '/api',
 	withCredentials: false,
 	headers: {
 		'Content-Type': 'application/json'
