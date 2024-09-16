@@ -13,11 +13,13 @@
 	});
 </script>
 
-<main>
+<main class="w-full h-full">
 	{#if $authStore.state !== AuthState.None}
-		<NavBar />
-		<main class="p-4">
-			<slot />
-		</main>
+		<div class="flex flex-col w-full h-full">
+			<NavBar />
+			<section class="p-4 h-full flex-grow">
+				<slot />
+			</section>
+		</div>
 	{/if}
 </main>

@@ -18,7 +18,7 @@
 		{
 			title: 'Problems',
 			href: '/problems',
-			current: (page) => page === '/problems'
+			current: (page) => page.startsWith('/problems')
 		}
 	];
 
