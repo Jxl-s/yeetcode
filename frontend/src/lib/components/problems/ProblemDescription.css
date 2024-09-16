@@ -1,0 +1,25 @@
+.desc-md-container p {
+	margin-bottom: 1rem;
+}
+
+.desc-md-container pre {
+	margin: 1rem 0 1rem 0;
+	padding-left: 1rem;
+	color: rgba(255, 255, 255, 0.5);
+	text-wrap: wrap;
+}
+
+.desc-md-container ul {
+	list-style-type: disc;
+	list-style-position: inside;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.desc-md-container code {
+	color: rgba(255, 255, 255, 0.5);
+	padding: 0.125rem;
+}
+
+.desc-md-container ul li {
+	margin-bottom: 0.75rem;
+}
