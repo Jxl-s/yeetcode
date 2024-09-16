@@ -3,6 +3,8 @@
 	import * as Accordion from '$lib/components/ui/accordion/index.js';
 	import Tags from 'lucide-svelte/icons/tags';
 	import { formatNumber } from '$lib/util/number';
+	import { tags } from '$lib/data/tags';
+	import Button from '../ui/button/button.svelte';
 
 	/** @type {import('$lib/data/problems').Problem | null} */
 	export let problem;
@@ -91,7 +93,13 @@
 					Topics
 				</span>
 			</Accordion.Trigger>
-			<Accordion.Content></Accordion.Content>
+			<Accordion.Content>
+				<div class="flex gap-2">
+					{#each problem.tags as tag}
+						<Button variant="ghost">{tags[tag] ?? tag}</Button>
+					{/each}
+				</div>
+			</Accordion.Content>
 		</Accordion.Item>
 
 		<Accordion.Item value="item-2">

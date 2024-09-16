@@ -26,6 +26,6 @@ export const diffText = {
 /**
  * @typedef {BaseProblem & {
  *   description: string,
- *   tags: string[]
+ *   tags: (keyof typeof import('./tags').tags)[]
  * }} Problem A singular problem that is displayed on its own page.
  */
