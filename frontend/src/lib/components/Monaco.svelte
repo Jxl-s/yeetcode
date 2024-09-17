@@ -5,7 +5,7 @@
 	import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
 
 	export let value = '';
-	export let language = 'python';
+	export let language = 'python3';
 
 	/** @type {HTMLDivElement} */
 	let divEl;
@@ -41,7 +41,6 @@
 
 		editor = Monaco.editor.create(divEl, {
 			value: value,
-			language: language,
 			theme: 'no-background',
 			minimap: {
 				enabled: false
@@ -69,7 +68,12 @@
 
 		const model = editor.getModel();
 		if (model) {
-			Monaco.editor.setModelLanguage(model, language);
+			let editorLanguage = language;
+			if (editorLanguage === 'python3') {
+				editorLanguage = 'python';
+			}
+
+			Monaco.editor.setModelLanguage(model, editorLanguage);
 		}
 	}
 </script>

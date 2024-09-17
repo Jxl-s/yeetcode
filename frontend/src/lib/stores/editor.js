@@ -2,7 +2,7 @@ import { writable } from 'svelte/store';
 
 export const editorStore = writable({
 	questionId: '',
-	language: 'python',
+	language: 'python3',
 
 	/** @type {Record<string, string>} */
 	defaults: {},

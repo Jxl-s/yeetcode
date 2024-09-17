@@ -8,7 +8,7 @@
 
 	/** @type {{value: string, label: string}[]} */
 	const languages = [
-		{ value: 'python', label: 'Python3' },
+		{ value: 'python3', label: 'Python3' },
 		{ value: 'javascript', label: 'JavaScript' },
 		{ value: 'java', label: 'Java' }
 	];

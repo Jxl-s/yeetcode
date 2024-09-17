@@ -1,40 +1,49 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
-import {
-    MetadataAlgo,
-    MetadataDesign,
-    SnippetsAlgo,
-    SnippetsDesign,
-} from 'src/utils/snippets';
+import { MetadataAlgo, MetadataDesign } from './common/snippets';
+
+import { Python3Snippets } from './python3';
+import { JavaSnippets } from './java';
+import { JavaScriptSnippets } from './javascript';
+
+const LANGUAGES = [
+    {
+        id: 71,
+        name: 'python3',
+        display: 'Python3',
+
+        snippets: new Python3Snippets(),
+    },
+    {
+        id: 62,
+        name: 'java',
+        display: 'Java',
+        snippets: new JavaSnippets(),
+    },
+    {
+        id: 63,
+        name: 'javascript',
+        display: 'JavaScript',
+        snippets: new JavaScriptSnippets(),
+    },
+] as const;
 
 @Injectable()
 export class LanguagesService {
-    private languages = [
-        {
-            id: 71,
-            name: 'Python3',
-        },
-        {
-            id: 62,
-            name: 'Java',
-        },
-        {
-            id: 63,
-            name: 'JavaScript',
-        },
-    ];
-
     constructor(private readonly prisma: PrismaService) {
         this.default();
     }
 
     // To enforce relations in the database
     private async default() {
-        const upsertOperations = this.languages.map((language) => {
+        const upsertOperations = LANGUAGES.map((language) => {
             return this.prisma.language.upsert({
                 where: { id: language.id },
                 update: {},
-                create: language,
+                create: {
+                    id: language.id,
+                    name: language.name,
+                },
             });
         });
 
@@ -42,24 +51,34 @@ export class LanguagesService {
     }
 
     public makeSnippets(problem: 'ALGO' | 'DESIGN', data: string) {
+        // Create the snippets object
+        const snippets: Record<string, string> = {};
+        for (const { name } of LANGUAGES) {
+            snippets[name] = '';
+        }
+
         try {
             if (problem === 'ALGO') {
                 const metadata = MetadataAlgo.fromObject(JSON.parse(data));
-                const snippets = new SnippetsAlgo(metadata);
-                return snippets.makeSnippets();
+
+                for (const language of LANGUAGES) {
+                    const result = language.snippets.makeAlgo(metadata);
+                    snippets[language.name] = result;
+                }
             }
 
             if (problem === 'DESIGN') {
                 const metadata = MetadataDesign.fromObject(JSON.parse(data));
-                const snippets = new SnippetsDesign(metadata);
-                return snippets.makeSnippets();
+
+                for (const language of LANGUAGES) {
+                    const result = language.snippets.makeDesign(metadata);
+                    snippets[language.name] = result;
+                }
             }
-        } catch (error) {
-            return {
-                python: '',
-                java: '',
-                javascript: '',
-            };
+        } catch (err) {
+            console.log(err);
+        } finally {
+            return snippets;
         }
     }
 }

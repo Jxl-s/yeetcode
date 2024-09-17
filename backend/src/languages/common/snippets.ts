@@ -161,3 +161,8 @@ export class MetadataDesign {
         });
     }
 }
+
+export abstract class BaseSnippets {
+    public abstract makeAlgo(metadata: MetadataAlgo): string;
+    public abstract makeDesign(metadata: MetadataDesign): string;
+}
