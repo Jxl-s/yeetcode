@@ -10,7 +10,7 @@
 	import ProblemDescription from '$lib/components/problems/ProblemDescription.svelte';
 	import CodeEditor from '$lib/components/problems/CodeEditor.svelte';
 	import ProblemDescriptionFooter from '$lib/components/problems/ProblemDescriptionFooter.svelte';
-	import { resetCode, setSnippets } from '$lib/stores/editor';
+	import { setSnippets } from '$lib/stores/editor';
 
 	/** @type {import('$lib/data/problems').Problem | null} */
 	let problem = null;
@@ -25,8 +25,7 @@
 			problem = res.data.data;
 
 			// Set snippets and the code
-			setSnippets(res.data.snippets);
-			resetCode();
+			setSnippets($page.params.problem_id, res.data.snippets);
 		} catch (err) {
 			console.log(err);
 		}

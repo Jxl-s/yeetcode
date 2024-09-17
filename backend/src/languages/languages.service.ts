@@ -165,7 +165,7 @@ const SNIPPET_JAVASCRIPT = [
     '{{__function_types__}}',
     ' * @return {{{__function_return__}}}',
     ' */',
-    'var {{__function_name__}} = ({{__function_args__}}) {',
+    'var {{__function_name__}} = function({{__function_args__}}) {',
     '   ',
     '};',
 ].join('\n');

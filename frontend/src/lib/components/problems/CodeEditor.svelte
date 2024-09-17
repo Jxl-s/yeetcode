@@ -3,7 +3,8 @@
 	import Monaco from '$lib/components/Monaco.svelte';
 	import Button from '../ui/button/button.svelte';
 	import RotateCcw from 'lucide-svelte/icons/rotate-ccw';
-	import { editorStore, resetCode } from '$lib/stores/editor';
+	import { editorStore, resetCode, switchLanguage } from '$lib/stores/editor';
+	import { onDestroy } from 'svelte';
 
 	/** @type {{value: string, label: string}[]} */
 	const languages = [
@@ -16,14 +17,13 @@
 
 	$: {
 		if (selected) {
-			editorStore.update((editor) => {
-				editor.language = selected.value;
-				return editor;
-			});
-
-			resetCode();
+			switchLanguage(selected.value);
 		}
 	}
+
+	onDestroy(() => {
+		resetCode(true);
+	});
 </script>
 
 <header class="flex justify-between mb-2">
@@ -37,7 +37,7 @@
 			{/each}
 		</Select.Content>
 	</Select.Root>
-	<Button variant="ghost" size="icon" on:click={resetCode}>
+	<Button variant="ghost" size="icon" on:click={() => resetCode()}>
 		<RotateCcw class="w-3 h-3 font-bold" />
 	</Button>
 </header>
