@@ -4,6 +4,8 @@
 
 	import NotebookText from 'lucide-svelte/icons/notebook-text';
 	import FileJson from 'lucide-svelte/icons/file-json';
+	import FileScan from 'lucide-svelte/icons/file-scan';
+	import SquareChevronRight from 'lucide-svelte/icons/square-chevron-right';
 
 	import { page } from '$app/stores';
 	import { axiosInstance } from '$lib/stores/auth';
@@ -73,7 +75,18 @@
 			</Resizable.Pane>
 			<Resizable.Handle class="opacity-0 hover:opacity-100 bg-blue-500 duration-300" withHandle />
 			<Resizable.Pane defaultSize={50} class="pt-2 ps-2">
-				<div class="bg-primary-foreground w-full h-full rounded-md"></div>
+				<section class="bg-primary-foreground w-full h-full flex flex-col rounded-md px-4 pb-4">
+					<header class="sticky top-0 pt-4 pb-2 flex gap-2 bg-primary-foreground z-10">
+						<Button variant="ghost" class="flex items-center gap-2">
+							<FileScan class="w-3 h-3" />
+							Test Cases
+						</Button>
+						<Button variant="ghost" class="flex items-center gap-2">
+							<SquareChevronRight class="w-3 h-3" />
+							Test Results
+						</Button>
+					</header>
+				</section>
 			</Resizable.Pane>
 		</Resizable.PaneGroup>
 	</Resizable.Pane>

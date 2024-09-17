@@ -3,6 +3,7 @@
 	import { AuthState, authStore, axiosInstance, fetchToken, signOut } from '$lib/stores/auth';
 	import { onMount } from 'svelte';
 	import NavBar from '$lib/components/NavBar.svelte';
+	import { page } from '$app/stores';
 
 	onMount(async () => {
 		// Try to sign in
