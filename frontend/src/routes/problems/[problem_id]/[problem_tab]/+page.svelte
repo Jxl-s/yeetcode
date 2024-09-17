@@ -1,6 +1,7 @@
 <script>
 	import Button from '$lib/components/ui/button/button.svelte';
-	import * as Resizable from '$lib/components/ui/resizable/index.js';
+	import * as Resizable from '$lib/components/ui/resizable';
+	
 
 	import NotebookText from 'lucide-svelte/icons/notebook-text';
 	import FileJson from 'lucide-svelte/icons/file-json';
@@ -14,6 +15,7 @@
 	import CodeEditor from '$lib/components/problems/CodeEditor.svelte';
 	import ProblemDescriptionFooter from '$lib/components/problems/ProblemDescriptionFooter.svelte';
 	import { setSnippets } from '$lib/stores/editor';
+	import SubmissionsList from '$lib/components/problems/SubmissionsList.svelte';
 
 	/** @type {import('$lib/data/problems').Problem | null} */
 	let problem = null;
@@ -78,6 +80,10 @@
 					<ProblemDescription {problem} />
 				</div>
 				<ProblemDescriptionFooter {problem} />
+			{:else if $page.params.problem_tab === 'submissions'}
+				<div class="flex-grow overflow-auto px-2 pe-8">
+					<SubmissionsList />
+				</div>
 			{/if}
 		</section>
 	</Resizable.Pane>
