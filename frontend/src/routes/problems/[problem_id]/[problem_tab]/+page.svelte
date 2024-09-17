@@ -3,8 +3,6 @@
 	import * as Resizable from '$lib/components/ui/resizable/index.js';
 
 	import NotebookText from 'lucide-svelte/icons/notebook-text';
-	import ThumbsUp from 'lucide-svelte/icons/thumbs-up';
-	import ThumbsDown from 'lucide-svelte/icons/thumbs-down';
 	import FileJson from 'lucide-svelte/icons/file-json';
 
 	import { page } from '$app/stores';
@@ -12,6 +10,7 @@
 	import ProblemDescription from '$lib/components/problems/ProblemDescription.svelte';
 	import CodeEditor from '$lib/components/problems/CodeEditor.svelte';
 	import ProblemDescriptionFooter from '$lib/components/problems/ProblemDescriptionFooter.svelte';
+	import { resetCode, setSnippets } from '$lib/stores/editor';
 
 	/** @type {import('$lib/data/problems').Problem | null} */
 	let problem = null;
@@ -24,6 +23,10 @@
 			}
 
 			problem = res.data.data;
+
+			// Set snippets and the code
+			setSnippets(res.data.snippets);
+			resetCode();
 		} catch (err) {
 			console.log(err);
 		}

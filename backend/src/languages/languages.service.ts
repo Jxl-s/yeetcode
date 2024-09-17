@@ -223,7 +223,7 @@ class Snippets {
         snippet = snippet.replace(
             '{{__function_args__}}',
             this.metadata.arguments
-                .map((arg) => `${arg.name}: ${T.toJavaScript(arg)}`)
+                .map((arg) => `${arg.name}`)
                 .join(', '),
         );
 

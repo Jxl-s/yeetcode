@@ -6,12 +6,24 @@
 	import { editorStore, resetCode } from '$lib/stores/editor';
 
 	/** @type {{value: string, label: string}[]} */
-	export let languages = [
+	const languages = [
 		{ value: 'python', label: 'Python3' },
-		{ value: 'javascript', label: 'JavaScript' }
+		{ value: 'javascript', label: 'JavaScript' },
+		{ value: 'java', label: 'Java' }
 	];
 
 	let selected = languages[0];
+
+	$: {
+		if (selected) {
+			editorStore.update((editor) => {
+				editor.language = selected.value;
+				return editor;
+			});
+
+			resetCode();
+		}
+	}
 </script>
 
 <header class="flex justify-between mb-2">
