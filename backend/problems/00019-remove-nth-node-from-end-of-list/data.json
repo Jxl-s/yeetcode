@@ -4,5 +4,5 @@
     "difficulty": "MEDIUM",
     "tags": ["linked-list","two-pointers"],
     "type": "ALGO",
-    "metadata": {"function":"removeNthFromEnd","return":{"type":"listnode"},"arguments":[{"name":"head","type":"listnode"},{"name":"n","type":"int"}]}
+    "metadata": {"function":"removeNthFromEnd","return":{"type":"listnode"},"args":[{"name":"head","type":"listnode"},{"name":"n","type":"int"}]}
 }

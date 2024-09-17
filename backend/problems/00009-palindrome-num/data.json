@@ -4,5 +4,5 @@
     "difficulty": "EASY",
     "tags": ["math"],
     "type": "ALGO",
-    "metadata": {"function":"isPalindrome","return":{"type":"bool"},"arguments":[{"name":"x","type":"int"}]}
+    "metadata": {"function":"isPalindrome","return":{"type":"bool"},"args":[{"name":"x","type":"int"}]}
 }

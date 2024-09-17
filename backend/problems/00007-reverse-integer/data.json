@@ -4,5 +4,5 @@
     "difficulty": "MEDIUM",
     "tags": ["math"],
     "type": "ALGO",
-    "metadata": {"function":"reverse","return":{"type":"int"},"arguments":[{"name":"x","type":"int"}]}
+    "metadata": {"function":"reverse","return":{"type":"int"},"args":[{"name":"x","type":"int"}]}
 }

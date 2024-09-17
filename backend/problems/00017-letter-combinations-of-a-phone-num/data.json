@@ -4,5 +4,5 @@
     "difficulty": "MEDIUM",
     "tags": ["hash-table","string","backtracking"],
     "type": "ALGO",
-    "metadata": {"function":"letterCombinations","return":{"type":"array","items":{"type":"str"}},"arguments":[{"name":"digits","type":"str"}]}
+    "metadata": {"function":"letterCombinations","return":{"type":"array","items":{"type":"str"}},"args":[{"name":"digits","type":"str"}]}
 }

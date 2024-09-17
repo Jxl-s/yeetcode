@@ -4,5 +4,5 @@
     "difficulty": "EASY",
     "tags": ["string","stack"],
     "type": "ALGO",
-    "metadata": {"function":"isValid","return":{"type":"bool"},"arguments":[{"name":"s","type":"str"}]}
+    "metadata": {"function":"isValid","return":{"type":"bool"},"args":[{"name":"s","type":"str"}]}
 }

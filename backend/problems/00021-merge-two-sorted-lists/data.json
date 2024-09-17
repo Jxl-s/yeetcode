@@ -3,6 +3,50 @@
     "title": "Merge Two Sorted Lists",
     "difficulty": "EASY",
     "tags": ["linked-list","recursion"],
-    "type": "ALGO",
-    "metadata": {"function":"mergeTwoLists","return":{"type":"listnode"},"arguments":[{"name":"l1","type":"listnode"},{"name":"l2","type":"listnode"}]}
+    "type": "DESIGN",
+    "metadata": {
+        "className": "LRUCache",
+        "methods": [
+            {
+                "function": "__init__",
+                "return": {
+                    "type": "void"
+                },
+                "args": [
+                    {
+                        "name": "capacity",
+                        "type": "int"
+                    }
+                ]
+            },
+            {
+                "function": "get",
+                "return": {
+                    "type": "int"
+                },
+                "args": [
+                    {
+                        "name": "key",
+                        "type": "int"
+                    }
+                ]
+            },
+            {
+                "function": "put",
+                "return": {
+                    "type": "void"
+                },
+                "args": [
+                    {
+                        "name": "key",
+                        "type": "int"
+                    },
+                    {
+                        "name": "value",
+                        "type": "int"
+                    }
+                ]
+            }
+        ]
+    }
 }

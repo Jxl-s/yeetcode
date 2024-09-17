@@ -4,5 +4,5 @@
     "difficulty": "MEDIUM",
     "tags": ["array","two-pointers"],
     "type": "ALGO",
-    "metadata": {"function":"maxArea","return":{"type":"int"},"arguments":[{"name":"height","type":"array","items":{"type":"int"}}]}
+    "metadata": {"function":"maxArea","return":{"type":"int"},"args":[{"name":"height","type":"array","items":{"type":"int"}}]}
 }

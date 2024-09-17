@@ -27,27 +27,27 @@ problems=(
 
 # Metadata for each problem
 metadata='
-two-sum {"function":"twoSum","return":{"type":"array","items":{"type":"int"}},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
-add-two-numbers {"function":"addTwoNumbers","return":{"type":"listnode"},"arguments":[{"name":"l1","type":"listnode"},{"name":"l2","type":"listnode"}]}
-longest-substring-without-repeating-characters {"function":"lengthOfLongestSubstring","return":{"type":"int"},"arguments":[{"name":"s","type":"str"}]}
-median-of-two-sorted-arrays {"function":"findMedianSortedArrays","return":{"type":"float"},"arguments":[{"name":"nums1","type":"array","items":{"type":"int"}},{"name":"nums2","type":"array","items":{"type":"int"}}]}
-longest-palindromic-substring {"function":"longestPalindrome","return":{"type":"str"},"arguments":[{"name":"s","type":"str"}]}
-zigzag-conversion {"function":"convert","return":{"type":"str"},"arguments":[{"name":"s","type":"str"},{"name":"numRows","type":"int"}]}
-reverse-integer {"function":"reverse","return":{"type":"int"},"arguments":[{"name":"x","type":"int"}]}
-string-to-integer-atoi {"function":"myAtoi","return":{"type":"int"},"arguments":[{"name":"s","type":"str"}]}
-palindrome-num {"function":"isPalindrome","return":{"type":"bool"},"arguments":[{"name":"x","type":"int"}]}
-regular-expression-matching {"function":"isMatch","return":{"type":"bool"},"arguments":[{"name":"s","type":"str"},{"name":"p","type":"str"}]}
-container-with-most-water {"function":"maxArea","return":{"type":"int"},"arguments":[{"name":"height","type":"array","items":{"type":"int"}}]}
-integer-to-roman {"function":"intToRoman","return":{"type":"str"},"arguments":[{"name":"num","type":"int"}]}
-roman-to-integer {"function":"romanToInt","return":{"type":"int"},"arguments":[{"name":"s","type":"str"}]}
-longest-common-prefix {"function":"longestCommonPrefix","return":{"type":"str"},"arguments":[{"name":"strs","type":"array","items":{"type":"str"}}]}
-three-sum {"function":"threeSum","return":{"type":"array","items":{"type":"array","items":{"type":"int"}}},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}}]}
-three-sum-closest {"function":"threeSumClosest","return":{"type":"int"},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
-letter-combinations-of-a-phone-num {"function":"letterCombinations","return":{"type":"array","items":{"type":"str"}},"arguments":[{"name":"digits","type":"str"}]}
-four-sum {"function":"fourSum","return":{"type":"array","items":{"type":"array","items":{"type":"int"}}},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
-remove-nth-node-from-end-of-list {"function":"removeNthFromEnd","return":{"type":"listnode"},"arguments":[{"name":"head","type":"listnode"},{"name":"n","type":"int"}]}
-valid-parentheses {"function":"isValid","return":{"type":"bool"},"arguments":[{"name":"s","type":"str"}]}
-merge-two-sorted-lists {"function":"mergeTwoLists","return":{"type":"listnode"},"arguments":[{"name":"l1","type":"listnode"},{"name":"l2","type":"listnode"}]}
+two-sum {"function":"twoSum","return":{"type":"array","items":{"type":"int"}},"args":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
+add-two-numbers {"function":"addTwoNumbers","return":{"type":"listnode"},"args":[{"name":"l1","type":"listnode"},{"name":"l2","type":"listnode"}]}
+longest-substring-without-repeating-characters {"function":"lengthOfLongestSubstring","return":{"type":"int"},"args":[{"name":"s","type":"str"}]}
+median-of-two-sorted-arrays {"function":"findMedianSortedArrays","return":{"type":"float"},"args":[{"name":"nums1","type":"array","items":{"type":"int"}},{"name":"nums2","type":"array","items":{"type":"int"}}]}
+longest-palindromic-substring {"function":"longestPalindrome","return":{"type":"str"},"args":[{"name":"s","type":"str"}]}
+zigzag-conversion {"function":"convert","return":{"type":"str"},"args":[{"name":"s","type":"str"},{"name":"numRows","type":"int"}]}
+reverse-integer {"function":"reverse","return":{"type":"int"},"args":[{"name":"x","type":"int"}]}
+string-to-integer-atoi {"function":"myAtoi","return":{"type":"int"},"args":[{"name":"s","type":"str"}]}
+palindrome-num {"function":"isPalindrome","return":{"type":"bool"},"args":[{"name":"x","type":"int"}]}
+regular-expression-matching {"function":"isMatch","return":{"type":"bool"},"args":[{"name":"s","type":"str"},{"name":"p","type":"str"}]}
+container-with-most-water {"function":"maxArea","return":{"type":"int"},"args":[{"name":"height","type":"array","items":{"type":"int"}}]}
+integer-to-roman {"function":"intToRoman","return":{"type":"str"},"args":[{"name":"num","type":"int"}]}
+roman-to-integer {"function":"romanToInt","return":{"type":"int"},"args":[{"name":"s","type":"str"}]}
+longest-common-prefix {"function":"longestCommonPrefix","return":{"type":"str"},"args":[{"name":"strs","type":"array","items":{"type":"str"}}]}
+three-sum {"function":"threeSum","return":{"type":"array","items":{"type":"array","items":{"type":"int"}}},"args":[{"name":"nums","type":"array","items":{"type":"int"}}]}
+three-sum-closest {"function":"threeSumClosest","return":{"type":"int"},"args":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
+letter-combinations-of-a-phone-num {"function":"letterCombinations","return":{"type":"array","items":{"type":"str"}},"args":[{"name":"digits","type":"str"}]}
+four-sum {"function":"fourSum","return":{"type":"array","items":{"type":"array","items":{"type":"int"}}},"args":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
+remove-nth-node-from-end-of-list {"function":"removeNthFromEnd","return":{"type":"listnode"},"args":[{"name":"head","type":"listnode"},{"name":"n","type":"int"}]}
+valid-parentheses {"function":"isValid","return":{"type":"bool"},"args":[{"name":"s","type":"str"}]}
+merge-two-sorted-lists {"function":"mergeTwoLists","return":{"type":"listnode"},"args":[{"name":"l1","type":"listnode"},{"name":"l2","type":"listnode"}]}
 '
 
 # Function to get metadata for a problem

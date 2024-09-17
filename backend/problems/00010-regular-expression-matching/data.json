@@ -4,5 +4,5 @@
     "difficulty": "HARD",
     "tags": ["string","dynamic-programming","recursion"],
     "type": "ALGO",
-    "metadata": {"function":"isMatch","return":{"type":"bool"},"arguments":[{"name":"s","type":"str"},{"name":"p","type":"str"}]}
+    "metadata": {"function":"isMatch","return":{"type":"bool"},"args":[{"name":"s","type":"str"},{"name":"p","type":"str"}]}
 }

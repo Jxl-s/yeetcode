@@ -86,6 +86,9 @@
 							Test Results
 						</Button>
 					</header>
+					<div class="flex-grow">
+						<!-- <Monaco /> -->
+					</div>
 				</section>
 			</Resizable.Pane>
 		</Resizable.PaneGroup>

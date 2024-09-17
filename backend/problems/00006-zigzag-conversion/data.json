@@ -4,5 +4,5 @@
     "difficulty": "MEDIUM",
     "tags": ["string"],
     "type": "ALGO",
-    "metadata": {"function":"convert","return":{"type":"str"},"arguments":[{"name":"s","type":"str"},{"name":"numRows","type":"int"}]}
+    "metadata": {"function":"convert","return":{"type":"str"},"args":[{"name":"s","type":"str"},{"name":"numRows","type":"int"}]}
 }

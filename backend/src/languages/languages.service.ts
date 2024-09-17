@@ -9,6 +9,7 @@ enum Type {
     BOOL = 'bool',
     LISTNODE = 'listnode',
     TREENODE = 'treenode',
+    VOID = 'void',
 }
 
 class T {
@@ -62,6 +63,8 @@ class T {
                 return 'Optional[ListNode]';
             case Type.TREENODE:
                 return 'Optional[TreeNode]';
+            case Type.VOID:
+                return 'None';
             default:
                 return t.type;
         }
@@ -83,6 +86,8 @@ class T {
                 return 'ListNode';
             case Type.TREENODE:
                 return 'TreeNode';
+            case Type.VOID:
+                return 'void';
             default:
                 return t.type;
         }
@@ -104,6 +109,8 @@ class T {
                 return 'ListNode';
             case Type.TREENODE:
                 return 'TreeNode';
+            case Type.VOID:
+                return 'void';
             default:
                 return t.type;
         }
@@ -113,27 +120,27 @@ class T {
 class MetadataAlgo {
     public function: string;
     public return: T;
-    public arguments: T[];
+    public args: T[];
 
     constructor({
         function: func,
         return: ret,
-        arguments: args,
+        args: args,
     }: {
         function: string;
         return: T;
-        arguments: T[];
+        args: T[];
     }) {
         this.function = func;
         this.return = ret;
-        this.arguments = args;
+        this.args = args;
     }
 
     public serialize() {
         return {
             function: this.function,
             return: this.return.serialize(),
-            arguments: this.arguments.map((arg) => arg.serialize()),
+            args: this.args.map((arg) => arg.serialize()),
         };
     }
 
@@ -141,101 +148,241 @@ class MetadataAlgo {
         return new MetadataAlgo({
             function: obj.function,
             return: T.fromObject(obj.return),
-            arguments: obj.arguments.map((arg: any) => T.fromObject(arg)),
+            args: obj.args.map((arg: any) => T.fromObject(arg)),
         });
     }
 }
 
-const SNIPPET_PYTHON = [
-    'class Solution():',
-    '    def {{__function_name__}}(self, {{__function_args__}}) -> {{__function_return__}}:',
-    '        ',
-].join('\n');
+class MetadataDesign {
+    public className: string;
+    public methods: MetadataAlgo[];
 
-const SNIPPET_JAVA = [
-    'public class Solution {',
-    '    public {{__function_return__}} {{__function_name__}}({{__function_args__}}) {',
-    '        ',
-    '    }',
-    '}',
-].join('\n');
+    constructor({
+        className,
+        methods,
+    }: {
+        className: string;
+        methods: MetadataAlgo[];
+    }) {
+        this.className = className;
+        this.methods = methods;
+    }
 
-const SNIPPET_JAVASCRIPT = [
-    '/**',
-    '{{__function_types__}}',
-    ' * @return {{{__function_return__}}}',
-    ' */',
-    'var {{__function_name__}} = function({{__function_args__}}) {',
-    '   ',
-    '};',
-].join('\n');
+    public serialize() {
+        return {
+            className: this.className,
+            methods: this.methods.map((method) => method.serialize()),
+        };
+    }
 
-class Snippets {
-    constructor(private metadata: MetadataAlgo) {}
+    public static fromObject(obj: any): MetadataDesign {
+        return new MetadataDesign({
+            className: obj.className,
+            methods: obj.methods.map((method: any) =>
+                MetadataAlgo.fromObject(method),
+            ),
+        });
+    }
+}
+
+class Method {
+    public className: string;
+    public name: string;
+    public returnType: T;
+    public args: T[];
+
+    constructor({
+        className = 'Solution',
+        name,
+        returnType,
+        args,
+    }: {
+        className?: string;
+        name: string;
+        returnType: T;
+        args: T[];
+    }) {
+        this.className = className;
+        this.name = name;
+        this.returnType = returnType;
+        this.args = args;
+    }
+
+    public static indent(code: string) {
+        return code
+            .split('\n')
+            .map((line) => '\t' + line)
+            .join('\n');
+    }
+
+    public serialize() {
+        return {
+            className: this.className,
+            name: this.name,
+            returnType: this.returnType.serialize(),
+            args: this.args.map((arg) => arg.serialize()),
+        };
+    }
+
+    public static fromObject(obj: any): Method {
+        return new Method({
+            className: obj.className,
+            name: obj.name,
+            returnType: T.fromObject(obj.returnType),
+            args: obj.args.map((arg: any) => T.fromObject(arg)),
+        });
+    }
+
+    public toPython() {
+        let argList = this.args
+            .map((arg) => `${arg.name}: ${T.toPython(arg)}`)
+            .join(', ');
+
+        if (argList !== '') {
+            argList = 'self, ' + argList;
+        } else {
+            argList = 'self';
+        }
+
+        let snippet = `def ${this.name}(${argList}) -> ${T.toPython(this.returnType)}:`;
+        if (this.name === '__init__') {
+            snippet = `def __init__(${argList}):`;
+        }
+
+        snippet += '\n\t';
+
+        return snippet;
+    }
+
+    public toJava() {
+        const argList = this.args
+            .map((arg) => `${T.toJava(arg)} ${arg.name}`)
+            .join(', ');
+
+        let methodName = this.name;
+        let snippet = `public ${T.toJava(this.returnType)} ${this.name}(${argList}) {`;
+
+        if (methodName === '__init__') {
+            methodName = this.className;
+            snippet = `public ${this.className}(${argList}) {`;
+        }
+
+        snippet += '\n\t';
+        snippet += '\n}';
+
+        return snippet;
+    }
+
+    public toJavaScript() {
+        const argList = this.args.map((arg) => arg.name).join(', ');
+        const types = this.args
+            .map((arg) => ` * @param {${T.toJavaScript(arg)}} ${arg.name}`)
+            .join('\n');
+
+        // Add JSDoc
+        let snippet = '/**';
+        snippet += `\n${types}`;
+        if (this.name !== '__init__') {
+            snippet += '\n * @return {' + T.toJavaScript(this.returnType) + '}';
+        }
+
+        snippet += '\n */';
+
+        // Function body
+        if (this.name === '__init__') {
+            snippet += `\nvar ${this.className} = function(${argList}) {`;
+        } else {
+            snippet += `\n${this.className}.prototype.${this.name} = function(${argList}) {`;
+        }
+
+        snippet += '\n\t';
+        snippet += '\n};';
+        return snippet;
+    }
+}
+
+class SnippetsAlgo {
+    private method: Method;
+    constructor(metadata: MetadataAlgo) {
+        this.method = new Method({
+            className: 'Solution',
+            name: metadata.function,
+            returnType: metadata.return,
+            args: metadata.args,
+        });
+    }
 
     private _makePython() {
-        let snippet = SNIPPET_PYTHON;
-        snippet = snippet.replace(
-            '{{__function_name__}}',
-            this.metadata.function,
-        );
-        snippet = snippet.replace(
-            '{{__function_args__}}',
-            this.metadata.arguments
-                .map((arg) => `${arg.name}: ${T.toPython(arg)}`)
-                .join(', '),
-        );
-
-        snippet = snippet.replace(
-            '{{__function_return__}}',
-            T.toPython(this.metadata.return),
-        );
+        let snippet = 'class Solution():\n';
+        snippet += Method.indent(this.method.toPython());
 
         return snippet;
     }
 
     private _makeJava() {
-        let snippet = SNIPPET_JAVA;
-        snippet = snippet.replace(
-            '{{__function_name__}}',
-            this.metadata.function,
-        );
-        snippet = snippet.replace(
-            '{{__function_args__}}',
-            this.metadata.arguments
-                .map((arg) => `${T.toJava(arg)} ${arg.name}`)
-                .join(', '),
-        );
+        let snippet = 'class Solution {\n';
+        snippet += Method.indent(this.method.toJava());
+        snippet += '\n}';
 
-        snippet = snippet.replace(
-            '{{__function_return__}}',
-            T.toJava(this.metadata.return),
-        );
         return snippet;
     }
 
     private _makeJavaScript() {
-        let snippet = SNIPPET_JAVASCRIPT;
-        snippet = snippet.replace(
-            '{{__function_name__}}',
-            this.metadata.function,
-        );
-        snippet = snippet.replace(
-            '{{__function_args__}}',
-            this.metadata.arguments
-                .map((arg) => `${arg.name}`)
-                .join(', '),
-        );
+        return this.method.toJavaScript();
+    }
 
-        snippet = snippet.replace(
-            '{{__function_return__}}',
-            T.toJavaScript(this.metadata.return),
-        );
+    public makeSnippets() {
+        return {
+            python: this._makePython(),
+            java: this._makeJava(),
+            javascript: this._makeJavaScript(),
+        };
+    }
+}
 
-        const types = this.metadata.arguments
-            .map((arg) => ` * @param {${T.toJavaScript(arg)}} ${arg.name}`)
-            .join('\n');
-        snippet = snippet.replace('{{__function_types__}}', types);
+class SnippetsDesign {
+    private className: string;
+    private methods: Method[];
+
+    constructor(metadata: MetadataDesign) {
+        this.className = metadata.className;
+        this.methods = metadata.methods.map((method) => {
+            return new Method({
+                className: metadata.className,
+                name: method.function,
+                returnType: method.return,
+                args: method.args,
+            });
+        });
+    }
+
+    private _makePython() {
+        let snippet = `class ${this.className}():\n`;
+
+        const methods = this.methods.map((method) =>
+            Method.indent(method.toPython()),
+        );
+        snippet += methods.join('\n\n') + '\n';
+
+        return snippet;
+    }
+
+    private _makeJava() {
+        let snippet = `class ${this.className} {\n`;
+
+        const methods = this.methods.map((method) =>
+            Method.indent(method.toJava()),
+        );
+        snippet += methods.join('\n\n') + '\n}\n';
+
+        return snippet;
+    }
+
+    private _makeJavaScript() {
+        let snippet = '';
+
+        const methods = this.methods.map((method) => method.toJavaScript());
+        snippet += methods.join('\n\n') + '\n';
 
         return snippet;
     }
@@ -283,10 +430,16 @@ export class LanguagesService {
 
     public makeSnippets(problem: 'ALGO' | 'DESIGN', data: string) {
         try {
-            const metadata = MetadataAlgo.fromObject(JSON.parse(data));
-            const snippets = new Snippets(metadata);
-
             if (problem === 'ALGO') {
+                const metadata = MetadataAlgo.fromObject(JSON.parse(data));
+                const snippets = new SnippetsAlgo(metadata);
+                return snippets.makeSnippets();
+            }
+
+            if (problem === 'DESIGN') {
+                const metadata = MetadataDesign.fromObject(JSON.parse(data));
+                const snippets = new SnippetsDesign(metadata);
+                console.log(snippets, snippets.makeSnippets());
                 return snippets.makeSnippets();
             }
         } catch (error) {

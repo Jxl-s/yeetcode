@@ -4,5 +4,5 @@
     "difficulty": "MEDIUM",
     "tags": ["string","dynamic-programming"],
     "type": "ALGO",
-    "metadata": {"function":"longestPalindrome","return":{"type":"str"},"arguments":[{"name":"s","type":"str"}]}
+    "metadata": {"function":"longestPalindrome","return":{"type":"str"},"args":[{"name":"s","type":"str"}]}
 }

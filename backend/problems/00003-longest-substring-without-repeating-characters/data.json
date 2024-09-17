@@ -4,5 +4,5 @@
     "difficulty": "MEDIUM",
     "tags": ["hash-table","string","sliding-window"],
     "type": "ALGO",
-    "metadata": {"function":"lengthOfLongestSubstring","return":{"type":"int"},"arguments":[{"name":"s","type":"str"}]}
+    "metadata": {"function":"lengthOfLongestSubstring","return":{"type":"int"},"args":[{"name":"s","type":"str"}]}
 }

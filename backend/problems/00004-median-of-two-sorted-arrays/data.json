@@ -4,5 +4,5 @@
     "difficulty": "HARD",
     "tags": ["array","binary-search","divide-and-conquer"],
     "type": "ALGO",
-    "metadata": {"function":"findMedianSortedArrays","return":{"type":"float"},"arguments":[{"name":"nums1","type":"array","items":{"type":"int"}},{"name":"nums2","type":"array","items":{"type":"int"}}]}
+    "metadata": {"function":"findMedianSortedArrays","return":{"type":"float"},"args":[{"name":"nums1","type":"array","items":{"type":"int"}},{"name":"nums2","type":"array","items":{"type":"int"}}]}
 }
