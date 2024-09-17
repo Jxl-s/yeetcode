@@ -7,12 +7,7 @@
 	import { onDestroy } from 'svelte';
 
 	/** @type {{value: string, label: string}[]} */
-	const languages = [
-		{ value: 'python3', label: 'Python3' },
-		{ value: 'javascript', label: 'JavaScript' },
-		{ value: 'java', label: 'Java' }
-	];
-
+	export let languages = [];
 	let selected = languages[0];
 
 	$: {

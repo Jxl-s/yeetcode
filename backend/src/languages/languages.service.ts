@@ -5,13 +5,13 @@ import { MetadataAlgo, MetadataDesign } from './common/snippets';
 import { Python3Snippets } from './python3';
 import { JavaSnippets } from './java';
 import { JavaScriptSnippets } from './javascript';
+import { CppSnippets } from './cpp';
 
 const LANGUAGES = [
     {
         id: 71,
         name: 'python3',
         display: 'Python3',
-
         snippets: new Python3Snippets(),
     },
     {
@@ -25,6 +25,12 @@ const LANGUAGES = [
         name: 'javascript',
         display: 'JavaScript',
         snippets: new JavaScriptSnippets(),
+    },
+    {
+        id: 54,
+        name: 'cpp',
+        display: 'C++',
+        snippets: new CppSnippets(),
     },
 ] as const;
 
@@ -48,6 +54,15 @@ export class LanguagesService {
         });
 
         await this.prisma.$transaction(upsertOperations);
+    }
+
+    public getLanguages() {
+        return {
+            data: LANGUAGES.map((language) => ({
+                name: language.name,
+                display: language.display,
+            })),
+        };
     }
 
     public makeSnippets(problem: 'ALGO' | 'DESIGN', data: string) {
