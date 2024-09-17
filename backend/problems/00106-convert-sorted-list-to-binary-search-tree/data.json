@@ -1,6 +1,0 @@
-{
-    "id": "convert-sorted-list-to-binary-search-tree",
-    "title": "Convert Sorted List To Binary Search Tree",
-    "difficulty": "MEDIUM",
-    "tags": ["linked-list","divide-and-conquer","tree","binary-search-tree","binary-tree"]
-}

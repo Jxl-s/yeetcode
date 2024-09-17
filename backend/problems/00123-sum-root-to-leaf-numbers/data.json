@@ -1,6 +1,0 @@
-{
-    "id": "sum-root-to-leaf-numbers",
-    "title": "Sum Root To Leaf Numbers",
-    "difficulty": "MEDIUM",
-    "tags": ["tree","depth-first-search","binary-tree"]
-}

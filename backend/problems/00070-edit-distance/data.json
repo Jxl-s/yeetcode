@@ -1,6 +1,0 @@
-{
-    "id": "edit-distance",
-    "title": "Edit Distance",
-    "difficulty": "HARD",
-    "tags": ["string","dynamic-programming"]
-}

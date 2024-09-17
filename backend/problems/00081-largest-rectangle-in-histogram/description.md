@@ -1,1 +1,0 @@
-# largest-rectangle-in-histogram

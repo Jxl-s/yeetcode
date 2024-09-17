@@ -2,5 +2,7 @@
     "id": "regular-expression-matching",
     "title": "Regular Expression Matching",
     "difficulty": "HARD",
-    "tags": ["string","dynamic-programming","recursion"]
+    "tags": ["string","dynamic-programming","recursion"],
+    "type": "ALGO",
+    "metadata": {"function":"search","return":{"type":"int"},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
 }

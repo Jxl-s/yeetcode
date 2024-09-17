@@ -1,6 +1,0 @@
-{
-    "id": "trapping-rain-water",
-    "title": "Trapping Rain Water",
-    "difficulty": "HARD",
-    "tags": ["array","two-pointers","dynamic-programming","stack"]
-}

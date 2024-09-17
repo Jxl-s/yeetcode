@@ -2,5 +2,7 @@
     "id": "implement-strstr",
     "title": "Implement Strstr",
     "difficulty": "EASY",
-    "tags": ["two-pointers","string","string-matching"]
+    "tags": ["two-pointers","string","string-matching"],
+    "type": "ALGO",
+    "metadata": {"function":"search","return":{"type":"int"},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
 }

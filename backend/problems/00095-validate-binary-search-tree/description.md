@@ -1,1 +1,0 @@
-# validate-binary-search-tree

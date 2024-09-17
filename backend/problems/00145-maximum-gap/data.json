@@ -1,6 +1,0 @@
-{
-    "id": "maximum-gap",
-    "title": "Maximum Gap",
-    "difficulty": "HARD",
-    "tags": ["array","sorting","bucket-sort","radix-sort"]
-}

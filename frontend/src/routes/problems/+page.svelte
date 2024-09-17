@@ -1,5 +1,4 @@
 <script>
-	import { PUBLIC_API_BASE_URL } from '$env/static/public';
 	import * as Table from '$lib/components/ui/table';
 	import { diffColors, diffText } from '$lib/data/problems';
 	import { axiosInstance } from '$lib/stores/auth.js';

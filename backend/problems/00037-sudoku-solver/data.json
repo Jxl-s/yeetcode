@@ -1,6 +1,0 @@
-{
-    "id": "sudoku-solver",
-    "title": "Sudoku Solver",
-    "difficulty": "HARD",
-    "tags": ["array","backtracking","matrix"]
-}

@@ -1,6 +1,0 @@
-{
-    "id": "longest-consecutive-sequence",
-    "title": "Longest Consecutive Sequence",
-    "difficulty": "MEDIUM",
-    "tags": ["array","hash-table","union-find"]
-}

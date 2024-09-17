@@ -3,10 +3,14 @@ import { GetProblemsDto } from './dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import * as fs from 'fs';
 import * as path from 'path';
+import { LanguagesService } from 'src/languages/languages.service';
 
 @Injectable()
 export class ProblemsService {
-    constructor(private readonly prisma: PrismaService) {
+    constructor(
+        private readonly prisma: PrismaService,
+        private readonly languageService: LanguagesService,
+    ) {
         this.default();
     }
 
@@ -39,6 +43,9 @@ export class ProblemsService {
                         description,
                         difficulty: dataJson.difficulty,
 
+                        type: dataJson.type,
+                        metadata: JSON.stringify(dataJson.metadata),
+
                         tags: {
                             connectOrCreate: dataJson.tags.map(
                                 (tag: string) => ({
@@ -65,6 +72,8 @@ export class ProblemsService {
                 description: true,
                 difficulty: true,
                 tags: true,
+                metadata: true,
+                type: true,
                 _count: {
                     select: {
                         submissions: true,
@@ -76,6 +85,14 @@ export class ProblemsService {
         if (!problem) {
             throw new NotFoundException('Problem not found');
         }
+
+        const snippets = this.languageService.makeSnippets(
+            problem.type,
+            problem.metadata,
+        );
+
+        delete problem.type;
+        delete problem.metadata;
 
         const acceptedCounts = await this.prisma.submission.count({
             where: {
@@ -92,7 +109,8 @@ export class ProblemsService {
         };
 
         delete newProblem._count;
-        return { data: newProblem };
+
+        return { data: newProblem, snippets };
     }
 
     public async getProblems(dto: GetProblemsDto) {

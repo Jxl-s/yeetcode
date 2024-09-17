@@ -1,8 +1,8 @@
 {
-    "id": "roman-to-integer",
-    "title": "Roman To Integer",
+    "id": "palindrome-num",
+    "title": "Palindrome Num",
     "difficulty": "EASY",
-    "tags": ["hash-table","math","string"],
+    "tags": ["math"],
     "type": "ALGO",
     "metadata": {"function":"search","return":{"type":"int"},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
 }

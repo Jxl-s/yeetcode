@@ -33,6 +33,11 @@ enum SubmitStatus {
   COMPILATION_ERROR
 }
 
+enum ProblemType {
+  ALGO
+  DESIGN
+}
+
 model User {
   id    Int    @id @default(autoincrement())
   email String @unique
@@ -76,6 +81,8 @@ model Problem {
   title       String
   description String
   difficulty  Difficulty
+  type        ProblemType
+  metadata    String // will be JSON for the arguments and return types
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt

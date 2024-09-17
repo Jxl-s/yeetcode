@@ -2,5 +2,7 @@
     "id": "divide-two-integers",
     "title": "Divide Two Integers",
     "difficulty": "MEDIUM",
-    "tags": ["math"]
+    "tags": ["math"],
+    "type": "ALGO",
+    "metadata": {"function":"search","return":{"type":"int"},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
 }

@@ -2,5 +2,7 @@
     "id": "longest-substring-without-repeating-characters",
     "title": "Longest Substring Without Repeating Characters",
     "difficulty": "MEDIUM",
-    "tags": ["hash-table","string","sliding-window"]
+    "tags": ["hash-table","string","sliding-window"],
+    "type": "ALGO",
+    "metadata": {"function":"search","return":{"type":"int"},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
 }

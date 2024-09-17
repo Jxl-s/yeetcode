@@ -1,8 +1,8 @@
 {
-    "id": "roman-to-integer",
-    "title": "Roman To Integer",
-    "difficulty": "EASY",
-    "tags": ["hash-table","math","string"],
+    "id": "letter-combinations-of-a-phone-num",
+    "title": "Letter Combinations Of A Phone Num",
+    "difficulty": "MEDIUM",
+    "tags": ["hash-table","string","backtracking"],
     "type": "ALGO",
     "metadata": {"function":"search","return":{"type":"int"},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
 }

@@ -2,5 +2,7 @@
     "id": "substring-with-concatenation-of-all-words",
     "title": "Substring With Concatenation Of All Words",
     "difficulty": "HARD",
-    "tags": ["hash-table","string","sliding-window"]
+    "tags": ["hash-table","string","sliding-window"],
+    "type": "ALGO",
+    "metadata": {"function":"search","return":{"type":"int"},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
 }

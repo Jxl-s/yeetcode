@@ -2,5 +2,7 @@
     "id": "longest-valid-parentheses",
     "title": "Longest Valid Parentheses",
     "difficulty": "HARD",
-    "tags": ["string","dynamic-programming","stack"]
+    "tags": ["string","dynamic-programming","stack"],
+    "type": "ALGO",
+    "metadata": {"function":"search","return":{"type":"int"},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
 }

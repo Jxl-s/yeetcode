@@ -2,5 +2,7 @@
     "id": "add-two-numbers",
     "title": "Add Two Numbers",
     "difficulty": "MEDIUM",
-    "tags": ["linked-list","math"]
+    "tags": ["linked-list","math"],
+    "type": "ALGO",
+    "metadata": {"function":"search","return":{"type":"int"},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
 }

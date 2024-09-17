@@ -1,6 +1,0 @@
-{
-    "id": "group-anagrams",
-    "title": "Group Anagrams",
-    "difficulty": "MEDIUM",
-    "tags": ["hash-table","string","sorting"]
-}

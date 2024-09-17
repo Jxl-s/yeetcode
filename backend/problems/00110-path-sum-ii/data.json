@@ -1,6 +1,0 @@
-{
-    "id": "path-sum-ii",
-    "title": "Path Sum Ii",
-    "difficulty": "MEDIUM",
-    "tags": ["backtracking","tree","depth-first-search","binary-tree"]
-}

@@ -2,5 +2,7 @@
     "id": "generate-parentheses",
     "title": "Generate Parentheses",
     "difficulty": "MEDIUM",
-    "tags": ["string","dynamic-programming","backtracking"]
+    "tags": ["string","dynamic-programming","backtracking"],
+    "type": "ALGO",
+    "metadata": {"function":"search","return":{"type":"int"},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
 }

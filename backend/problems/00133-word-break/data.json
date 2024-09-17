@@ -1,6 +1,0 @@
-{
-    "id": "word-break",
-    "title": "Word Break",
-    "difficulty": "MEDIUM",
-    "tags": ["hash-table","string","dynamic-programming","trie","memoization"]
-}

@@ -1,6 +1,0 @@
-{
-    "id": "construct-binary-tree-from-inorder-and-postorder-traversal",
-    "title": "Construct Binary Tree From Inorder And Postorder Traversal",
-    "difficulty": "HARD",
-    "tags": ["array","hash-table","divide-and-conquer","tree","binary-tree"]
-}
