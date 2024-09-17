@@ -6,6 +6,7 @@
 	import FileJson from 'lucide-svelte/icons/file-json';
 	import FileScan from 'lucide-svelte/icons/file-scan';
 	import SquareChevronRight from 'lucide-svelte/icons/square-chevron-right';
+	import LoaderCircle from 'lucide-svelte/icons/loader-circle';
 
 	import { page } from '$app/stores';
 	import { axiosInstance } from '$lib/stores/auth';
@@ -18,7 +19,7 @@
 	let problem = null;
 
 	/** @type {{name: string, display: string}[]} */
-	const languages = $page.data.languages;
+	let languages = [];
 
 	async function fetchProblem() {
 		try {
@@ -28,14 +29,26 @@
 			}
 
 			problem = res.data.data;
-
-			// Set snippets and the code
 			setSnippets($page.params.problem_id, res.data.snippets);
 		} catch (err) {
 			console.log(err);
 		}
 	}
 
+	async function fetchLanguages() {
+		try {
+			const res = await axiosInstance.get('/languages');
+			if (res.status !== 200) {
+				throw new Error('Failed to fetch languages');
+			}
+
+			languages = res.data.data;
+		} catch (err) {
+			console.log(err);
+		}
+	}
+
+	fetchLanguages();
 	fetchProblem();
 </script>
 
@@ -73,12 +86,18 @@
 		<Resizable.PaneGroup direction="vertical" class="h-full">
 			<Resizable.Pane defaultSize={50} class="ps-2 pb-2">
 				<div class="bg-primary-foreground w-full h-full rounded-md p-2 flex flex-col">
-					<CodeEditor
-						languages={languages.map((lang) => ({
-							value: lang.name,
-							label: lang.display
-						}))}
-					/>
+					{#if languages.length > 0}
+						<CodeEditor
+							languages={languages.map((lang) => ({
+								value: lang.name,
+								label: lang.display
+							}))}
+						/>
+					{:else}
+						<div class="w-full h-full flex items-center justify-center">
+							<LoaderCircle class="mr-2 w-1/2 h-1/2 animate-spin opacity-20" />
+						</div>
+					{/if}
 				</div>
 			</Resizable.Pane>
 			<Resizable.Handle class="opacity-0 hover:opacity-100 bg-blue-500 duration-300" withHandle />

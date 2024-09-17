@@ -38,5 +38,7 @@
 </header>
 
 <div class="flex-grow">
-	<Monaco language={selected.value} bind:value={$editorStore.code} />
+	{#if selected}
+		<Monaco language={selected.value} bind:value={$editorStore.code} />
+	{/if}
 </div>
