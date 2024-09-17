@@ -4,5 +4,5 @@
     "difficulty": "MEDIUM",
     "tags": ["array","two-pointers","sorting"],
     "type": "ALGO",
-    "metadata": {"function":"search","return":{"type":"int"},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
+    "metadata": {"function":"threeSum","return":{"type":"array","items":{"type":"array","items":{"type":"int"}}},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}}]}
 }

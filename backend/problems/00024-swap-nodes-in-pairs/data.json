@@ -1,8 +1,0 @@
-{
-    "id": "swap-nodes-in-pairs",
-    "title": "Swap Nodes In Pairs",
-    "difficulty": "MEDIUM",
-    "tags": ["linked-list","recursion"],
-    "type": "ALGO",
-    "metadata": {"function":"search","return":{"type":"int"},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
-}

@@ -4,5 +4,5 @@
     "difficulty": "EASY",
     "tags": ["string"],
     "type": "ALGO",
-    "metadata": {"function":"search","return":{"type":"int"},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
+    "metadata": {"function":"longestCommonPrefix","return":{"type":"str"},"arguments":[{"name":"strs","type":"array","items":{"type":"str"}}]}
 }

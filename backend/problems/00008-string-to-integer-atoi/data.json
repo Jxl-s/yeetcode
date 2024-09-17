@@ -4,5 +4,5 @@
     "difficulty": "MEDIUM",
     "tags": ["string"],
     "type": "ALGO",
-    "metadata": {"function":"search","return":{"type":"int"},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
+    "metadata": {"function":"myAtoi","return":{"type":"int"},"arguments":[{"name":"s","type":"str"}]}
 }

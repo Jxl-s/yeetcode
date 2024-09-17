@@ -1,1 +1,0 @@
-# substring-with-concatenation-of-all-words

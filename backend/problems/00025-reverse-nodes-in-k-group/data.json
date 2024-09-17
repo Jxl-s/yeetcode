@@ -1,8 +1,0 @@
-{
-    "id": "reverse-nodes-in-k-group",
-    "title": "Reverse Nodes In K Group",
-    "difficulty": "HARD",
-    "tags": ["linked-list","recursion"],
-    "type": "ALGO",
-    "metadata": {"function":"search","return":{"type":"int"},"arguments":[{"name":"nums","type":"array","items":{"type":"int"}},{"name":"target","type":"int"}]}
-}
