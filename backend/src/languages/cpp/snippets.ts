@@ -11,13 +11,13 @@ export class CppSnippets implements BaseSnippets {
     private static typeParser(t: T) {
         switch (t.type) {
             case Type.ARRAY:
-                return `std::vector<${CppSnippets.typeParser(t.items)}>`;
+                return `vector<${CppSnippets.typeParser(t.items)}>`;
             case Type.INT:
                 return 'int';
             case Type.FLOAT:
                 return 'double';
             case Type.STR:
-                return 'std::string';
+                return 'string';
             case Type.BOOL:
                 return 'bool';
             case Type.LISTNODE:
