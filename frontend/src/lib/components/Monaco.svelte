@@ -15,7 +15,6 @@
 
 	/** @type {import("monaco-editor")} */
 	let Monaco;
-	const dispatch = createEventDispatcher();
 
 	async function monacoInit() {
 		self.MonacoEnvironment = {

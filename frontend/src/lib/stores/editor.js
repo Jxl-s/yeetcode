@@ -11,12 +11,35 @@ export const editorStore = writable({
 
 editorStore.subscribe(
 	(editor) => {
+		// Make sure the code is not empty
 		if (!editor.questionId || !editor.code) return;
 		const key = `editor-${editor.questionId}-${editor.language}`;
+
+		// Don't save default code
+		if (editor.code.trim() === editor.defaults[editor.language].trim()) {
+			localStorage.removeItem(key);
+			return;
+		}
+
 		localStorage.setItem(key, editor.code);
 	},
 	(val) => val?.code
 );
+
+/**
+ * Fetches code stored from the local storage
+ * @param {{questionId: string, language: string, defaults: Record<string, string>}} editor
+ */
+function getLocalCode(editor) {
+	const key = `editor-${editor.questionId}-${editor.language}`;
+	const data = localStorage.getItem(key);
+
+	if (data) {
+		return data;
+	} else {
+		return editor.defaults[editor.language] ?? '';
+	}
+}
 
 export function resetCode(hard = false) {
 	editorStore.update((editor) => {
@@ -38,16 +61,7 @@ export function resetCode(hard = false) {
 export function switchLanguage(language) {
 	editorStore.update((editor) => {
 		editor.language = language;
-		editor.code = editor.defaults[language] ?? '';
-
-		const key = `editor-${editor.questionId}-${editor.language}`;
-		const data = localStorage.getItem(key);
-
-		if (data) {
-			editor.code = data;
-		} else {
-			editor.code = editor.defaults[editor.language] ?? '';
-		}
+		editor.code = getLocalCode(editor);
 
 		return editor;
 	});
@@ -61,16 +75,7 @@ export function setSnippets(questionId, snippets) {
 	editorStore.update((editor) => {
 		editor.questionId = questionId;
 		editor.defaults = snippets;
-
-		// Load the code from storage
-		const key = `editor-${editor.questionId}-${editor.language}`;
-		const data = localStorage.getItem(key);
-
-		if (data) {
-			editor.code = data;
-		} else {
-			editor.code = editor.defaults[editor.language] ?? '';
-		}
+		editor.code = getLocalCode(editor);
 
 		return editor;
 	});

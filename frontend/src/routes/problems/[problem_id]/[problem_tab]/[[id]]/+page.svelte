@@ -1,7 +1,6 @@
 <script>
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Resizable from '$lib/components/ui/resizable';
-	
 
 	import NotebookText from 'lucide-svelte/icons/notebook-text';
 	import FileJson from 'lucide-svelte/icons/file-json';
@@ -50,6 +49,14 @@
 		}
 	}
 
+	function descriptionHref() {
+		return `/problems/${$page.params.problem_id}/description`;
+	}
+
+	function submissionsHref() {
+		return `/problems/${$page.params.problem_id}/submissions`;
+	}
+
 	fetchLanguages();
 	fetchProblem();
 </script>
@@ -61,7 +68,7 @@
 				<Button
 					variant={$page.params.problem_tab === 'description' ? 'default' : 'ghost'}
 					class="flex items-center gap-2"
-					href="description"
+					href={descriptionHref()}
 				>
 					<NotebookText class="w-3 h-3" />
 					Description
@@ -69,7 +76,7 @@
 				<Button
 					variant={$page.params.problem_tab === 'submissions' ? 'default' : 'ghost'}
 					class="flex items-center gap-2"
-					href="submissions"
+					href={submissionsHref()}
 				>
 					<FileJson class="w-3 h-3" />
 					Submissions
