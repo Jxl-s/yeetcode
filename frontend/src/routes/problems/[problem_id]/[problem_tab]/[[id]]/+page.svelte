@@ -89,7 +89,11 @@
 				<ProblemDescriptionFooter {problem} />
 			{:else if $page.params.problem_tab === 'submissions'}
 				<div class="flex-grow overflow-auto px-2 pe-8">
-					<SubmissionsList />
+					{#if $page.params.id !== undefined}
+						<p>some page here</p>
+					{:else}
+						<SubmissionsList />
+					{/if}
 				</div>
 			{/if}
 		</section>
