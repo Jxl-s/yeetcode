@@ -4,6 +4,8 @@
 
 	import Clock from 'lucide-svelte/icons/clock';
 	import DatabaseZap from 'lucide-svelte/icons/memory-stick';
+	import PythonIcon from '../icons/PythonIcon.svelte';
+	import { languageIcons } from '$lib/data/languages';
 
 	const submissions = [
 		{
@@ -26,7 +28,7 @@
 			id: 232394,
 			status: 'Wrong Answer',
 			date: new Date('2024-09-14'),
-			language: 'Python3',
+			language: 'Java',
 			runtime: null,
 			memory: null
 		},
@@ -92,7 +94,15 @@
 						</span>
 					</a>
 				</Table.Cell>
-				<Table.Cell>{submission.language}</Table.Cell>
+				<Table.Cell>
+					<span class="flex items-center gap-2 text-muted-foreground">
+						{#if submission.language in languageIcons}
+							{@const Icon = languageIcons[submission.language]}
+							<Icon class="w-4 h-4" />
+						{/if}
+						{submission.language}
+					</span>
+				</Table.Cell>
 				<Table.Cell>
 					<span class="flex items-center gap-2 text-muted-foreground">
 						<Clock class="w-3 h-3" />

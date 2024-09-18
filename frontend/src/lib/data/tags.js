@@ -1,3 +1,4 @@
+// TODO: Use i18n to get rid of this
 export const tags = {
 	array: 'Array',
 	'hash-table': 'Hash Table',
