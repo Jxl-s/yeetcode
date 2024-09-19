@@ -8,6 +8,7 @@
 	import { onMount } from 'svelte';
 	import PythonIcon from '../icons/PythonIcon.svelte';
 	import { axiosInstance } from '$lib/stores/auth';
+	import AcceptedInfo from './AcceptedInfo.svelte';
 
 	/** @type {string} */
 	export let problemId;
@@ -72,8 +73,11 @@
 		<div class="px-4 mt-4">
 			<header class="flex justify-between">
 				<div>
-					<span class="font-semibold text-green-500 block">Accepted</span>
-					<span class="text-xs text-muted-foreground block">
+					<header class="flex gap-4 items-center">
+						<span class="font-semibold text-green-500 text-lg">Accepted</span>
+						<span class="text-xs text-muted-foreground/50">Good Job!</span>
+					</header>
+					<span class="text-xs text-muted-foreground block mt-1">
 						<!-- You submitted at Sep 14, 2024 12:20 -->
 						You submitted at {new Date(submissionDetails.created_at).toLocaleDateString('en-US', {
 							year: 'numeric',
@@ -95,25 +99,11 @@
 					</Button>
 				</div>
 			</header>
-			<section class="w-full flex mt-4">
-				<div class="w-full">
-					<span class="font-semibold flex items-center gap-2">
-						<Clock class="w-3 h-3" />
-						Runtime
-					</span>
-					<span class="font-medium">{submissionDetails.runtime}</span>
-					<span class="text-sm text-muted-foreground">ms</span>
-				</div>
-				<div class="w-full">
-					<span class="font-semibold flex items-center gap-2">
-						<DatabaseZap class="w-3 h-3" />
-						Memory
-					</span>
-					<span class="font-medium">{submissionDetails.memory}</span>
-					<span class="text-sm text-muted-foreground">MB</span>
-				</div>
-			</section>
-
+			<AcceptedInfo
+				class="w-full mt-4"
+				runtime={submissionDetails.runtime}
+				memory={submissionDetails.memory}
+			/>
 			<!-- Code section -->
 			<div class="mt-8 text-sm opacity-50">
 				<span class="font-semibold flex gap-2 items-center">
