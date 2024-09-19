@@ -89,7 +89,10 @@
 			{:else if $page.params.problem_tab === 'submissions'}
 				<div class="flex-grow overflow-auto px-2 pe-8">
 					{#if $page.params.id !== undefined}
-						<SubmissionDetails problemId={$page.params.problem_id} />
+						<SubmissionDetails
+							problemId={$page.params.problem_id}
+							submissionId={parseInt($page.params.id)}
+						/>
 					{:else}
 						<SubmissionsList {submissions} />
 					{/if}

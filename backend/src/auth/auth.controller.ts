@@ -13,7 +13,7 @@ export class AuthController {
     @Get('protected')
     @UseGuards(JwtGuard)
     public async protected(@GetUser() user: AppUser, @Req() req: Request) {
-        return `you are logged in as user #${user.userId}`;
+        return `you are logged in as user #${user.id}`;
     }
 
     @Get('google')
