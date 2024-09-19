@@ -52,7 +52,7 @@ export class Python3Snippets implements BaseSnippets {
     }
 
     public makeAlgo(metadata: MetadataAlgo) {
-        let snippet = 'class Solution():\n';
+        let snippet = 'class Solution:\n';
 
         const method = new Method({
             className: 'Solution',

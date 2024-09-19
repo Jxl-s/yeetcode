@@ -6,6 +6,7 @@
 	import DatabaseZap from 'lucide-svelte/icons/memory-stick';
 	import { languageIcons } from '$lib/data/languages';
 	import { submissionStatus } from '$lib/data/submissions';
+	import { goto } from '$app/navigation';
 
 	/** @type {import('$lib/data/submissions').ListedSubmission[]} */
 	export let submissions = [];
@@ -42,18 +43,16 @@
 	</Table.Header>
 	<Table.Body>
 		{#each submissionsFormatted as submission}
-			<Table.Row>
+			<Table.Row on:click={() => goto(submissionHref(submission.id))} class="cursor-pointer">
 				<Table.Cell>
-					<a href={submissionHref(submission.id)} class="block font-semibold">
-						<span
-							class={`block font-semibold ${submission.status === 'Accepted' ? 'text-green-500' : 'text-red-500'}`}
-						>
-							{submission.status}
-						</span>
-						<span class="block text-muted-foreground text-xs">
-							{submission.date}
-						</span>
-					</a>
+					<span
+						class={`block font-semibold ${submission.status === 'Accepted' ? 'text-green-500' : 'text-red-500'}`}
+					>
+						{submission.status}
+					</span>
+					<span class="block text-muted-foreground text-xs">
+						{submission.date}
+					</span>
 				</Table.Cell>
 				<Table.Cell>
 					<span class="flex items-center gap-2 text-muted-foreground">
