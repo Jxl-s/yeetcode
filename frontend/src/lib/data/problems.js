@@ -4,11 +4,13 @@ export const diffColors = {
 	HARD: 'text-red-500'
 };
 
+// TODO: move in i18n file
 export const diffText = {
 	EASY: 'Easy',
 	MEDIUM: 'Medium',
 	HARD: 'Hard'
 };
+
 /**
  * @typedef {Object} BaseProblem The base type for problems.
  * @property {number} number The problem number.

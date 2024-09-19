@@ -15,12 +15,16 @@
 	import ProblemDescriptionFooter from '$lib/components/problems/ProblemDescriptionFooter.svelte';
 	import { setSnippets } from '$lib/stores/editor';
 	import SubmissionsList from '$lib/components/problems/SubmissionsList.svelte';
+	import { onMount } from 'svelte';
 
 	/** @type {import('$lib/data/problems').Problem | null} */
 	let problem = null;
 
 	/** @type {{name: string, display: string}[]} */
 	let languages = [];
+
+	/** @type {import('$lib/data/submissions').ListedSubmission[]} */
+	let submissions = [];
 
 	async function fetchProblem() {
 		try {
@@ -49,6 +53,19 @@
 		}
 	}
 
+	async function fetchSubmissions() {
+		try {
+			const res = await axiosInstance.get(`/problems/${$page.params.problem_id}/submissions`);
+			if (res.status !== 200) {
+				throw new Error('Failed to fetch submissions');
+			}
+
+			submissions = res.data.data;
+		} catch (err) {
+			console.log(err);
+		}
+	}
+
 	function descriptionHref() {
 		return `/problems/${$page.params.problem_id}/description`;
 	}
@@ -57,8 +74,11 @@
 		return `/problems/${$page.params.problem_id}/submissions`;
 	}
 
-	fetchLanguages();
-	fetchProblem();
+	onMount(() => {
+		fetchLanguages();
+		fetchProblem();
+		fetchSubmissions();
+	});
 </script>
 
 <Resizable.PaneGroup direction="horizontal">
@@ -92,7 +112,7 @@
 					{#if $page.params.id !== undefined}
 						<p>some page here</p>
 					{:else}
-						<SubmissionsList />
+						<SubmissionsList {submissions} />
 					{/if}
 				</div>
 			{/if}

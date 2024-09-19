@@ -1,5 +1,5 @@
 import { get, writable } from 'svelte/store';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 export const AuthState = {
 	None: 0,
@@ -39,15 +39,19 @@ export async function fetchToken(isRefresh = false) {
 			return true;
 		}
 	} catch (error) {
-		console.error('Error fetching token:', error);
-	}
+		if (error instanceof AxiosError) {
+			console.error('Error fetching token:', error);
 
-	// Failed to obtain token
-	authStore.update((store) => ({
-		...store,
-		state: AuthState.SignedOut,
-		token: null
-	}));
+			// Failed to obtain token
+			if (error.status === 401) {
+				authStore.update((store) => ({
+					...store,
+					state: AuthState.SignedOut,
+					token: null
+				}));
+			}
+		}
+	}
 
 	return false;
 }
@@ -110,13 +114,6 @@ axiosInstance.interceptors.response.use(
 				return axiosInstance(originalRequest);
 			}
 		}
-
-		// Failed to refresh token
-		authStore.update((store) => ({
-			...store,
-			state: AuthState.SignedOut,
-			token: null
-		}));
 
 		return Promise.reject(error);
 	}

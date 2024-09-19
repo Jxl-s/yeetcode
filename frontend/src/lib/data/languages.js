@@ -10,8 +10,8 @@ import PythonIcon from '$lib/components/icons/PythonIcon.svelte';
  * @type {Record<string, any>}
  */
 export const languageIcons = {
-	Python3: PythonIcon,
-	Java: JavaIcon,
-	JavaScript: JavaScriptIcon,
-	'C++': CppIcon
+	python3: PythonIcon,
+	java: JavaIcon,
+	javascript: JavaScriptIcon,
+	cpp: CppIcon
 };

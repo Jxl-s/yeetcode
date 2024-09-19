@@ -182,4 +182,32 @@ export class ProblemsService {
         // Return the modified problems with the acceptance rates
         return { data: problemsWithAcceptance, count: problemCount };
     }
+
+    public async getSubmissions(problemId: string, userId: number) {
+        const submissions = await this.prisma.submission.findMany({
+            where: {
+                user_id: userId,
+                problem_id: problemId,
+            },
+            select: {
+                id: true,
+                status: true,
+                created_at: true,
+                language: {
+                    select: {
+                        name: true,
+                    },
+                },
+                runtime: true,
+                memory: true,
+            },
+        });
+
+        const submissionsLang = submissions.map((submission) => ({
+            ...submission,
+            language: submission.language.name,
+        }));
+
+        return { data: submissionsLang };
+    }
 }

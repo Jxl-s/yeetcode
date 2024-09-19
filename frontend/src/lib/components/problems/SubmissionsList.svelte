@@ -4,51 +4,11 @@
 
 	import Clock from 'lucide-svelte/icons/clock';
 	import DatabaseZap from 'lucide-svelte/icons/memory-stick';
-	import PythonIcon from '../icons/PythonIcon.svelte';
 	import { languageIcons } from '$lib/data/languages';
+	import { submissionStatus } from '$lib/data/submissions';
 
-	const submissions = [
-		{
-			id: 232392,
-			status: 'Accepted',
-			date: new Date('2024-09-14'),
-			language: 'Python3',
-			runtime: 1201,
-			memory: 0.1
-		},
-		{
-			id: 232393,
-			status: 'Time Limit Exceeded',
-			date: new Date('2024-09-14'),
-			language: 'Python3',
-			runtime: null,
-			memory: null
-		},
-		{
-			id: 232394,
-			status: 'Wrong Answer',
-			date: new Date('2024-09-14'),
-			language: 'Java',
-			runtime: null,
-			memory: null
-		},
-		{
-			id: 232395,
-			status: 'Accepted',
-			date: new Date('2024-09-14'),
-			language: 'JavaScript',
-			runtime: 950,
-			memory: 0.2
-		},
-		{
-			id: 232396,
-			status: 'Compilation Error',
-			date: new Date('2024-09-14'),
-			language: 'C++',
-			runtime: null,
-			memory: null
-		}
-	];
+	/** @type {import('$lib/data/submissions').ListedSubmission[]} */
+	export let submissions = [];
 
 	/**
 	 * Generates the submission href
@@ -60,9 +20,10 @@
 
 	$: submissionsFormatted = submissions.map((submission) => ({
 		...submission,
+		status: submissionStatus[submission.status] ?? 'N/A',
 		runtime: submission.runtime ? `${submission.runtime} ms` : 'N/A',
 		memory: submission.memory ? `${submission.memory} MB` : 'N/A',
-		date: submission.date.toLocaleDateString('en-US', {
+		date: new Date(submission.created_at).toLocaleDateString('en-US', {
 			year: 'numeric',
 			month: 'short',
 			day: 'numeric'

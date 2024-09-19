@@ -97,14 +97,14 @@ model Tags {
 }
 
 model Submission {
-  id             Int          @id @default(autoincrement())
-  user_id        Int
-  problem_id     String
-  language_id    Int
-  code           String
-  status         SubmitStatus
-  execution_time Int
-  memory_usage   Int
+  id          Int          @id @default(autoincrement())
+  user_id     Int
+  problem_id  String
+  language_id Int
+  code        String
+  status      SubmitStatus
+  runtime     Decimal?
+  memory      Decimal?
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
