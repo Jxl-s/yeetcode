@@ -2,8 +2,6 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Resizable from '$lib/components/ui/resizable';
 
-	import NotebookText from 'lucide-svelte/icons/notebook-text';
-	import FileJson from 'lucide-svelte/icons/file-json';
 	import FileScan from 'lucide-svelte/icons/file-scan';
 	import SquareChevronRight from 'lucide-svelte/icons/square-chevron-right';
 	import LoaderCircle from 'lucide-svelte/icons/loader-circle';
@@ -16,6 +14,7 @@
 	import { setSnippets } from '$lib/stores/editor';
 	import SubmissionsList from '$lib/components/problems/SubmissionsList.svelte';
 	import { onMount } from 'svelte';
+	import ProblemHeader from '$lib/components/problems/ProblemHeader.svelte';
 
 	/** @type {import('$lib/data/problems').Problem | null} */
 	let problem = null;
@@ -66,14 +65,6 @@
 		}
 	}
 
-	function descriptionHref() {
-		return `/problems/${$page.params.problem_id}/description`;
-	}
-
-	function submissionsHref() {
-		return `/problems/${$page.params.problem_id}/submissions`;
-	}
-
 	onMount(() => {
 		fetchLanguages();
 		fetchProblem();
@@ -84,24 +75,11 @@
 <Resizable.PaneGroup direction="horizontal">
 	<Resizable.Pane defaultSize={50} class="pe-2 h-full">
 		<section class="bg-primary-foreground w-full h-full flex flex-col rounded-md px-4 pb-4">
-			<header class="sticky top-0 pt-4 pb-2 flex gap-2 bg-primary-foreground z-10">
-				<Button
-					variant={$page.params.problem_tab === 'description' ? 'default' : 'ghost'}
-					class="flex items-center gap-2"
-					href={descriptionHref()}
-				>
-					<NotebookText class="w-3 h-3" />
-					Description
-				</Button>
-				<Button
-					variant={$page.params.problem_tab === 'submissions' ? 'default' : 'ghost'}
-					class="flex items-center gap-2"
-					href={submissionsHref()}
-				>
-					<FileJson class="w-3 h-3" />
-					Submissions
-				</Button>
-			</header>
+			<ProblemHeader
+				class="pt-4 pb-2"
+				problemId={$page.params.problem_id}
+				tab={$page.params.problem_tab}
+			/>
 			{#if $page.params.problem_tab === 'description'}
 				<div class="flex-grow overflow-auto px-2 mt-2 pb-4 pe-8">
 					<ProblemDescription {problem} />
