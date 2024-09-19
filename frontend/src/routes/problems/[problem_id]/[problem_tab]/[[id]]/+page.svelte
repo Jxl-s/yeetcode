@@ -15,11 +15,7 @@
 	import SubmissionsList from '$lib/components/problems/SubmissionsList.svelte';
 	import { onMount } from 'svelte';
 	import ProblemHeader from '$lib/components/problems/ProblemHeader.svelte';
-
-	import Clock from 'lucide-svelte/icons/clock';
-	import DatabaseZap from 'lucide-svelte/icons/memory-stick';
-	import MoveLeft from 'lucide-svelte/icons/move-left';
-	import Copy from 'lucide-svelte/icons/copy';
+	import SubmissionDetails from '$lib/components/problems/SubmissionDetails.svelte';
 
 	/** @type {import('$lib/data/problems').Problem | null} */
 	let problem = null;
@@ -93,49 +89,7 @@
 			{:else if $page.params.problem_tab === 'submissions'}
 				<div class="flex-grow overflow-auto px-2 pe-8">
 					{#if $page.params.id !== undefined}
-						<div class="w-full h-full">
-							<a
-								class="text-muted-foreground flex gap-2 items-center hover:underline text-sm"
-								href={`/problems/${$page.params.problem_id}/submissions`}
-							>
-								<MoveLeft class="w-3 h-3" />
-								Back to Submissions
-							</a>
-							<div class="px-4 mt-4">
-								<header class="flex justify-between">
-									<div>
-										<span class="font-semibold text-green-500 block">Accepted</span>
-										<span class="text-xs text-muted-foreground block"
-											>You submitted at Sep 14, 2024 12:20</span
-										>
-									</div>
-									<div>
-										<Button variant="secondary">
-											<Copy class="w-3 h-3 mr-3" />
-											Copy Solution
-										</Button>
-									</div>
-								</header>
-								<section class="w-full flex px-3 mt-4">
-									<div class="w-full">
-										<span class="font-semibold flex items-center gap-2">
-											<Clock class="w-3 h-3" />
-											Runtime
-										</span>
-										<span class="font-medium">1100</span>
-										<span class="text-sm text-muted-foreground">ms</span>
-									</div>
-									<div class="w-full">
-										<span class="font-semibold flex items-center gap-2">
-											<DatabaseZap class="w-3 h-3" />
-											Memory
-										</span>
-										<span class="font-medium">82.2</span>
-										<span class="text-sm text-muted-foreground">MB</span>
-									</div>
-								</section>
-							</div>
-						</div>
+						<SubmissionDetails problemId={$page.params.problem_id} />
 					{:else}
 						<SubmissionsList {submissions} />
 					{/if}
