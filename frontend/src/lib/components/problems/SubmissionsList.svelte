@@ -46,7 +46,9 @@
 			<Table.Row on:click={() => goto(submissionHref(submission.id))} class="cursor-pointer">
 				<Table.Cell>
 					<span
-						class={`block font-semibold ${submission.status === 'Accepted' ? 'text-green-500' : 'text-red-500'}`}
+						class="block font-semibold {submission.status === 'Accepted'
+							? 'text-green-500'
+							: 'text-red-500'}"
 					>
 						{submission.status}
 					</span>

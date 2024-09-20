@@ -12,7 +12,7 @@
 	export { className as class };
 </script>
 
-<section class={`${className} flex`}>
+<section class="{className} flex">
 	<div class="w-full">
 		<span class="font-semibold flex items-center gap-2">
 			<Clock class="w-3 h-3" />

@@ -14,7 +14,7 @@
 
 {#if problem}
 	<h1 class="text-2xl font-semibold">{problem.number}. {problem.title}</h1>
-	<span class={`${diffColors[problem.difficulty] ?? ''} text-sm block mt-2`}>
+	<span class="{diffColors[problem.difficulty] ?? ''} text-sm block mt-2">
 		{diffText[problem.difficulty] ?? ''}
 	</span>
 	<div class="text-sm mt-4 desc-md-container pb-4">

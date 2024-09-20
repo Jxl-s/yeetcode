@@ -93,7 +93,7 @@
 						<CircleCheckBig class="w-4 h-4 text-green-500" />
 					</Table.Cell>
 					<Table.Cell class="font-semibold">
-						<a href={`/problems/${problem.id}`} class="hover:underline">
+						<a href="/problems/{problem.id}" class="hover:underline">
 							{problem.number}. {problem.title}
 						</a>
 					</Table.Cell>
@@ -102,7 +102,7 @@
 							? ((problem.accepted / problem.submissions) * 100).toFixed(1)
 							: '0.0'}%
 					</Table.Cell>
-					<Table.Cell class={`${diffColors[problem.difficulty] ?? ''} font-semibold`}>
+					<Table.Cell class="{diffColors[problem.difficulty] ?? ''} font-semibold">
 						{diffText[problem.difficulty] ?? ''}
 					</Table.Cell>
 				</Table.Row>

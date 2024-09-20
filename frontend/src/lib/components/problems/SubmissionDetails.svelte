@@ -9,6 +9,7 @@
 	import PythonIcon from '../icons/PythonIcon.svelte';
 	import { axiosInstance } from '$lib/stores/auth';
 	import AcceptedInfo from './AcceptedInfo.svelte';
+	import { submissionColors, submissionStatus } from '$lib/data/submissions';
 
 	/** @type {string} */
 	export let problemId;
@@ -74,7 +75,9 @@
 			<header class="flex justify-between">
 				<div>
 					<header class="flex gap-4 items-center">
-						<span class="font-semibold text-green-500 text-lg">Accepted</span>
+						<span class="font-semibold text-lg {submissionColors[submissionDetails.status]}"
+							>{submissionStatus[submissionDetails.status]}</span
+						>
 						<span class="text-xs text-muted-foreground/50">Good Job!</span>
 					</header>
 					<span class="text-xs text-muted-foreground block mt-1">

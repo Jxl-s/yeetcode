@@ -16,7 +16,7 @@
 	const submissionsHref = `/problems/${problemId}/submissions`;
 </script>
 
-<header class={`flex gap-2 bg-primary-foreground ${className}`}>
+<header class="flex gap-2 bg-primary-foreground {className}">
 	<Button
 		variant={tab === 'description' ? 'default' : 'ghost'}
 		class="flex items-center gap-2"
