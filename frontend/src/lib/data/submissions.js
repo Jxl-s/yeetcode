@@ -15,6 +15,8 @@
 /**
  * @typedef {BaseSubmission & {
  *   code: string,
+ *   passed: number,
+ * 	 error?: string
  * }} Submission A problem with more details.
  */
 

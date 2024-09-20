@@ -10,6 +10,7 @@
 	import { axiosInstance } from '$lib/stores/auth';
 	import AcceptedInfo from './AcceptedInfo.svelte';
 	import { submissionColors, submissionStatus } from '$lib/data/submissions';
+	import ErrorInfo from './ErrorInfo.svelte';
 
 	/** @type {string} */
 	export let problemId;
@@ -75,10 +76,12 @@
 			<header class="flex justify-between">
 				<div>
 					<header class="flex gap-4 items-center">
-						<span class="font-semibold text-lg {submissionColors[submissionDetails.status]}"
-							>{submissionStatus[submissionDetails.status]}</span
+						<span class="font-semibold text-lg {submissionColors[submissionDetails.status]}">
+							{submissionStatus[submissionDetails.status]}</span
 						>
-						<span class="text-xs text-muted-foreground/50">Good Job!</span>
+						<span class="text-xs text-muted-foreground/50"
+							>{submissionDetails.passed} / 120 testcases passed</span
+						>
 					</header>
 					<span class="text-xs text-muted-foreground block mt-1">
 						<!-- You submitted at Sep 14, 2024 12:20 -->
@@ -102,11 +105,31 @@
 					</Button>
 				</div>
 			</header>
-			<AcceptedInfo
-				class="w-full mt-4"
-				runtime={submissionDetails.runtime}
-				memory={submissionDetails.memory}
-			/>
+			{#if submissionDetails.status === 'ACCEPTED'}
+				<AcceptedInfo
+					class="w-full mt-4"
+					runtime={submissionDetails.runtime}
+					memory={submissionDetails.memory}
+				/>
+			{:else if submissionDetails.status === 'WRONG_ANSWER'}
+				<div class="w-full mt-4 flex flex-col gap-6">
+					<div>
+						<span class="block text-xs font-semibold text-muted-foreground">Input</span>
+						<code class="text-sm">[0,0,0,0]</code>
+					</div>
+					<div>
+						<span class="block text-xs font-semibold text-muted-foreground">Output</span>
+						<code class="text-sm">[[0,0,0,0], [0,0,0,0]]</code>
+					</div>
+					<div>
+						<span class="block text-xs font-semibold text-muted-foreground">Expected</span>
+						<code class="text-sm">[[0,0,0]]</code>
+					</div>
+				</div>
+			{:else}
+				<ErrorInfo class="w-full mt-4" error={submissionDetails.error ?? ''} />
+			{/if}
+
 			<!-- Code section -->
 			<div class="mt-8 text-sm opacity-50">
 				<span class="font-semibold flex gap-2 items-center">

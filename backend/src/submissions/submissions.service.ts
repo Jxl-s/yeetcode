@@ -18,6 +18,9 @@ export class SubmissionsService {
                 runtime: true,
                 memory: true,
 
+                passed: true,
+                error: true,
+
                 language: {
                     select: {
                         name: true,

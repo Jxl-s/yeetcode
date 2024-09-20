@@ -89,6 +89,7 @@ model Problem {
 
   tags        Tags[]
   submissions Submission[]
+  test_cases  TestCase[]
 }
 
 model Tags {
@@ -103,8 +104,15 @@ model Submission {
   language_id Int
   code        String
   status      SubmitStatus
-  runtime     Decimal?
-  memory      Decimal?
+
+  // For success
+  runtime Decimal?
+  memory  Decimal?
+  passed  Int
+
+  // For failure
+  error        String?
+  wrong_output String?
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
@@ -119,4 +127,16 @@ model Language {
   name String
 
   submissions Submission[]
+}
+
+model TestCase {
+  id         Int
+  problem_id String
+
+  input  String
+  output String
+
+  problem Problem @relation(fields: [problem_id], references: [id])
+
+  @@id([problem_id, id])
 }
