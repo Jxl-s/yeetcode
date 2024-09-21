@@ -5,7 +5,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class SubmissionsService {
     constructor(private readonly prisma: PrismaService) {}
 
-    public async getSubmission(id: number, userId: number) {
+    public async getSubmission(id: string, userId: number) {
         const submission = await this.prisma.submission.findUnique({
             where: {
                 id,

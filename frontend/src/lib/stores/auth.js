@@ -43,7 +43,7 @@ export async function fetchToken(isRefresh = false) {
 			console.error('Error fetching token:', error);
 
 			// Failed to obtain token
-			if (error.status === 401) {
+			if (error.status === 401 || error.status === 403) {
 				authStore.update((store) => ({
 					...store,
 					state: AuthState.SignedOut,

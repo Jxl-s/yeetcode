@@ -1,3 +1,4 @@
+import { BaseClasses } from '../common/classes';
 import {
     BaseSnippets,
     MetadataAlgo,
@@ -6,6 +7,7 @@ import {
     T,
     Type,
 } from '../common/snippets';
+import { CppClasses } from './classes';
 
 export class CppSnippets implements BaseSnippets {
     private static typeParser(t: T) {
@@ -31,7 +33,7 @@ export class CppSnippets implements BaseSnippets {
         }
     }
 
-    private static methodParser(method: Method, isConstructor = false) {
+    private static methodParser(method: Method) {
         const argList = method.args
             .map((arg) => `${CppSnippets.typeParser(arg)} ${arg.name}`)
             .join(', ');
@@ -48,6 +50,30 @@ export class CppSnippets implements BaseSnippets {
         return snippet;
     }
 
+    private makeComment(metadata: MetadataAlgo | MetadataDesign) {
+        if (metadata.types.find((t) => t === 'listnode')) {
+            let comment = `/**`;
+            comment += `\n * ${BaseClasses.ListNode}`;
+            comment += CppClasses.ListNode.split('\n')
+                .map((line) => `\n * ${line}`)
+                .join('');
+            comment += '\n */';
+            return comment;
+        }
+
+        if (metadata.types.find((t) => t === 'treenode')) {
+            let comment = `/**`;
+            comment += `\n * ${BaseClasses.TreeNode}`;
+            comment += CppClasses.TreeNode.split('\n')
+                .map((line) => `\n * ${line}`)
+                .join('');
+            comment += '\n */';
+            return comment;
+        }
+
+        return '';
+    }
+
     public makeAlgo(metadata: MetadataAlgo) {
         let snippet = 'class Solution {\npublic:\n';
 
@@ -60,6 +86,11 @@ export class CppSnippets implements BaseSnippets {
 
         snippet += Method.indent(CppSnippets.methodParser(method));
         snippet += '\n};';
+
+        const comments = this.makeComment(metadata);
+        if (comments) {
+            return comments + '\n' + snippet;
+        }
 
         return snippet;
     }
@@ -79,6 +110,12 @@ export class CppSnippets implements BaseSnippets {
         });
 
         snippet += methods.join('\n\n') + '\n};';
+
+        const comments = this.makeComment(metadata);
+        if (comments) {
+            return comments + '\n' + snippet;
+        }
+
         return snippet;
     }
 }

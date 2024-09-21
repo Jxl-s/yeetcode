@@ -1,3 +1,4 @@
+import { BaseClasses } from '../common/classes';
 import {
     BaseSnippets,
     Method,
@@ -6,6 +7,7 @@ import {
     MetadataAlgo,
     MetadataDesign,
 } from '../common/snippets';
+import { Python3Classes } from './classes';
 
 export class Python3Snippets implements BaseSnippets {
     private static typeParser(t: T) {
@@ -51,6 +53,28 @@ export class Python3Snippets implements BaseSnippets {
         return snippet;
     }
 
+    private makeComment(metadata: MetadataAlgo | MetadataDesign) {
+        if (metadata.types.find((t) => t === 'listnode')) {
+            let comment = '# ' + BaseClasses.ListNode + '\n';
+            comment += Python3Classes.ListNode.split('\n')
+                .map((line) => `# ${line}`)
+                .join('\n');
+
+            return comment;
+        }
+
+        if (metadata.types.find((t) => t === 'treenode')) {
+            let comment = '# ' + BaseClasses.TreeNode + '\n';
+            comment += Python3Classes.TreeNode.split('\n')
+                .map((line) => `# ${line}`)
+                .join('\n');
+
+            return comment;
+        }
+
+        return '';
+    }
+
     public makeAlgo(metadata: MetadataAlgo) {
         let snippet = 'class Solution:\n';
 
@@ -62,6 +86,12 @@ export class Python3Snippets implements BaseSnippets {
         });
 
         snippet += Method.indent(Python3Snippets.methodParser(method));
+
+        const comments = this.makeComment(metadata);
+        if (comments) {
+            return comments + '\n' + snippet;
+        }
+
         return snippet;
     }
 
@@ -80,6 +110,12 @@ export class Python3Snippets implements BaseSnippets {
         });
 
         snippet += methods.join('\n\n') + '\n';
+
+        const comments = this.makeComment(metadata);
+        if (comments) {
+            return comments + '\n' + snippet;
+        }
+
         return snippet;
     }
 }

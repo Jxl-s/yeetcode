@@ -1,3 +1,4 @@
+import { BaseClasses } from '../common/classes';
 import {
     BaseSnippets,
     MetadataAlgo,
@@ -6,6 +7,7 @@ import {
     T,
     Type,
 } from '../common/snippets';
+import { JavaScriptClasses } from './classes';
 
 export class JavaScriptSnippets implements BaseSnippets {
     private typeParser(t: T) {
@@ -61,6 +63,30 @@ export class JavaScriptSnippets implements BaseSnippets {
         return snippet;
     }
 
+    private makeComment(metadata: MetadataAlgo | MetadataDesign) {
+        if (metadata.types.find((t) => t === 'listnode')) {
+            let comment = `/**`;
+            comment += `\n * ${BaseClasses.ListNode}`;
+            comment += JavaScriptClasses.ListNode.split('\n')
+                .map((line) => `\n * ${line}`)
+                .join('');
+            comment += '\n */';
+            return comment;
+        }
+
+        if (metadata.types.find((t) => t === 'treenode')) {
+            let comment = `/**`;
+            comment += `\n * ${BaseClasses.TreeNode}`;
+            comment += JavaScriptClasses.TreeNode.split('\n')
+                .map((line) => `\n * ${line}`)
+                .join('');
+            comment += '\n */';
+            return comment;
+        }
+
+        return '';
+    }
+
     public makeAlgo(metadata: MetadataAlgo) {
         const method = new Method({
             name: metadata.function,
@@ -69,7 +95,13 @@ export class JavaScriptSnippets implements BaseSnippets {
             className: 'Solution',
         });
 
-        return this.methodParser(method, true);
+        const snippet = this.methodParser(method, true);
+        const comments = this.makeComment(metadata);
+        if (comments) {
+            return comments + '\n' + snippet;
+        }
+
+        return snippet;
     }
 
     public makeDesign(metadata: MetadataDesign) {
@@ -87,6 +119,12 @@ export class JavaScriptSnippets implements BaseSnippets {
         });
 
         snippet += methods.join('\n\n') + '\n';
+
+        const comments = this.makeComment(metadata);
+        if (comments) {
+            return comments + '\n' + snippet;
+        }
+
         return snippet;
     }
 }

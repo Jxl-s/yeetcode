@@ -17,7 +17,7 @@ export class SubmissionsController {
     @UseGuards(JwtGuard)
     async getSubmission(
         @GetUser('id') userId: number,
-        @Param('submission_id', ParseIntPipe) submissionId: number,
+        @Param('submission_id') submissionId: string,
     ) {
         return this.submissionsService.getSubmission(submissionId, userId);
     }

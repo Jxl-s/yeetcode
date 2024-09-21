@@ -98,6 +98,7 @@ export class MetadataAlgo {
     public function: string;
     public return: T;
     public args: T[];
+    public types: string[] = [];
 
     constructor({
         function: func,
@@ -111,6 +112,15 @@ export class MetadataAlgo {
         this.function = func;
         this.return = ret;
         this.args = args;
+
+        // recursively get all types
+        const getTypes = (t: T) => {
+            this.types.push(t.type);
+            if (t.items) getTypes(t.items);
+        };
+
+        getTypes(ret);
+        args.forEach((arg) => getTypes(arg));
     }
 
     public serialize() {
@@ -133,6 +143,7 @@ export class MetadataAlgo {
 export class MetadataDesign {
     public className: string;
     public methods: MetadataAlgo[];
+    public types: string[] = [];
 
     constructor({
         className,
@@ -143,6 +154,12 @@ export class MetadataDesign {
     }) {
         this.className = className;
         this.methods = methods;
+
+        methods.forEach((method) => {
+            method.types.forEach((type) => {
+                if (!this.types.includes(type)) this.types.push(type);
+            });
+        });
     }
 
     public serialize() {

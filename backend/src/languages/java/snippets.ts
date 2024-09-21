@@ -1,3 +1,4 @@
+import { BaseClasses } from '../common/classes';
 import {
     MetadataAlgo,
     MetadataDesign,
@@ -6,6 +7,7 @@ import {
     T,
     Type,
 } from '../common/snippets';
+import { JavaClasses } from './classes';
 
 export class JavaSnippets implements BaseSnippets {
     private static typeParser(t: T) {
@@ -50,6 +52,30 @@ export class JavaSnippets implements BaseSnippets {
         return snippet;
     }
 
+    private makeComment(metadata: MetadataAlgo | MetadataDesign) {
+        if (metadata.types.find((t) => t === 'listnode')) {
+            let comment = `/**`;
+            comment += `\n * ${BaseClasses.ListNode}`;
+            comment += JavaClasses.ListNode.split('\n')
+                .map((line) => `\n * ${line}`)
+                .join('');
+            comment += '\n */';
+            return comment;
+        }
+
+        if (metadata.types.find((t) => t === 'treenode')) {
+            let comment = `/**`;
+            comment += `\n * ${BaseClasses.TreeNode}`;
+            comment += JavaClasses.TreeNode.split('\n')
+                .map((line) => `\n * ${line}`)
+                .join('');
+            comment += '\n */';
+            return comment;
+        }
+
+        return '';
+    }
+
     public makeAlgo(metadata: MetadataAlgo) {
         let snippet = 'class Solution {\n';
 
@@ -62,6 +88,11 @@ export class JavaSnippets implements BaseSnippets {
 
         snippet += Method.indent(JavaSnippets.methodParser(method));
         snippet += '\n}';
+
+        const comments = this.makeComment(metadata);
+        if (comments) {
+            return comments + '\n' + snippet;
+        }
 
         return snippet;
     }
@@ -81,6 +112,12 @@ export class JavaSnippets implements BaseSnippets {
         });
 
         snippet += methods.join('\n\n') + '\n}\n';
+
+        const comments = this.makeComment(metadata);
+        if (comments) {
+            return comments + '\n' + snippet;
+        }
+
         return snippet;
     }
 }
