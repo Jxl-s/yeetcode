@@ -1,4 +1,6 @@
-export class CppClasses {
+import { BaseClasses } from '../common/classes';
+
+export class CppClasses implements BaseClasses {
     public static TreeNode = [
         'class TreeNode {',
         'public:',

@@ -10,6 +10,8 @@ import {
 import { JavaScriptClasses } from './classes';
 
 export class JavaScriptSnippets implements BaseSnippets {
+    public classes = JavaScriptClasses;
+
     private typeParser(t: T) {
         switch (t.type) {
             case Type.ARRAY:
@@ -63,28 +65,8 @@ export class JavaScriptSnippets implements BaseSnippets {
         return snippet;
     }
 
-    private makeComment(metadata: MetadataAlgo | MetadataDesign) {
-        if (metadata.types.find((t) => t === 'listnode')) {
-            let comment = `/**`;
-            comment += `\n * ${BaseClasses.ListNode}`;
-            comment += JavaScriptClasses.ListNode.split('\n')
-                .map((line) => `\n * ${line}`)
-                .join('');
-            comment += '\n */';
-            return comment;
-        }
-
-        if (metadata.types.find((t) => t === 'treenode')) {
-            let comment = `/**`;
-            comment += `\n * ${BaseClasses.TreeNode}`;
-            comment += JavaScriptClasses.TreeNode.split('\n')
-                .map((line) => `\n * ${line}`)
-                .join('');
-            comment += '\n */';
-            return comment;
-        }
-
-        return '';
+    public makeComment(comment: string) {
+        return `/**\n * ${comment.split('\n').join('\n * ')}\n */`;
     }
 
     public makeAlgo(metadata: MetadataAlgo) {
@@ -96,11 +78,6 @@ export class JavaScriptSnippets implements BaseSnippets {
         });
 
         const snippet = this.methodParser(method, true);
-        const comments = this.makeComment(metadata);
-        if (comments) {
-            return comments + '\n' + snippet;
-        }
-
         return snippet;
     }
 
@@ -119,12 +96,6 @@ export class JavaScriptSnippets implements BaseSnippets {
         });
 
         snippet += methods.join('\n\n') + '\n';
-
-        const comments = this.makeComment(metadata);
-        if (comments) {
-            return comments + '\n' + snippet;
-        }
-
         return snippet;
     }
 }

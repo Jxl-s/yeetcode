@@ -1,3 +1,5 @@
+import { BaseClasses } from './classes';
+
 export enum Type {
     ARRAY = 'array',
     INT = 'int',
@@ -180,6 +182,8 @@ export class MetadataDesign {
 }
 
 export abstract class BaseSnippets {
+    public classes: BaseClasses;
     public abstract makeAlgo(metadata: MetadataAlgo): string;
     public abstract makeDesign(metadata: MetadataDesign): string;
+    public abstract makeComment(comment: string): string;
 }

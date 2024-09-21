@@ -1,4 +1,6 @@
-export class JavaScriptClasses {
+import { BaseClasses } from '../common/classes';
+
+export class JavaScriptClasses implements BaseClasses {
     public static TreeNode = [
         'class TreeNode {',
         '    constructor(val) {',

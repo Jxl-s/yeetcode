@@ -1,4 +1,6 @@
-export class JavaClasses {
+import { BaseClasses } from '../common/classes';
+
+export class JavaClasses implements BaseClasses {
     public static TreeNode = [
         'class TreeNode {',
         '    int val;',

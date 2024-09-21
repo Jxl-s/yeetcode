@@ -6,6 +6,7 @@ import { Python3Snippets } from './python3';
 import { JavaSnippets } from './java';
 import { JavaScriptSnippets } from './javascript';
 import { CppSnippets } from './cpp';
+import { BaseClasses } from './common/classes';
 
 const LANGUAGES = [
     {
@@ -65,6 +66,27 @@ export class LanguagesService {
         };
     }
 
+    private generateCommentString(
+        metadataTypes: string[],
+        languageSnippets: (typeof LANGUAGES)[number]['snippets'],
+    ): string {
+        const comments = [];
+        const listNode =
+            BaseClasses.ListNodeDef + '\n' + languageSnippets.classes.ListNode;
+
+        const treeNode =
+            BaseClasses.TreeNodeDef + '\n' + languageSnippets.classes.TreeNode;
+
+        if (metadataTypes.includes('listnode')) comments.push(listNode);
+        if (metadataTypes.includes('treenode')) comments.push(treeNode);
+
+        if (comments.length === 0) {
+            return '';
+        }
+
+        return languageSnippets.makeComment(comments.join('\n\n')) + '\n';
+    }
+
     public makeSnippets(problem: 'ALGO' | 'DESIGN', data: string) {
         // Create the snippets object
         const snippets: Record<string, string> = {};
@@ -77,7 +99,12 @@ export class LanguagesService {
                 const metadata = MetadataAlgo.fromObject(JSON.parse(data));
 
                 for (const language of LANGUAGES) {
-                    const result = language.snippets.makeAlgo(metadata);
+                    let result = language.snippets.makeAlgo(metadata);
+                    const commentString = this.generateCommentString(
+                        metadata.types,
+                        language.snippets,
+                    );
+                    result = commentString + result;
                     snippets[language.name] = result;
                 }
             }
@@ -86,7 +113,12 @@ export class LanguagesService {
                 const metadata = MetadataDesign.fromObject(JSON.parse(data));
 
                 for (const language of LANGUAGES) {
-                    const result = language.snippets.makeDesign(metadata);
+                    let result = language.snippets.makeDesign(metadata);
+                    const commentString = this.generateCommentString(
+                        metadata.types,
+                        language.snippets,
+                    );
+                    result = commentString + result;
                     snippets[language.name] = result;
                 }
             }

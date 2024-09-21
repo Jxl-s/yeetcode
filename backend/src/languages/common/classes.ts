@@ -1,4 +1,7 @@
-export class BaseClasses {
-    public static ListNode = 'Definition for singly-linked list.';
-    public static TreeNode = 'Definition for a binary tree node.';
+export abstract class BaseClasses {
+    public static ListNodeDef = 'Definition for singly-linked list.';
+    public static TreeNodeDef = 'Definition for a binary tree node.';
+
+    public static ListNode: string;
+    public static TreeNode: string;
 }
