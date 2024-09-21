@@ -98,7 +98,7 @@ model Tags {
 }
 
 model Submission {
-  id          Int          @id @default(autoincrement())
+  id          String          @id
   user_id     Int
   problem_id  String
   language_id Int

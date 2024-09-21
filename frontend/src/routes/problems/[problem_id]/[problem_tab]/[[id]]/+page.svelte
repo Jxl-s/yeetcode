@@ -1,9 +1,5 @@
 <script>
-	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Resizable from '$lib/components/ui/resizable';
-
-	import FileScan from 'lucide-svelte/icons/file-scan';
-	import SquareChevronRight from 'lucide-svelte/icons/square-chevron-right';
 	import LoaderCircle from 'lucide-svelte/icons/loader-circle';
 
 	import { page } from '$app/stores';
@@ -16,6 +12,7 @@
 	import { onMount } from 'svelte';
 	import ProblemHeader from '$lib/components/problems/ProblemHeader.svelte';
 	import SubmissionDetails from '$lib/components/problems/SubmissionDetails.svelte';
+	import TestWindow from './TestWindow.svelte';
 
 	/** @type {import('$lib/data/problems').Problem | null} */
 	let problem = null;
@@ -121,21 +118,7 @@
 			</Resizable.Pane>
 			<Resizable.Handle class="opacity-0 hover:opacity-100 bg-blue-500 duration-300" withHandle />
 			<Resizable.Pane defaultSize={50} class="pt-2 ps-2">
-				<section class="bg-primary-foreground w-full h-full flex flex-col rounded-md px-4 pb-4">
-					<header class="sticky top-0 pt-4 pb-2 flex gap-2 bg-primary-foreground z-10">
-						<Button variant="ghost" class="flex items-center gap-2">
-							<FileScan class="w-3 h-3" />
-							Test Cases
-						</Button>
-						<Button variant="ghost" class="flex items-center gap-2">
-							<SquareChevronRight class="w-3 h-3" />
-							Test Results
-						</Button>
-					</header>
-					<div class="flex-grow">
-						<!-- <Monaco /> -->
-					</div>
-				</section>
+				<TestWindow />
 			</Resizable.Pane>
 		</Resizable.PaneGroup>
 	</Resizable.Pane>
