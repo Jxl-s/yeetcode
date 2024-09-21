@@ -1,0 +1,10 @@
+[ {"args": {"x": 123}, "expected": 321},
+  {"args": {"x": -123}, "expected": -321},
+  {"args": {"x": 120}, "expected": 21},
+  {"args": {"x": 0}, "expected": 0},
+  {"args": {"x": 1534236469}, "expected": 0},
+  {"args": {"x": -2147483648}, "expected": 0},
+  {"args": {"x": 2147483647}, "expected": 0},
+  {"args": {"x": -10}, "expected": -1},
+  {"args": {"x": 1000000003}, "expected": 0},
+  {"args": {"x": 100}, "expected": 1} ]

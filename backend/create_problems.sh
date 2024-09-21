@@ -55,6 +55,129 @@ get_metadata() {
     local name=$1
     echo "$metadata" | grep "^$name " | cut -d' ' -f2-
 }
+create_tests() {
+    local name=$1
+    local dir=$2
+
+    case "$name" in
+        "two-sum")
+            cat <<EOF > "${dir}/tests.json"
+[ {"args": {"nums": [2,7,11,15], "target": 9}, "expected": [0,1]},
+  {"args": {"nums": [3,2,4], "target": 6}, "expected": [1,2]},
+  {"args": {"nums": [3,3], "target": 6}, "expected": [0,1]},
+  {"args": {"nums": [1,2,3,4,5], "target": 9}, "expected": [3,4]},
+  {"args": {"nums": [1,5,10,8,6], "target": 14}, "expected": [2,4]},
+  {"args": {"nums": [3,9,12,13,15], "target": 24}, "expected": [2,3]},
+  {"args": {"nums": [1,2], "target": 3}, "expected": [0,1]},
+  {"args": {"nums": [0,4,3,0], "target": 0}, "expected": [0,3]},
+  {"args": {"nums": [2,7,11,15], "target": 17}, "expected": [0,3]},
+  {"args": {"nums": [1,1,1,1], "target": 2}, "expected": [0,1]} ]
+EOF
+            ;;
+        "add-two-numbers")
+            cat <<EOF > "${dir}/tests.json"
+[ {"args": {"l1": [2,4,3], "l2": [5,6,4]}, "expected": [7,0,8]},
+  {"args": {"l1": [0], "l2": [0]}, "expected": [0]},
+  {"args": {"l1": [9,9,9,9,9,9,9], "l2": [9,9,9,9]}, "expected": [8,9,9,9,0,0,0,1]},
+  {"args": {"l1": [1], "l2": [9,9,9]}, "expected": [0,0,0,1]},
+  {"args": {"l1": [5], "l2": [5]}, "expected": [0,1]},
+  {"args": {"l1": [5,6,4], "l2": [3,4,7]}, "expected": [8,0,2,1]},
+  {"args": {"l1": [1,0,0,0,0,0,0,0,0,0,0], "l2": [5,6,4]}, "expected": [6,6,4,0,0,0,0,0,0,0,0]},
+  {"args": {"l1": [9,9,9,9], "l2": [1]}, "expected": [0,0,0,0,1]},
+  {"args": {"l1": [9,9,9,9,9], "l2": [1]}, "expected": [0,0,0,0,0,1]},
+  {"args": {"l1": [2,4,3,7], "l2": [5,6,4]}, "expected": [7,0,8,7]} ]
+EOF
+            ;;
+        "longest-substring-without-repeating-characters")
+            cat <<EOF > "${dir}/tests.json"
+[ {"args": {"s": "abcabcbb"}, "expected": 3},
+  {"args": {"s": "bbbbb"}, "expected": 1},
+  {"args": {"s": "pwwkew"}, "expected": 3},
+  {"args": {"s": ""}, "expected": 0},
+  {"args": {"s": "a"}, "expected": 1},
+  {"args": {"s": "au"}, "expected": 2},
+  {"args": {"s": "dvdf"}, "expected": 3},
+  {"args": {"s": "abcdxyz"}, "expected": 7},
+  {"args": {"s": "anviaj"}, "expected": 5},
+  {"args": {"s": "tmmzuxt"}, "expected": 5} ]
+EOF
+            ;;
+        "median-of-two-sorted-arrays")
+            cat <<EOF > "${dir}/tests.json"
+[ {"args": {"nums1": [1, 3], "nums2": [2]}, "expected": 2.0},
+  {"args": {"nums1": [1, 2], "nums2": [3, 4]}, "expected": 2.5},
+  {"args": {"nums1": [0, 0], "nums2": [0, 0]}, "expected": 0.0},
+  {"args": {"nums1": [], "nums2": [1]}, "expected": 1.0},
+  {"args": {"nums1": [2], "nums2": []}, "expected": 2.0},
+  {"args": {"nums1": [1, 3, 8], "nums2": [7, 9]}, "expected": 7.0},
+  {"args": {"nums1": [1, 3, 8], "nums2": [7]}, "expected": 6.0},
+  {"args": {"nums1": [1, 2], "nums2": [1, 2]}, "expected": 1.5},
+  {"args": {"nums1": [2, 3], "nums2": [4]}, "expected": 3.0},
+  {"args": {"nums1": [1, 1, 1], "nums2": [1, 1, 1]}, "expected": 1.0} ]
+EOF
+            ;;
+        "longest-palindromic-substring")
+            cat <<EOF > "${dir}/tests.json"
+[ {"args": {"s": "babad"}, "expected": "bab"},
+  {"args": {"s": "cbbd"}, "expected": "bb"},
+  {"args": {"s": "a"}, "expected": "a"},
+  {"args": {"s": "ac"}, "expected": "a"},
+  {"args": {"s": "racecar"}, "expected": "racecar"},
+  {"args": {"s": "aabbcc"}, "expected": "aa"},
+  {"args": {"s": "aabba"}, "expected": "abba"},
+  {"args": {"s": "abcba"}, "expected": "abcba"},
+  {"args": {"s": "abb"}, "expected": "bb"},
+  {"args": {"s": "abcd"}, "expected": "a"} ]
+EOF
+            ;;
+        "zigzag-conversion")
+            cat <<EOF > "${dir}/tests.json"
+[ {"args": {"s": "PAYPALISHIRING", "numRows": 3}, "expected": "PAHNAPLSIIGYIR"},
+  {"args": {"s": "PAYPALISHIRING", "numRows": 4}, "expected": "PINALSIGYAHRPI"},
+  {"args": {"s": "A", "numRows": 1}, "expected": "A"},
+  {"args": {"s": "AB", "numRows": 1}, "expected": "AB"},
+  {"args": {"s": "ABCDE", "numRows": 2}, "expected": "ACEBD"},
+  {"args": {"s": "ABCDE", "numRows": 3}, "expected": "AEBDC"},
+  {"args": {"s": "ABCDEF", "numRows": 3}, "expected": "AEBDFC"},
+  {"args": {"s": "ABCDEFG", "numRows": 2}, "expected": "ACEGBDF"},
+  {"args": {"s": "ABCD", "numRows": 2}, "expected": "ACBD"},
+  {"args": {"s": "ABCD", "numRows": 3}, "expected": "ABDC"} ]
+EOF
+            ;;
+        "reverse-integer")
+            cat <<EOF > "${dir}/tests.json"
+[ {"args": {"x": 123}, "expected": 321},
+  {"args": {"x": -123}, "expected": -321},
+  {"args": {"x": 120}, "expected": 21},
+  {"args": {"x": 0}, "expected": 0},
+  {"args": {"x": 1534236469}, "expected": 0},
+  {"args": {"x": -2147483648}, "expected": 0},
+  {"args": {"x": 2147483647}, "expected": 0},
+  {"args": {"x": -10}, "expected": -1},
+  {"args": {"x": 1000000003}, "expected": 0},
+  {"args": {"x": 100}, "expected": 1} ]
+EOF
+            ;;
+        "palindrome-num")
+            cat <<EOF > "${dir}/tests.json"
+[ {"args": {"x": 121}, "expected": true},
+  {"args": {"x": -121}, "expected": false},
+  {"args": {"x": 10}, "expected": false},
+  {"args": {"x": 12321}, "expected": true},
+  {"args": {"x": 123456789987654321}, "expected": true},
+  {"args": {"x": -1234321}, "expected": false},
+  {"args": {"x": 1234321}, "expected": true},
+  {"args": {"x": 0}, "expected": true},
+  {"args": {"x": 1001}, "expected": true},
+  {"args": {"x": 101}, "expected": true} ]
+EOF
+            ;;
+        *)
+            echo "No test cases available for $name"
+            ;;
+    esac
+}
+
 
 # Function to create problem directory and files
 create_problem() {
@@ -85,6 +208,9 @@ create_problem() {
     "metadata": ${problem_metadata}
 }
 EOF
+
+    # Generate the tests.json file
+    create_tests "$name" "$dir"
 
     # Create description.md file
     echo "# ${name}" > "${dir}/description.md"

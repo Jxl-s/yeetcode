@@ -1,0 +1,10 @@
+[ {"args": {"s": "babad"}, "expected": "bab"},
+  {"args": {"s": "cbbd"}, "expected": "bb"},
+  {"args": {"s": "a"}, "expected": "a"},
+  {"args": {"s": "ac"}, "expected": "a"},
+  {"args": {"s": "racecar"}, "expected": "racecar"},
+  {"args": {"s": "aabbcc"}, "expected": "aa"},
+  {"args": {"s": "aabba"}, "expected": "abba"},
+  {"args": {"s": "abcba"}, "expected": "abcba"},
+  {"args": {"s": "abb"}, "expected": "bb"},
+  {"args": {"s": "abcd"}, "expected": "a"} ]

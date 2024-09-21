@@ -1,0 +1,10 @@
+[ {"args": {"s": "PAYPALISHIRING", "numRows": 3}, "expected": "PAHNAPLSIIGYIR"},
+  {"args": {"s": "PAYPALISHIRING", "numRows": 4}, "expected": "PINALSIGYAHRPI"},
+  {"args": {"s": "A", "numRows": 1}, "expected": "A"},
+  {"args": {"s": "AB", "numRows": 1}, "expected": "AB"},
+  {"args": {"s": "ABCDE", "numRows": 2}, "expected": "ACEBD"},
+  {"args": {"s": "ABCDE", "numRows": 3}, "expected": "AEBDC"},
+  {"args": {"s": "ABCDEF", "numRows": 3}, "expected": "AEBDFC"},
+  {"args": {"s": "ABCDEFG", "numRows": 2}, "expected": "ACEGBDF"},
+  {"args": {"s": "ABCD", "numRows": 2}, "expected": "ACBD"},
+  {"args": {"s": "ABCD", "numRows": 3}, "expected": "ABDC"} ]

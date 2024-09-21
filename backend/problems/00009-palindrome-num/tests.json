@@ -1,0 +1,10 @@
+[ {"args": {"x": 121}, "expected": true},
+  {"args": {"x": -121}, "expected": false},
+  {"args": {"x": 10}, "expected": false},
+  {"args": {"x": 12321}, "expected": true},
+  {"args": {"x": 123456789987654321}, "expected": true},
+  {"args": {"x": -1234321}, "expected": false},
+  {"args": {"x": 1234321}, "expected": true},
+  {"args": {"x": 0}, "expected": true},
+  {"args": {"x": 1001}, "expected": true},
+  {"args": {"x": 101}, "expected": true} ]

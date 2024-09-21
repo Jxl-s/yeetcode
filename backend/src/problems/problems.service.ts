@@ -56,6 +56,26 @@ export class ProblemsService {
                         },
                     },
                 });
+
+                const testsPath = path.join(problemsPath, folder, 'tests.json');
+                if (fs.existsSync(testsPath)) {
+                    const testsJson = require(testsPath);
+                    const testToCreate = [];
+
+                    for (let i = 0; i < testsJson.length; i++) {
+                        const test = testsJson[i];
+                        testToCreate.push({
+                            problem_id: dataJson.id,
+                            id: i + 1,
+                            input: JSON.stringify(test.args),
+                            output: JSON.stringify(test.expected),
+                        });
+                    }
+
+                    await this.prisma.testCase.createMany({
+                        data: testToCreate,
+                    });
+                }
             }
         } catch (e) {
             console.log(e);
@@ -79,6 +99,16 @@ export class ProblemsService {
                         submissions: true,
                     },
                 },
+                test_cases: {
+                    select: {
+                        id: true,
+                        input: true,
+                    },
+                    orderBy: {
+                        id: 'asc',
+                    },
+                    take: 3,
+                },
             },
         });
 
@@ -91,8 +121,11 @@ export class ProblemsService {
             problem.metadata,
         );
 
+        const testCases = problem.test_cases;
+
         delete problem.type;
         delete problem.metadata;
+        delete problem.test_cases;
 
         const acceptedCounts = await this.prisma.submission.count({
             where: {
@@ -109,8 +142,7 @@ export class ProblemsService {
         };
 
         delete newProblem._count;
-
-        return { data: newProblem, snippets };
+        return { data: newProblem, snippets, test_cases: testCases };
     }
 
     public async getProblems(dto: GetProblemsDto) {
