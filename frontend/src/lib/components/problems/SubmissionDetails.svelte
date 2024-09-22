@@ -16,7 +16,7 @@
 	export let problemId;
 	const submissionsHref = `/problems/${problemId}/submissions`;
 
-	/** @type {number} */
+	/** @type {string} */
 	export let submissionId;
 
 	/** @type {import('$lib/data/submissions').Submission | null} */

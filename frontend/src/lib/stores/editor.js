@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 
 export const editorStore = writable({
-	questionId: '',
+	problemId: '',
 	language: 'python3',
 
 	/** @type {Record<string, string>} */
@@ -12,8 +12,8 @@ export const editorStore = writable({
 editorStore.subscribe(
 	(editor) => {
 		// Make sure the code is not empty
-		if (!editor.questionId || !editor.code) return;
-		const key = `editor-${editor.questionId}-${editor.language}`;
+		if (!editor.problemId || !editor.code) return;
+		const key = `editor-${editor.problemId}-${editor.language}`;
 
 		// Don't save default code
 		if (editor.code.trim() === editor.defaults[editor.language].trim()) {
@@ -28,10 +28,10 @@ editorStore.subscribe(
 
 /**
  * Fetches code stored from the local storage
- * @param {{questionId: string, language: string, defaults: Record<string, string>}} editor
+ * @param {{problemId: string, language: string, defaults: Record<string, string>}} editor
  */
 function getLocalCode(editor) {
-	const key = `editor-${editor.questionId}-${editor.language}`;
+	const key = `editor-${editor.problemId}-${editor.language}`;
 	const data = localStorage.getItem(key);
 
 	if (data) {
@@ -44,7 +44,7 @@ function getLocalCode(editor) {
 export function resetCode(hard = false) {
 	editorStore.update((editor) => {
 		if (hard) {
-			editor.questionId = '';
+			editor.problemId = '';
 			editor.code = '';
 		} else {
 			editor.code = editor.defaults[editor.language] ?? '';
@@ -68,12 +68,12 @@ export function switchLanguage(language) {
 }
 
 /**
- * @param {string} questionId
+ * @param {string} problemId
  * @param {Record<string, string>} snippets
  */
-export function setSnippets(questionId, snippets) {
+export function setSnippets(problemId, snippets) {
 	editorStore.update((editor) => {
-		editor.questionId = questionId;
+		editor.problemId = problemId;
 		editor.defaults = snippets;
 		editor.code = getLocalCode(editor);
 

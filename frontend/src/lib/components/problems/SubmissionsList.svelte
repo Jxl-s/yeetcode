@@ -7,13 +7,14 @@
 	import { languageIcons } from '$lib/data/languages';
 	import { submissionStatus } from '$lib/data/submissions';
 	import { goto } from '$app/navigation';
+	import { problemStore } from '$lib/stores/problem';
 
 	/** @type {import('$lib/data/submissions').ListedSubmission[]} */
-	export let submissions = [];
+	$: submissions = $problemStore.submissions;
 
 	/**
 	 * Generates the submission href
-	 * @param id {number}
+	 * @param {string} id
 	 */
 	function submissionHref(id) {
 		return `/problems/${$page.params.problem_id}/submissions/${id}`;

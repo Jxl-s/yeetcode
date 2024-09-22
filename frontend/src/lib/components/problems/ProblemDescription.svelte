@@ -7,12 +7,12 @@
 	import Button from '../ui/button/button.svelte';
 	import SvelteMarkdown from 'svelte-markdown';
 	import './ProblemDescription.css';
+	import { problemStore } from '$lib/stores/problem';
 
-	/** @type {import('$lib/data/problems').Problem | null} */
-	export let problem;
+	$: problem = $problemStore.problem;
 </script>
 
-{#if problem}
+{#if problem != null}
 	<h1 class="text-2xl font-semibold">{problem.number}. {problem.title}</h1>
 	<span class="{diffColors[problem.difficulty] ?? ''} text-sm block mt-2">
 		{diffText[problem.difficulty] ?? ''}

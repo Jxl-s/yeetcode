@@ -1,6 +1,6 @@
 /**
  * @typedef {Object} BaseSubmission The base type for problems.
- * @property {number} id The submission ID
+ * @property {string} id The submission ID
  * @property {keyof submissionStatus} status The status of the submission.
  * @property {number} created_at The time the submission was created.
  * @property {string} language The language of the submission.

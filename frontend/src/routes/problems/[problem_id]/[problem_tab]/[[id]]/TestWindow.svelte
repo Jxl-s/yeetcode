@@ -4,11 +4,12 @@
 
 	import FileScan from 'lucide-svelte/icons/file-scan';
 	import SquareChevronRight from 'lucide-svelte/icons/square-chevron-right';
+	import { problemStore } from '$lib/stores/problem';
 
 	let selectedCase = 0;
 
 	/** @type {Record<string, string>[]} */
-	export let testCases;
+	$: testCases = $problemStore.testCases;
 </script>
 
 <section class="bg-primary-foreground w-full h-full flex flex-col rounded-md px-4 pb-4">

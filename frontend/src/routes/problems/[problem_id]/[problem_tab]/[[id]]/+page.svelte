@@ -3,83 +3,31 @@
 	import LoaderCircle from 'lucide-svelte/icons/loader-circle';
 
 	import { page } from '$app/stores';
-	import { axiosInstance } from '$lib/stores/auth';
 	import ProblemDescription from '$lib/components/problems/ProblemDescription.svelte';
 	import CodeEditor from '$lib/components/problems/CodeEditor.svelte';
 	import ProblemDescriptionFooter from '$lib/components/problems/ProblemDescriptionFooter.svelte';
-	import { setSnippets } from '$lib/stores/editor';
 	import SubmissionsList from '$lib/components/problems/SubmissionsList.svelte';
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import ProblemHeader from '$lib/components/problems/ProblemHeader.svelte';
 	import SubmissionDetails from '$lib/components/problems/SubmissionDetails.svelte';
 	import TestWindow from './TestWindow.svelte';
-	import { writable } from 'svelte/store';
-
-	/**
-	 * @template T
-	 * @typedef {import("svelte/store").Writable<T>} Writable
-	 */
-
-	/** @type {Writable<import('$lib/data/problems').Problem | null>} */
-	const problem = writable(null);
-
-	/** @type {Writable<{name: string, display: string}[]>} */
-	const languages = writable([]);
-
-	/** @type {Writable<import('$lib/data/submissions').ListedSubmission[]>} */
-	const submissions = writable([]);
-
-	/** @type {Writable<Record<string, string>[]>} */
-	const testCases = writable([]);
-
-	async function fetchProblem() {
-		try {
-			const res = await axiosInstance.get(`/problems/${$page.params.problem_id}`);
-			if (res.status !== 200) {
-				throw new Error('Failed to fetch problem');
-			}
-
-			problem.set(res.data.data);
-			testCases.set(res.data.test_cases);
-			setSnippets($page.params.problem_id, res.data.snippets);
-		} catch (err) {
-			console.log(err);
-		}
-	}
-
-	async function fetchLanguages() {
-		try {
-			const res = await axiosInstance.get('/languages');
-			if (res.status !== 200) {
-				throw new Error('Failed to fetch languages');
-			}
-
-			languages.set(res.data.data);
-		} catch (err) {
-			console.log(err);
-		}
-	}
-
-	async function fetchSubmissions() {
-		try {
-			const res = await axiosInstance.get(`/problems/${$page.params.problem_id}/submissions`);
-			if (res.status !== 200) {
-				throw new Error('Failed to fetch submissions');
-			}
-
-			submissions.set(res.data.data);
-		} catch (err) {
-			console.log(err);
-		}
-	}
+	import {
+		fetchLanguages,
+		fetchProblem,
+		fetchSubmissions,
+		problemStore,
+		resetProblemStore
+	} from '$lib/stores/problem';
 
 	onMount(() => {
 		fetchLanguages();
-		fetchProblem();
-		fetchSubmissions();
+		fetchProblem($page.params.problem_id);
+		fetchSubmissions($page.params.problem_id);
 	});
 
-	console.log($problem);
+	onDestroy(() => {
+		resetProblemStore();
+	});
 </script>
 
 <Resizable.PaneGroup direction="horizontal">
@@ -92,18 +40,15 @@
 			/>
 			{#if $page.params.problem_tab === 'description'}
 				<div class="flex-grow overflow-auto px-2 mt-2 pb-4 pe-8">
-					<ProblemDescription problem={$problem} />
+					<ProblemDescription />
 				</div>
-				<ProblemDescriptionFooter problem={$problem} />
+				<ProblemDescriptionFooter />
 			{:else if $page.params.problem_tab === 'submissions'}
 				<div class="flex-grow overflow-auto px-2 pe-8">
 					{#if $page.params.id !== undefined}
-						<SubmissionDetails
-							problemId={$page.params.problem_id}
-							submissionId={parseInt($page.params.id)}
-						/>
+						<SubmissionDetails problemId={$page.params.problem_id} submissionId={$page.params.id} />
 					{:else}
-						<SubmissionsList submissions={$submissions} />
+						<SubmissionsList />
 					{/if}
 				</div>
 			{/if}
@@ -114,11 +59,11 @@
 		<Resizable.PaneGroup direction="vertical" class="h-full">
 			<Resizable.Pane defaultSize={50} class="ps-2 pb-2">
 				<div class="bg-primary-foreground w-full h-full rounded-md p-2 flex flex-col">
-					{#if $languages.length > 0}
+					{#if $problemStore.languages.length > 0}
 						<CodeEditor
-							languages={$languages.map((lang) => ({
-								value: lang.name,
-								label: lang.display
+							languages={$problemStore.languages.map((lang) => ({
+								label: lang.display,
+								value: lang.name
 							}))}
 						/>
 					{:else}
@@ -130,7 +75,7 @@
 			</Resizable.Pane>
 			<Resizable.Handle class="opacity-0 hover:opacity-100 bg-blue-500 duration-300" withHandle />
 			<Resizable.Pane defaultSize={50} class="pt-2 ps-2">
-				<TestWindow testCases={$testCases} />
+				<TestWindow />
 			</Resizable.Pane>
 		</Resizable.PaneGroup>
 	</Resizable.Pane>

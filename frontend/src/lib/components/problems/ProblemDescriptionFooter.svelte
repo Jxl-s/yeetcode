@@ -3,9 +3,9 @@
 	import ThumbsDown from 'lucide-svelte/icons/thumbs-down';
 
 	import Button from '../ui/button/button.svelte';
+	import { problemStore } from '$lib/stores/problem';
 
-	/** @type {import('$lib/data/problems').Problem | null} */
-	export let problem;
+	$: problem = $problemStore.problem;
 </script>
 
 <!-- TODO: replace these with the likes/dislikes counts -->
