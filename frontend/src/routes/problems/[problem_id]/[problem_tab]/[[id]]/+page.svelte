@@ -29,7 +29,7 @@
 	/** @type {Writable<import('$lib/data/submissions').ListedSubmission[]>} */
 	const submissions = writable([]);
 
-	/** @type {Writable<Object[]>} */
+	/** @type {Writable<Record<string, string>[]>} */
 	const testCases = writable([]);
 
 	async function fetchProblem() {

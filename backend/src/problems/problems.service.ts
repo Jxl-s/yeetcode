@@ -142,10 +142,21 @@ export class ProblemsService {
 
         delete newProblem._count;
 
+        // Parse test cases
+        const testCasesParsed = testCases.map((testCase) =>
+            JSON.parse(testCase.input),
+        );
+
+        for (const test of testCasesParsed) {
+            for (const key in test) {
+                test[key] = JSON.stringify(test[key]);
+            }
+        }
+
         return {
             data: newProblem,
             snippets,
-            test_cases: testCases.map((testCase) => JSON.parse(testCase.input)),
+            test_cases: testCasesParsed,
         };
     }
 

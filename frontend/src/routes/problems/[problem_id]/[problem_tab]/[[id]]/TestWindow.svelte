@@ -7,7 +7,7 @@
 
 	let selectedCase = 0;
 
-	/** @type {Object[]} */
+	/** @type {Record<string, string>[]} */
 	export let testCases;
 </script>
 
@@ -45,9 +45,10 @@
 				{#each Object.entries(input) as [key, value]}
 					<div class="px-1">
 						<span class="text-xs opacity-50 font-semibold">{key} =</span>
-						<code class="rounded-md border mt-1 p-2 text-sm w-full block" contenteditable="true"
-							>{JSON.stringify(value)}</code
-						>
+						<input
+							class="rounded-md border mt-1 p-2 text-sm w-full block bg-transparent font-mono"
+							{value}
+						/>
 					</div>
 				{/each}
 			{/if}
