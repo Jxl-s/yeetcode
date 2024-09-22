@@ -77,8 +77,8 @@ export class LanguagesService {
         const treeNode =
             BaseClasses.TreeNodeDef + '\n' + languageSnippets.classes.TreeNode;
 
-        if (metadataTypes.includes('listnode')) comments.push(listNode);
-        if (metadataTypes.includes('treenode')) comments.push(treeNode);
+        if (metadataTypes.includes('ListNode')) comments.push(listNode);
+        if (metadataTypes.includes('TreeNode')) comments.push(treeNode);
 
         if (comments.length === 0) {
             return '';

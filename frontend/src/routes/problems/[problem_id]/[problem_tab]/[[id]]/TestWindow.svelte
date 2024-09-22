@@ -43,11 +43,11 @@
 			{#if testCases[selectedCase]}
 				{@const input = testCases[selectedCase]}
 				{#each Object.entries(input) as [key, value]}
-					<div>
+					<div class="px-1">
 						<span class="text-xs opacity-50 font-semibold">{key} =</span>
-						<div class="rounded-md border border-white/25 mt-1 p-2">
-							<code class="text-sm">{JSON.stringify(value)}</code>
-						</div>
+						<code class="rounded-md border mt-1 p-2 text-sm w-full block" contenteditable="true"
+							>{JSON.stringify(value)}</code
+						>
 					</div>
 				{/each}
 			{/if}

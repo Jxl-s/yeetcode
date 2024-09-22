@@ -101,17 +101,17 @@ def tree_to_arr(root):
 # BEGIN THE EVALUATOR
 metadata = {
     "function": "addTwoNumbers",
-    "return": { "type": "listnode" },
+    "return": { "type": "ListNode" },
     "args": [
-        { "name": "l1", "type": "listnode" },
-        { "name": "l2", "type": "listnode" }
+        { "name": "l1", "type": "ListNode" },
+        { "name": "l2", "type": "ListNode" }
     ]
 }
 
 def convert_argument(arg, arg_type):
-    if arg_type == "listnode":
+    if arg_type == "ListNode":
         return arr_to_list(arg)
-    elif arg_type == "treenode":
+    elif arg_type == "TreeNode":
         return arr_to_tree(arg)
     else:
         return arg
@@ -130,9 +130,9 @@ with open('user.out', 'w') as f:
         result = func(**nums["args"])
 
         # Convert the result back to the appropriate format
-        if metadata['return']['type'] == "listnode":
+        if metadata['return']['type'] == "ListNode":
             result = list_to_arr(result)
-        elif metadata['return']['type'] == "treenode":
+        elif metadata['return']['type'] == "TreeNode":
             result = tree_to_arr(result)
 
         # Write the result to the output file

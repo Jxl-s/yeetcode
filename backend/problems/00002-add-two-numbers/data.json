@@ -4,5 +4,5 @@
     "difficulty": "MEDIUM",
     "tags": ["linked-list","math"],
     "type": "ALGO",
-    "metadata": {"function":"addTwoNumbers","return":{"type":"listnode"},"args":[{"name":"l1","type":"listnode"},{"name":"l2","type":"listnode"}]}
+    "metadata": {"function":"addTwoNumbers","return":{"type":"ListNode"},"args":[{"name":"l1","type":"ListNode"},{"name":"l2","type":"ListNode"}]}
 }

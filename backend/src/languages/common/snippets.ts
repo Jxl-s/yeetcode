@@ -6,8 +6,8 @@ export enum Type {
     FLOAT = 'float',
     STR = 'str',
     BOOL = 'bool',
-    LISTNODE = 'listnode',
-    TREENODE = 'treenode',
+    LISTNODE = 'ListNode',
+    TREENODE = 'TreeNode',
     VOID = 'void',
 }
 
