@@ -13,15 +13,24 @@
 	import ProblemHeader from '$lib/components/problems/ProblemHeader.svelte';
 	import SubmissionDetails from '$lib/components/problems/SubmissionDetails.svelte';
 	import TestWindow from './TestWindow.svelte';
+	import { writable } from 'svelte/store';
 
-	/** @type {import('$lib/data/problems').Problem | null} */
-	let problem = null;
+	/**
+	 * @template T
+	 * @typedef {import("svelte/store").Writable<T>} Writable
+	 */
 
-	/** @type {{name: string, display: string}[]} */
-	let languages = [];
+	/** @type {Writable<import('$lib/data/problems').Problem | null>} */
+	const problem = writable(null);
 
-	/** @type {import('$lib/data/submissions').ListedSubmission[]} */
-	let submissions = [];
+	/** @type {Writable<{name: string, display: string}[]>} */
+	const languages = writable([]);
+
+	/** @type {Writable<import('$lib/data/submissions').ListedSubmission[]>} */
+	const submissions = writable([]);
+
+	/** @type {Writable<Object[]>} */
+	const testCases = writable([]);
 
 	async function fetchProblem() {
 		try {
@@ -30,7 +39,8 @@
 				throw new Error('Failed to fetch problem');
 			}
 
-			problem = res.data.data;
+			problem.set(res.data.data);
+			testCases.set(res.data.test_cases);
 			setSnippets($page.params.problem_id, res.data.snippets);
 		} catch (err) {
 			console.log(err);
@@ -44,7 +54,7 @@
 				throw new Error('Failed to fetch languages');
 			}
 
-			languages = res.data.data;
+			languages.set(res.data.data);
 		} catch (err) {
 			console.log(err);
 		}
@@ -57,7 +67,7 @@
 				throw new Error('Failed to fetch submissions');
 			}
 
-			submissions = res.data.data;
+			submissions.set(res.data.data);
 		} catch (err) {
 			console.log(err);
 		}
@@ -68,6 +78,8 @@
 		fetchProblem();
 		fetchSubmissions();
 	});
+
+	console.log($problem);
 </script>
 
 <Resizable.PaneGroup direction="horizontal">
@@ -80,9 +92,9 @@
 			/>
 			{#if $page.params.problem_tab === 'description'}
 				<div class="flex-grow overflow-auto px-2 mt-2 pb-4 pe-8">
-					<ProblemDescription {problem} />
+					<ProblemDescription problem={$problem} />
 				</div>
-				<ProblemDescriptionFooter {problem} />
+				<ProblemDescriptionFooter problem={$problem} />
 			{:else if $page.params.problem_tab === 'submissions'}
 				<div class="flex-grow overflow-auto px-2 pe-8">
 					{#if $page.params.id !== undefined}
@@ -91,7 +103,7 @@
 							submissionId={parseInt($page.params.id)}
 						/>
 					{:else}
-						<SubmissionsList {submissions} />
+						<SubmissionsList submissions={$submissions} />
 					{/if}
 				</div>
 			{/if}
@@ -102,9 +114,9 @@
 		<Resizable.PaneGroup direction="vertical" class="h-full">
 			<Resizable.Pane defaultSize={50} class="ps-2 pb-2">
 				<div class="bg-primary-foreground w-full h-full rounded-md p-2 flex flex-col">
-					{#if languages.length > 0}
+					{#if $languages.length > 0}
 						<CodeEditor
-							languages={languages.map((lang) => ({
+							languages={$languages.map((lang) => ({
 								value: lang.name,
 								label: lang.display
 							}))}
@@ -118,7 +130,7 @@
 			</Resizable.Pane>
 			<Resizable.Handle class="opacity-0 hover:opacity-100 bg-blue-500 duration-300" withHandle />
 			<Resizable.Pane defaultSize={50} class="pt-2 ps-2">
-				<TestWindow />
+				<TestWindow testCases={$testCases} />
 			</Resizable.Pane>
 		</Resizable.PaneGroup>
 	</Resizable.Pane>

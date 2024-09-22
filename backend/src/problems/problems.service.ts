@@ -101,7 +101,6 @@ export class ProblemsService {
                 },
                 test_cases: {
                     select: {
-                        id: true,
                         input: true,
                     },
                     orderBy: {
@@ -142,7 +141,12 @@ export class ProblemsService {
         };
 
         delete newProblem._count;
-        return { data: newProblem, snippets, test_cases: testCases };
+
+        return {
+            data: newProblem,
+            snippets,
+            test_cases: testCases.map((testCase) => JSON.parse(testCase.input)),
+        };
     }
 
     public async getProblems(dto: GetProblemsDto) {

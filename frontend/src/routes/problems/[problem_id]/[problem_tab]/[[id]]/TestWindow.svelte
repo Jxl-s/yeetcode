@@ -1,8 +1,14 @@
 <script>
 	import Button from '$lib/components/ui/button/button.svelte';
+	import X from 'lucide-svelte/icons/x';
 
 	import FileScan from 'lucide-svelte/icons/file-scan';
 	import SquareChevronRight from 'lucide-svelte/icons/square-chevron-right';
+
+	let selectedCase = 0;
+
+	/** @type {Object[]} */
+	export let testCases;
 </script>
 
 <section class="bg-primary-foreground w-full h-full flex flex-col rounded-md px-4 pb-4">
@@ -16,23 +22,42 @@
 			Test Results
 		</Button>
 	</header>
-	<div class="flex-grow mt-2 px-2">
-		<div class="flex gap-4 overflow-scroll">
-			<Button variant="ghost">Case 1</Button>
-			<Button variant="ghost" class="opacity-50">Case 2</Button>
-			<Button variant="ghost" class="opacity-50">Case 3</Button>
-			<Button variant="ghost" class="opacity-50">Case 4</Button>
-			<Button variant="ghost" class="opacity-50">Case 5</Button>
+
+	<div class="flex-grow mt-2 mx-2 flex flex-col h-0 overflow-hidden">
+		<div class="grid gap-4 auto-grid py-1">
+			{#each testCases as _, i}
+				<Button
+					variant="ghost"
+					class="relative {selectedCase == i ? '' : 'opacity-50'}"
+					on:click={() => (selectedCase = i)}
+				>
+					Case {i + 1}
+					<!-- <span class="absolute -top-1 -right-1 rounded-full p-0.5">
+						<X class="w-3 h-3 text-red-500" />
+					</span> -->
+				</Button>
+			{/each}
 		</div>
-		<div class="mt-2 flex flex-col gap-4">
-			<div>
-				<span class="text-xs opacity-50 font-semibold">l1 =</span>
-				<code class="text-sm block">[1, 5, 2, 2]</code>
-			</div>
-			<div>
-				<span class="text-xs opacity-50 font-semibold">l2 =</span>
-				<code class="text-sm block">[1, 5, 2, 2]</code>
-			</div>
+
+		<div class="flex-grow mt-2 pb-2 flex flex-col gap-4 overflow-auto">
+			{#if testCases[selectedCase]}
+				{@const input = testCases[selectedCase]}
+				{#each Object.entries(input) as [key, value]}
+					<div>
+						<span class="text-xs opacity-50 font-semibold">{key} =</span>
+						<div class="rounded-md border border-white/25 mt-1 p-2">
+							<code class="text-sm">{JSON.stringify(value)}</code>
+						</div>
+					</div>
+				{/each}
+			{/if}
 		</div>
 	</div>
 </section>
+
+<style>
+	.auto-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, 100px);
+	}
+</style>
