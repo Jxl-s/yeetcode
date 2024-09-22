@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import { get, writable } from 'svelte/store';
 import { axiosInstance } from './auth';
 import { setSnippets } from './editor';
 
@@ -7,14 +7,16 @@ import { setSnippets } from './editor';
  * 		problem: import('$lib/data/problems').Problem | null,
  * 		languages: {display: string, name: string}[],
  * 		submissions: import('$lib/data/submissions').Submission[],
- * 		testCases: Record<string, string>[]
+ * 		testCases: Record<string, string>[],
+ * 		testCaseKeys: string[]
  * }>}
  */
 export const problemStore = writable({
 	problem: null,
 	languages: [],
 	submissions: [],
-	testCases: []
+	testCases: [],
+	testCaseKeys: []
 });
 
 export function resetProblemStore() {
@@ -22,7 +24,8 @@ export function resetProblemStore() {
 		problem: null,
 		languages: [],
 		submissions: [],
-		testCases: []
+		testCases: [],
+		testCaseKeys: []
 	});
 }
 
@@ -40,7 +43,8 @@ export async function fetchProblem(problemId) {
 		problemStore.update((store) => ({
 			...store,
 			problem: res.data.data,
-			testCases: res.data.test_cases
+			testCases: res.data.test_cases,
+			testCaseKeys: Object.keys(res.data.test_cases[0])
 		}));
 
 		setSnippets(problemId, res.data.snippets);
@@ -83,4 +87,46 @@ export async function fetchLanguages() {
 	} catch (err) {
 		console.log(err);
 	}
+}
+
+export function addTest() {
+	problemStore.update((store) => ({
+		...store,
+		testCases: [...store.testCases, Object.fromEntries(store.testCaseKeys.map((key) => [key, '']))]
+	}));
+
+	return get(problemStore).testCases.length - 1;
+}
+
+/**
+ * Removes a test case
+ * @param {number} i Test number
+ */
+export function removeTest(i) {
+	problemStore.update((store) => ({
+		...store,
+		testCases: store.testCases.filter((_, index) => index !== i)
+	}));
+}
+
+/**
+ *
+ * @param {number} i Test number
+ * @param {string} key Arg name
+ * @param {string} value Arg value
+ */
+export function updateTest(i, key, value) {
+	problemStore.update((store) => {
+		// Modify the test case
+		const testCases = [...store.testCases];
+		testCases[i] = {
+			...testCases[i],
+			[key]: value
+		};
+
+		return {
+			...store,
+			testCases
+		};
+	});
 }

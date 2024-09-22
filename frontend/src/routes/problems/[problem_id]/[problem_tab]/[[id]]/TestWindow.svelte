@@ -1,10 +1,14 @@
 <script>
 	import Button from '$lib/components/ui/button/button.svelte';
-	import X from 'lucide-svelte/icons/x';
 
 	import FileScan from 'lucide-svelte/icons/file-scan';
 	import SquareChevronRight from 'lucide-svelte/icons/square-chevron-right';
-	import { problemStore } from '$lib/stores/problem';
+	import { addTest, problemStore, updateTest } from '$lib/stores/problem';
+
+	const tabs = {
+		CASES: 'cases',
+		RESULTS: 'results'
+	};
 
 	let selectedCase = 0;
 
@@ -38,6 +42,11 @@
 					</span> -->
 				</Button>
 			{/each}
+			{#if testCases.length < 5}
+				<Button class="flex gap-4 items-center" on:click={() => (selectedCase = addTest())}>
+					Add Case
+				</Button>
+			{/if}
 		</div>
 
 		<div class="flex-grow mt-2 pb-2 flex flex-col gap-4 overflow-auto">
@@ -48,6 +57,7 @@
 						<span class="text-xs opacity-50 font-semibold">{key} =</span>
 						<input
 							class="rounded-md border mt-1 p-2 text-sm w-full block bg-transparent font-mono"
+							on:input={(e) => updateTest(selectedCase, key, e.target.value)}
 							{value}
 						/>
 					</div>
