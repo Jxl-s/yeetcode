@@ -57,7 +57,10 @@
 						<span class="text-xs opacity-50 font-semibold">{key} =</span>
 						<input
 							class="rounded-md border mt-1 p-2 text-sm w-full block bg-transparent font-mono"
-							on:input={(e) => updateTest(selectedCase, key, e.target.value)}
+							on:input={(e) => {
+								const target = /** @type {HTMLInputElement} */ (e.target);
+								updateTest(selectedCase, key, target.value);
+							}}
 							{value}
 						/>
 					</div>
