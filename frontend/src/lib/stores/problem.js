@@ -1,6 +1,6 @@
 import { get, writable } from 'svelte/store';
 import { axiosInstance } from './auth';
-import { setSnippets } from './editor';
+import { editorStore, setSnippets } from './editor';
 
 /**
  * @type {import('svelte/store').Writable<{
@@ -17,6 +17,11 @@ export const problemStore = writable({
 	submissions: [],
 	testCases: [],
 	testCaseKeys: []
+});
+
+export const runnerStore = writable({
+	running: false,
+	submitting: false
 });
 
 export function resetProblemStore() {
@@ -129,4 +134,21 @@ export function updateTest(i, key, value) {
 			testCases
 		};
 	});
+}
+
+/**
+ * Runs the code in the editor and evaluates the test cases
+ */
+export async function runTestCases() {
+	runnerStore.update((store) => ({
+		...store,
+		running: true
+	}));
+}
+
+export async function submitCode() {
+	runnerStore.update((store) => ({
+		...store,
+		submitting: true
+	}));
 }
