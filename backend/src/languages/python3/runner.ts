@@ -2,7 +2,7 @@ import { MetadataAlgo } from '../common/snippets';
 import { v4 } from 'uuid';
 export class Python3Runner {
     public addAlgoCode(s: string, metadata: MetadataAlgo) {
-        const separator = v4() + '===' + v4();
+        const separator = '===' + v4() + '===';
         const code = `from typing import *
 
 class ListNode:

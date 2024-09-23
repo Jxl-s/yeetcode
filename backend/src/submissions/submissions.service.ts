@@ -1,9 +1,16 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+    BadRequestException,
+    Injectable,
+    NotFoundException,
+} from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateRunDto } from './dto';
 import axios from 'axios';
 import { ConfigService } from '@nestjs/config';
-import { LanguagesService } from 'src/languages/languages.service';
+import {
+    getLanguageArr,
+    LanguagesService,
+} from 'src/languages/languages.service';
 import { MetadataAlgo } from 'src/languages/common/snippets';
 
 @Injectable()
@@ -53,6 +60,50 @@ export class SubmissionsService {
         };
     }
 
+    private async runAlgo(
+        source: string,
+        language: ReturnType<typeof getLanguageArr>[number],
+        metadata: MetadataAlgo,
+        tests: Object[],
+    ): Promise<{
+        stdout?: string[];
+        stderr?: string;
+        results?: string[];
+        correct_results?: Object[];
+    }> {
+        const languageId = this.languageService.getLanguageId(language);
+        const testCases = tests.map((test) => JSON.stringify(test)).join('\n');
+
+        // Run user submitted code
+        const [code, separator] = this.languageService.makeAlgoRunner(
+            source,
+            language,
+            metadata,
+        );
+
+        const res = await axios.post(
+            `${this.config.get('JUDGE0_URL')}/submissions?wait=true`,
+            {
+                language_id: languageId,
+                source_code: code,
+                stdin: testCases,
+            },
+        );
+
+        if (res.data.stderr) {
+            return { stderr: res.data.stderr };
+        }
+
+        if (res.data.stdout) {
+            return this.languageService.extractAlgoOutput(
+                res.data.stdout,
+                separator,
+            );
+        }
+
+        return { stderr: 'No output' };
+    }
+
     public async createRun(dto: CreateRunDto, userId: number) {
         // Fetch the problem
         const problem = await this.prisma.problem.findUnique({
@@ -69,12 +120,6 @@ export class SubmissionsService {
             const parsed = JSON.parse(problem.metadata);
             const metadata = MetadataAlgo.fromObject(parsed);
 
-            const [code, separator] = this.languageService.makeAlgoRunner(
-                dto.code,
-                dto.language,
-                metadata,
-            );
-
             // Parse the test cases
             for (const test of dto.tests) {
                 for (const key of Object.keys(test)) {
@@ -82,35 +127,72 @@ export class SubmissionsService {
                 }
             }
 
-            const languageId = this.languageService.getLanguageId(dto.language);
-            const testCases = dto.tests
-                .map((test) => JSON.stringify(test))
-                .join('\n');
-
-            const res = await axios.post(
-                `${this.config.get('JUDGE0_URL')}/submissions?wait=true`,
-                {
-                    language_id: languageId,
-                    source_code: code,
-                    stdin: testCases,
-                },
+            const userCode = this.runAlgo(
+                dto.code,
+                dto.language,
+                metadata,
+                dto.tests,
             );
 
-            console.log(res.data);
-            if (res.data.stdout) {
-                const { results, stdout } =
-                    this.languageService.extractAlgoOutput(
-                        res.data.stdout,
-                        separator,
-                    );
+            const correctCode = this.runAlgo(
+                `
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        dummyHead = ListNode(0)
+        tail = dummyHead
+        carry = 0
 
+        while l1 is not None or l2 is not None or carry != 0:
+            digit1 = l1.val if l1 is not None else 0
+            digit2 = l2.val if l2 is not None else 0
+
+            sum = digit1 + digit2 + carry
+            digit = sum % 10
+            carry = sum // 10
+
+            newNode = ListNode(digit)
+            tail.next = newNode
+            tail = tail.next
+
+            l1 = l1.next if l1 is not None else None
+            l2 = l2.next if l2 is not None else None
+
+        result = dummyHead.next
+        dummyHead.next = None
+        return result
+`,
+                'python3',
+                metadata,
+                dto.tests,
+            );
+
+            const [userOut, correctOut] = await Promise.all([
+                userCode,
+                correctCode,
+            ]);
+
+            if (userOut.stderr) {
                 return {
-                    results,
-                    stdout,
+                    stderr: userOut.stderr,
                 };
             }
+
+            const valid = [];
+            if (userOut.results && userOut.stdout && correctOut.results) {
+                // Compare results
+                for (let i = 0; i < userOut.results.length; i++) {
+                    valid.push(userOut.results[i] === correctOut.results[i]);
+                }
+            }
+
+            return {
+                correct: valid,
+                stdout: userOut.stdout,
+                results: userOut.results,
+                expected: correctOut.results,
+            };
         }
 
-        return { hello: 'world' };
+        throw new BadRequestException('Invalid problem type');
     }
 }

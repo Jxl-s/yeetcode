@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Req, Res, UseGuards } from '@nestjs/common';
+import { Controller, Get, HttpCode, Post, Req, Res, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthGuard } from '@nestjs/passport';
 import { AppUser, GetUser } from './decorator/get-user.decorator';
@@ -61,6 +61,7 @@ export class AuthController {
     }
 
     @Post('refresh')
+    @HttpCode(200)
     @UseGuards(RefreshGuard)
     public async refresh(
         @GetUser() user: { sub: number },
