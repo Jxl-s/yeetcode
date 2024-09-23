@@ -28,6 +28,7 @@ export const runnerStore = writable({
  * @type {import('svelte/store').Writable<{
  * 		stderr: string,
  * 		stdout: string[],
+ * 		inputs: Object[],
  * 		results: string[],
  * 		expected: string[],
  * 		correct: boolean[],
@@ -35,11 +36,23 @@ export const runnerStore = writable({
  */
 export const resultStore = writable({
 	stderr: '',
+	inputs: [],
 	stdout: [],
 	results: [],
 	expected: [],
 	correct: []
 });
+
+export function resetResultsStore() {
+	resultStore.set({
+		stderr: '',
+		inputs: [],
+		stdout: [],
+		results: [],
+		expected: [],
+		correct: []
+	});
+}
 
 export const testFocusStore = writable('cases');
 
@@ -174,8 +187,15 @@ export async function runTestCases() {
 		running: true
 	}));
 
+	resetResultsStore();
+	testFocusStore.set('results');
+
+	resultStore.update((store) => ({
+		...store,
+		inputs: problemState.testCases
+	}));
+
 	try {
-		testFocusStore.set('results');
 		const res = await axiosInstance.post('/submissions/run', data);
 		if (res.status !== 200) {
 			throw new Error('Failed to run test cases');
@@ -183,15 +203,17 @@ export async function runTestCases() {
 
 		const { stderr, correct, stdout, results, expected } = res.data;
 
-		resultStore.set({
+		resultStore.update((store) => ({
+			...store,
 			stderr: stderr ?? '',
 			stdout: stdout ?? [],
 			results: results ?? [],
 			expected: expected ?? [],
 			correct: correct ?? []
-		});
+		}));
 
 		testFocusStore.set('results');
+		console.log(problemState.testCases);
 	} catch (err) {
 		console.log(err);
 	} finally {

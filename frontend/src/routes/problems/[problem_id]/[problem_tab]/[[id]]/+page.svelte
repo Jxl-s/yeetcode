@@ -10,7 +10,7 @@
 	import { onDestroy, onMount } from 'svelte';
 	import ProblemHeader from '$lib/components/problems/ProblemHeader.svelte';
 	import SubmissionDetails from '$lib/components/problems/SubmissionDetails.svelte';
-	import TestWindow from './TestWindow.svelte';
+	import TestWindow from './tests/TestWindow.svelte';
 	import {
 		fetchLanguages,
 		fetchProblem,
