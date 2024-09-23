@@ -2,6 +2,7 @@ import {
     Body,
     Controller,
     Get,
+    HttpCode,
     Param,
     ParseIntPipe,
     Post,
@@ -26,6 +27,7 @@ export class SubmissionsController {
     }
 
     @Post('/run')
+    @HttpCode(200)
     @UseGuards(JwtGuard)
     async createSubmissionRun(
         @GetUser('id') userId: number,
