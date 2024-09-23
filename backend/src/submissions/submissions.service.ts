@@ -15,6 +15,7 @@ import { MetadataAlgo } from 'src/languages/common/snippets';
 import { v4 } from 'uuid';
 
 import * as fs from 'fs';
+import * as os from 'os';
 import * as path from 'path';
 import * as archiver from 'archiver';
 
@@ -45,10 +46,6 @@ function zipFolder(sourceFolder: string, outPath: string): Promise<void> {
         });
 
         output.on('close', () => {
-            console.log(`${archive.pointer()} total bytes`);
-            console.log(
-                'archiver has been finalized and the output file descriptor has closed.',
-            );
             resolve();
         });
 
@@ -150,21 +147,31 @@ export class SubmissionsService {
 
         // Make the runner folder
         const runUuid = v4();
-        const runFolder = `./${runUuid}`;
+        const tempDir = os.tmpdir();
+        const runFolder = path.join(tempDir, runUuid);
         fs.mkdirSync(runFolder);
 
         const judgeFilesFolder = `./judge_files/${language}`;
         copyFolderSync(judgeFilesFolder, runFolder);
 
         // Add the driver file
-        fs.writeFileSync(`${runFolder}/main.py`, code);
+        fs.writeFileSync(
+            path.join(
+                runFolder,
+                'main.' + this.languageService.getLanguageExt(language),
+            ),
+            code,
+        );
 
         // Zip the folder
-        const zipPath = `./${runFolder}.zip`;
+        const zipPath = path.join(tempDir, `${runUuid}.zip`);
         await zipFolder(runFolder, zipPath);
 
         const zipBuffer = fs.readFileSync(zipPath);
         const zipBase64 = zipBuffer.toString('base64');
+
+        fs.unlinkSync(zipPath);
+        fs.rmSync(runFolder, { recursive: true });
 
         // Copy the judge files over
         try {

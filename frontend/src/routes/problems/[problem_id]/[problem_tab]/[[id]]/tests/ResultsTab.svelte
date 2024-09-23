@@ -10,8 +10,8 @@
 
 <div class="flex-grow mt-2 mx-2 flex flex-col h-0 overflow-hidden">
 	{#if $resultStore.stderr}
-		<div class="w-full bg-red-950 px-4 py-2 rounded-md">
-			<code class="text-red-300 rounded-lg text-xs">
+		<div class="w-full bg-red-950 px-4 py-2 rounded-md overflow-auto">
+			<code class="text-red-300 rounded-lg text-xs whitespace-pre-wrap">
 				{$resultStore.stderr}
 			</code>
 		</div>

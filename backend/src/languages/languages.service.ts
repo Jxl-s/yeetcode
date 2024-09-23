@@ -7,12 +7,14 @@ import { JavaSnippets } from './java';
 import { JavaScriptSnippets } from './javascript';
 import { CppSnippets } from './cpp';
 import { BaseClasses } from './common/classes';
+import { CppRunner } from './cpp/runner';
 
 // TODO: Make runners for other languages
 const LANGUAGES = [
     {
         id: 71,
         name: 'python3',
+        ext: 'py',
         display: 'Python3',
         snippets: new Python3Snippets(),
         runner: new Python3Runner(),
@@ -20,6 +22,7 @@ const LANGUAGES = [
     {
         id: 62,
         name: 'java',
+        ext: 'java',
         display: 'Java',
         snippets: new JavaSnippets(),
         runner: new Python3Runner(),
@@ -27,6 +30,7 @@ const LANGUAGES = [
     {
         id: 63,
         name: 'javascript',
+        ext: 'js',
         display: 'JavaScript',
         snippets: new JavaScriptSnippets(),
         runner: new Python3Runner(),
@@ -34,9 +38,10 @@ const LANGUAGES = [
     {
         id: 54,
         name: 'cpp',
+        ext: 'cpp',
         display: 'C++',
         snippets: new CppSnippets(),
-        runner: new Python3Runner(),
+        runner: new CppRunner(),
     },
 ] as const;
 
@@ -138,6 +143,10 @@ export class LanguagesService {
 
     public getLanguageId(name: (typeof LANGUAGES)[number]['name']) {
         return LANGUAGES.find((language) => language.name === name).id;
+    }
+
+    public getLanguageExt(name: (typeof LANGUAGES)[number]['name']) {
+        return LANGUAGES.find((language) => language.name === name).ext;
     }
 
     public makeAlgoRunner(
