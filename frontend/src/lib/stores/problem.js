@@ -140,10 +140,31 @@ export function updateTest(i, key, value) {
  * Runs the code in the editor and evaluates the test cases
  */
 export async function runTestCases() {
+	const problemState = get(problemStore);
+	const editorState = get(editorStore);
+
+	const data = {
+		tests: problemState.testCases,
+		language: editorState.language,
+		question_id: problemState.problem?.id,
+		code: editorState.code
+	};
+
 	runnerStore.update((store) => ({
 		...store,
 		running: true
 	}));
+
+	try {
+		const res = await axiosInstance.post('/submissions/run', data);
+	} catch (err) {
+		console.log(err);
+	} finally {
+		runnerStore.update((store) => ({
+			...store,
+			running: false
+		}));
+	}
 }
 
 export async function submitCode() {

@@ -1,9 +1,15 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { CreateRunDto } from './dto';
+import axios from 'axios';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class SubmissionsService {
-    constructor(private readonly prisma: PrismaService) {}
+    constructor(
+        private readonly prisma: PrismaService,
+        private readonly config: ConfigService,
+    ) {}
 
     public async getSubmission(id: string, userId: number) {
         const submission = await this.prisma.submission.findUnique({
@@ -42,5 +48,10 @@ export class SubmissionsService {
         return {
             data: withLang,
         };
+    }
+
+    public async createRun(dto: CreateRunDto, userId: number) {
+        console.log(dto, userId, this.config.get('JUDGE0_URL'));
+        return { hello: 'world' };
     }
 }
