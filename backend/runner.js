@@ -1,6 +1,5 @@
 const axios = require('axios');
 
-const RAND_SEPARATOR = '03701c7b-5199-4ba5-8289-a054cf9052c0';
 const METADATA = {
     function: 'twoSum',
     return: { type: 'array', items: { type: 'int' } },

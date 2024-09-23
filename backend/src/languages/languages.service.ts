@@ -2,38 +2,47 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { MetadataAlgo, MetadataDesign } from './common/snippets';
 
-import { Python3Snippets } from './python3';
+import { Python3Runner, Python3Snippets } from './python3';
 import { JavaSnippets } from './java';
 import { JavaScriptSnippets } from './javascript';
 import { CppSnippets } from './cpp';
 import { BaseClasses } from './common/classes';
 
+// TODO: Make runners for other languages
 const LANGUAGES = [
     {
         id: 71,
         name: 'python3',
         display: 'Python3',
         snippets: new Python3Snippets(),
+        runner: new Python3Runner(),
     },
     {
         id: 62,
         name: 'java',
         display: 'Java',
         snippets: new JavaSnippets(),
+        runner: new Python3Runner(),
     },
     {
         id: 63,
         name: 'javascript',
         display: 'JavaScript',
         snippets: new JavaScriptSnippets(),
+        runner: new Python3Runner(),
     },
     {
         id: 54,
         name: 'cpp',
         display: 'C++',
         snippets: new CppSnippets(),
+        runner: new Python3Runner(),
     },
 ] as const;
+
+export function getLanguageArr() {
+    return LANGUAGES.map((language) => language.name);
+}
 
 @Injectable()
 export class LanguagesService {
@@ -127,5 +136,29 @@ export class LanguagesService {
         } finally {
             return snippets;
         }
+    }
+
+    public getLanguageId(name: (typeof LANGUAGES)[number]['name']) {
+        return LANGUAGES.find((language) => language.name === name).id;
+    }
+
+    public makeAlgoRunner(
+        code: string,
+        language: (typeof LANGUAGES)[number]['name'],
+        metadata: MetadataAlgo,
+    ) {
+        const lang = LANGUAGES.find((lang) => lang.name === language);
+        if (!lang) {
+            throw new Error('Language not found');
+        }
+
+        return lang.runner.addAlgoCode(code, metadata);
+    }
+
+    public extractAlgoOutput(output: string, separator: string) {
+        const stdout = output.split(separator);
+        const results = stdout.pop().trim().split('\n');
+
+        return { results, stdout: stdout.map((s) => s.trim()) };
     }
 }

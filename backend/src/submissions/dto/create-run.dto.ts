@@ -1,11 +1,13 @@
-import { IsArray, IsNotEmpty, IsString } from 'class-validator';
+import { IsArray, IsEnum, IsNotEmpty, IsString } from 'class-validator';
+import { getLanguageArr } from 'src/languages/languages.service';
 
 export class CreateRunDto {
     @IsString()
     code: string;
 
     @IsString()
-    language: string;
+    @IsEnum(getLanguageArr())
+    language: ReturnType<typeof getLanguageArr>[number];
 
     @IsString()
     question_id: string;
