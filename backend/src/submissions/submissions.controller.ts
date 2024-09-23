@@ -28,11 +28,9 @@ export class SubmissionsController {
 
     @Post('/run')
     @HttpCode(200)
-    @UseGuards(JwtGuard)
     async createSubmissionRun(
-        @GetUser('id') userId: number,
         @Body() dto: CreateRunDto,
     ) {
-        return this.submissionsService.createRun(dto, userId);
+        return this.submissionsService.createRun(dto);
     }
 }

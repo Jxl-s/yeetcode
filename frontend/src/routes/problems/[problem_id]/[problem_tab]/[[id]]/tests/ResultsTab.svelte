@@ -10,7 +10,11 @@
 
 <div class="flex-grow mt-2 mx-2 flex flex-col h-0 overflow-hidden">
 	{#if $resultStore.stderr}
-		<p class="text-xs font-mono bg-red-950">{$resultStore.stderr}</p>
+		<div class="w-full bg-red-950 px-4 py-2 rounded-md">
+			<code class="text-red-300 rounded-lg text-xs">
+				{$resultStore.stderr}
+			</code>
+		</div>
 	{:else}
 		<div class="grid gap-4 auto-grid py-1">
 			{#each $resultStore.correct as val, i}
@@ -39,39 +43,31 @@
 					{#each Object.entries(input) as [key, value]}
 						<div class="px-2">
 							<span class="text-xs opacity-50 font-semibold">{key} =</span>
-							<input
-								class="rounded-md border mt-1 p-2 text-sm w-full block bg-transparent font-mono"
-								readonly
+							<div class="rounded-md border mt-1 p-2 text-sm w-full block bg-transparent font-mono">
 								{value}
-							/>
+							</div>
 						</div>
 					{/each}
 				</div>
 				{#if $resultStore.stdout[selectedCase]}
 					<span class="text-sm mb-2 font-semibold mt-4 block opacity-50">Stdout</span>
 					<div class="px-2 mt-2">
-						<textarea
-							class="rounded-md border mt-1 p-2 text-sm w-full block bg-transparent font-mono"
-							readonly
-							value={$resultStore.stdout[selectedCase]}
-						/>
+						<div class="rounded-md border mt-1 p-2 text-sm w-full block bg-transparent font-mono whitespace-pre-wrap">
+							{$resultStore.stdout[selectedCase]}
+						</div>
 					</div>
 				{/if}
 				<span class="text-sm mb-2 font-semibold mt-4 block opacity-50">Output</span>
 				<div class="px-2 mt-2">
-					<input
-						class="rounded-md border mt-1 p-2 text-sm w-full block bg-transparent font-mono"
-						readonly
-						value={$resultStore.results[selectedCase]}
-					/>
+					<div class="rounded-md border mt-1 p-2 text-sm w-full block bg-transparent font-mono">
+						{$resultStore.results[selectedCase]}
+					</div>
 				</div>
 				<span class="text-sm mb-2 font-semibold mt-4 block opacity-50">Expected</span>
 				<div class="px-2 mt-2">
-					<input
-						class="rounded-md border mt-1 p-2 text-sm w-full block bg-transparent font-mono"
-						readonly
-						value={$resultStore.expected[selectedCase]}
-					/>
+					<div class="rounded-md border mt-1 p-2 text-sm w-full block bg-transparent font-mono">
+						{$resultStore.expected[selectedCase]}
+					</div>
 				</div>
 			{/if}
 		</div>

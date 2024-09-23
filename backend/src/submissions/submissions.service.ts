@@ -104,7 +104,7 @@ export class SubmissionsService {
         return { stderr: 'No output' };
     }
 
-    public async createRun(dto: CreateRunDto, userId: number) {
+    public async createRun(dto: CreateRunDto) {
         // Fetch the problem
         const problem = await this.prisma.problem.findUnique({
             where: {
