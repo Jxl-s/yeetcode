@@ -4,37 +4,51 @@ import { v4 } from 'uuid';
 export class JavaScriptRunner {
     public addAlgoCode(s: string, metadata: MetadataAlgo) {
         const separator = '===' + v4() + '===';
-        const code = `from typing import *
-
-from yeetcode.listnode import ListNode
-from yeetcode.treenode import TreeNode
-from yeetcode.util import serialize, deserialize
+        const code = `
+let { ListNode, deserializeList, serializeList } = require("./yeetcode/listnode");
+let { TreeNode, deserializeTree, serializeTree } = require("./yeetcode/treenode");
+let { serialize, deserialize } = require("./yeetcode/util");
 
 ${s}
 
-import json
-import sys
+const fs = require('fs');
+const readline = require('readline');
 
-with open('user.out', 'w') as f:
-    for i, data in enumerate(map(json.loads, sys.stdin)):
-${metadata.args.map((arg, i) => `        arg_${i + 1} = deserialize(data['${arg.name}'], '${arg.type}')`).join('\n')}
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    terminal: false
+});
 
-        result = Solution().${metadata.function}(${metadata.args.map((_, i) => `arg_${i + 1}`).join(', ')})
-        result = serialize(result, '${metadata.return.type}')
-        print("${separator}")
-        result_str = json.dumps(result)
-        print(result_str, file=f)
+const inputLines = [];
 
-with open('user.out', 'r') as f:
-    print(f.read())
-`;
+rl.on('line', (line) => {
+    inputLines.push(line);
+});
+
+rl.on('close', () => {
+    const output = fs.createWriteStream('user.out', { flags: 'w' });
+
+    inputLines.forEach((line, i) => {
+        const data = JSON.parse(line);
+
+${metadata.args.map((arg, i) => `        const arg_${i + 1} = deserialize(data['${arg.name}'], '${arg.type}');`).join('\n')}
+
+        const result = ${metadata.function}(${metadata.args.map((_, i) => `arg_${i + 1}`).join(', ')});
+        const serializedResult = serialize(result, '${metadata.return.type}');
+        console.log("${separator}");
+        const resultStr = JSON.stringify(serializedResult);
+        output.write(resultStr + '\\n');
+    });
+
+    output.end(() => {
+        fs.readFile('user.out', 'utf8', (err, data) => {
+            if (err) throw err;
+            console.log(data);
+        });
+    });
+});
+        `;
         return [code, separator];
-    }
-
-    public parseAlgoOutput(output: string, separator: string) {
-        const stdout = output.split(separator);
-        const results = stdout.pop().trim();
-
-        return { results, stdout: stdout.map((s) => s.trim()) };
     }
 }

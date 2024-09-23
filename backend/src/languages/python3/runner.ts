@@ -21,19 +21,12 @@ ${metadata.args.map((arg, i) => `        arg_${i + 1} = deserialize(data['${arg.
         result = Solution().${metadata.function}(${metadata.args.map((_, i) => `arg_${i + 1}`).join(', ')})
         result = serialize(result, '${metadata.return.type}')
         print("${separator}")
-        result_str = json.dumps(result)
+        result_str = json.dumps(result,separators=(',', ':'))
         print(result_str, file=f)
 
 with open('user.out', 'r') as f:
     print(f.read())
 `;
         return [code, separator];
-    }
-
-    public parseAlgoOutput(output: string, separator: string) {
-        const stdout = output.split(separator);
-        const results = stdout.pop().trim();
-
-        return { results, stdout: stdout.map((s) => s.trim()) };
     }
 }

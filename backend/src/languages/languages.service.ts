@@ -3,11 +3,11 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import { MetadataAlgo, MetadataDesign } from './common/snippets';
 
 import { Python3Runner, Python3Snippets } from './python3';
-import { JavaSnippets } from './java';
-import { JavaScriptSnippets } from './javascript';
-import { CppSnippets } from './cpp';
+import { JavaRunner, JavaSnippets } from './java';
+import { JavaScriptRunner, JavaScriptSnippets } from './javascript';
+import { CppSnippets, CppRunner } from './cpp';
+
 import { BaseClasses } from './common/classes';
-import { CppRunner } from './cpp/runner';
 
 // TODO: Make runners for other languages
 const LANGUAGES = [
@@ -25,7 +25,7 @@ const LANGUAGES = [
         entry: 'Main.java',
         display: 'Java',
         snippets: new JavaSnippets(),
-        runner: new Python3Runner(),
+        runner: new JavaRunner(),
     },
     {
         id: 63,
@@ -33,7 +33,7 @@ const LANGUAGES = [
         entry: 'index.js',
         display: 'JavaScript',
         snippets: new JavaScriptSnippets(),
-        runner: new Python3Runner(),
+        runner: new JavaScriptRunner(),
     },
     {
         id: 54,
