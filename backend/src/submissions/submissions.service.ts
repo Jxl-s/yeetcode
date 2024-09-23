@@ -158,7 +158,7 @@ export class SubmissionsService {
         fs.writeFileSync(
             path.join(
                 runFolder,
-                'main.' + this.languageService.getLanguageExt(language),
+                this.languageService.getLanguageEntry(language),
             ),
             code,
         );
@@ -178,8 +178,7 @@ export class SubmissionsService {
             const res = await axios.post(
                 `${this.config.get('JUDGE0_URL')}/submissions?wait=true&base64_encoded=true`,
                 {
-                    language_id: 89,
-                    // source_code: toBase64(code),
+                    language_id: 89, // for any language, just multi-file
                     stdin: toBase64(testCases),
                     additional_files: zipBase64,
                 },

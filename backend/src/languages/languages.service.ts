@@ -14,7 +14,7 @@ const LANGUAGES = [
     {
         id: 71,
         name: 'python3',
-        ext: 'py',
+        entry: 'main.py',
         display: 'Python3',
         snippets: new Python3Snippets(),
         runner: new Python3Runner(),
@@ -22,7 +22,7 @@ const LANGUAGES = [
     {
         id: 62,
         name: 'java',
-        ext: 'java',
+        entry: 'Main.java',
         display: 'Java',
         snippets: new JavaSnippets(),
         runner: new Python3Runner(),
@@ -30,7 +30,7 @@ const LANGUAGES = [
     {
         id: 63,
         name: 'javascript',
-        ext: 'js',
+        entry: 'index.js',
         display: 'JavaScript',
         snippets: new JavaScriptSnippets(),
         runner: new Python3Runner(),
@@ -38,7 +38,7 @@ const LANGUAGES = [
     {
         id: 54,
         name: 'cpp',
-        ext: 'cpp',
+        entry: 'main.cpp',
         display: 'C++',
         snippets: new CppSnippets(),
         runner: new CppRunner(),
@@ -145,8 +145,8 @@ export class LanguagesService {
         return LANGUAGES.find((language) => language.name === name).id;
     }
 
-    public getLanguageExt(name: (typeof LANGUAGES)[number]['name']) {
-        return LANGUAGES.find((language) => language.name === name).ext;
+    public getLanguageEntry(name: (typeof LANGUAGES)[number]['name']) {
+        return LANGUAGES.find((language) => language.name === name).entry;
     }
 
     public makeAlgoRunner(

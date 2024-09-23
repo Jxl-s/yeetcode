@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/local/node-12.14.0/bin/node index.js
