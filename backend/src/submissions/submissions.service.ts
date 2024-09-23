@@ -12,6 +12,69 @@ import {
     LanguagesService,
 } from 'src/languages/languages.service';
 import { MetadataAlgo } from 'src/languages/common/snippets';
+import { v4 } from 'uuid';
+
+import * as fs from 'fs';
+import * as path from 'path';
+import * as archiver from 'archiver';
+
+function copyFolderSync(src: string, dest: string) {
+    if (!fs.existsSync(dest)) {
+        fs.mkdirSync(dest);
+    }
+
+    const entries = fs.readdirSync(src, { withFileTypes: true });
+
+    for (let entry of entries) {
+        const srcPath = path.join(src, entry.name);
+        const destPath = path.join(dest, entry.name);
+
+        if (entry.isDirectory()) {
+            copyFolderSync(srcPath, destPath);
+        } else {
+            fs.copyFileSync(srcPath, destPath);
+        }
+    }
+}
+
+function zipFolder(sourceFolder: string, outPath: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+        const output = fs.createWriteStream(outPath);
+        const archive = archiver('zip', {
+            zlib: { level: 9 }, // Sets the compression level.
+        });
+
+        output.on('close', () => {
+            console.log(`${archive.pointer()} total bytes`);
+            console.log(
+                'archiver has been finalized and the output file descriptor has closed.',
+            );
+            resolve();
+        });
+
+        output.on('end', () => {
+            console.log('Data has been drained');
+        });
+
+        archive.on('warning', (err) => {
+            if (err.code !== 'ENOENT') {
+                reject(err);
+            } else {
+                console.warn(err);
+            }
+        });
+
+        archive.on('error', (err) => {
+            reject(err);
+        });
+
+        archive.pipe(output);
+
+        archive.directory(sourceFolder, false);
+
+        archive.finalize();
+    });
+}
 
 @Injectable()
 export class SubmissionsService {
@@ -74,6 +137,10 @@ export class SubmissionsService {
         const languageId = this.languageService.getLanguageId(language);
         const testCases = tests.map((test) => JSON.stringify(test)).join('\n');
 
+        const toBase64 = (str: string) => Buffer.from(str).toString('base64');
+        const fromBase64 = (str: string) =>
+            Buffer.from(str, 'base64').toString();
+
         // Run user submitted code
         const [code, separator] = this.languageService.makeAlgoRunner(
             source,
@@ -81,27 +148,56 @@ export class SubmissionsService {
             metadata,
         );
 
-        const res = await axios.post(
-            `${this.config.get('JUDGE0_URL')}/submissions?wait=true`,
-            {
-                language_id: languageId,
-                source_code: code,
-                stdin: testCases,
-            },
-        );
+        // Make the runner folder
+        const runUuid = v4();
+        const runFolder = `./${runUuid}`;
+        fs.mkdirSync(runFolder);
 
-        if (res.data.stderr) {
-            return { stderr: res.data.stderr };
-        }
+        const judgeFilesFolder = `./judge_files/${language}`;
+        copyFolderSync(judgeFilesFolder, runFolder);
 
-        if (res.data.stdout) {
-            return this.languageService.extractAlgoOutput(
-                res.data.stdout,
-                separator,
+        // Add the driver file
+        fs.writeFileSync(`${runFolder}/main.py`, code);
+
+        // Zip the folder
+        const zipPath = `./${runFolder}.zip`;
+        await zipFolder(runFolder, zipPath);
+
+        const zipBuffer = fs.readFileSync(zipPath);
+        const zipBase64 = zipBuffer.toString('base64');
+
+        // Copy the judge files over
+        try {
+            const res = await axios.post(
+                `${this.config.get('JUDGE0_URL')}/submissions?wait=true&base64_encoded=true`,
+                {
+                    language_id: 89,
+                    // source_code: toBase64(code),
+                    stdin: toBase64(testCases),
+                    additional_files: zipBase64,
+                },
             );
-        }
 
-        return { stderr: 'No output' };
+            if (res.data.stderr) {
+                return { stderr: fromBase64(res.data.stderr) };
+            }
+
+            if (res.data.compile_output) {
+                return { stderr: fromBase64(res.data.compile_output) };
+            }
+
+            if (res.data.stdout) {
+                return this.languageService.extractAlgoOutput(
+                    fromBase64(res.data.stdout),
+                    separator,
+                );
+            }
+
+            return { stderr: 'No output' };
+        } catch (err) {
+            console.log(err);
+            return { stderr: 'Internal error' };
+        }
     }
 
     public async createRun(dto: CreateRunDto) {
@@ -110,6 +206,7 @@ export class SubmissionsService {
             where: {
                 id: dto.question_id,
             },
+
             select: {
                 type: true,
                 metadata: true,
