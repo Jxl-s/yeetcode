@@ -84,12 +84,17 @@ model Problem {
   type        ProblemType
   metadata    String // will be JSON for the arguments and return types
 
+  sol         String
+  sol_lang_id Int
+
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
   tags        Tags[]
   submissions Submission[]
   test_cases  TestCase[]
+
+  sol_lang Language @relation(fields: [sol_lang_id], references: [id])
 }
 
 model Tags {
@@ -98,7 +103,7 @@ model Tags {
 }
 
 model Submission {
-  id          String          @id
+  id          String       @id
   user_id     Int
   problem_id  String
   language_id Int
@@ -127,6 +132,7 @@ model Language {
   name String
 
   submissions Submission[]
+  problems     Problem[]
 }
 
 model TestCase {

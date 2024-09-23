@@ -46,12 +46,10 @@ export function getLanguageArr() {
 
 @Injectable()
 export class LanguagesService {
-    constructor(private readonly prisma: PrismaService) {
-        this.default();
-    }
+    constructor(private readonly prisma: PrismaService) {}
 
     // To enforce relations in the database
-    private async default() {
+    public async default() {
         const upsertOperations = LANGUAGES.map((language) => {
             return this.prisma.language.upsert({
                 where: { id: language.id },

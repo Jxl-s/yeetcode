@@ -1,8 +1,0 @@
-{
-    "id": "roman-to-integer",
-    "title": "Roman To Integer",
-    "difficulty": "EASY",
-    "tags": ["hash-table","math","string"],
-    "type": "ALGO",
-    "metadata": {"function":"romanToInt","return":{"type":"int"},"args":[{"name":"s","type":"str"}]}
-}

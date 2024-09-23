@@ -1,8 +1,0 @@
-{
-    "id": "letter-combinations-of-a-phone-num",
-    "title": "Letter Combinations Of A Phone Num",
-    "difficulty": "MEDIUM",
-    "tags": ["hash-table","string","backtracking"],
-    "type": "ALGO",
-    "metadata": {"function":"letterCombinations","return":{"type":"array","items":{"type":"str"}},"args":[{"name":"digits","type":"str"}]}
-}

@@ -1,8 +1,0 @@
-{
-    "id": "palindrome-num",
-    "title": "Palindrome Num",
-    "difficulty": "EASY",
-    "tags": ["math"],
-    "type": "ALGO",
-    "metadata": {"function":"isPalindrome","return":{"type":"bool"},"args":[{"name":"x","type":"int"}]}
-}

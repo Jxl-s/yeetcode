@@ -11,7 +11,9 @@ export class ProblemsService {
         private readonly prisma: PrismaService,
         private readonly languageService: LanguagesService,
     ) {
-        this.default();
+        this.languageService.default().then(() => {
+            this.default();
+        });
     }
 
     async default() {
@@ -33,7 +35,15 @@ export class ProblemsService {
                     'description.md',
                 );
 
+                const solutionPath = path.join(
+                    problemsPath,
+                    folder,
+                    'solution.py',
+                );
+
                 const description = fs.readFileSync(descPath, 'utf-8');
+                const solution = fs.readFileSync(solutionPath, 'utf-8');
+                const solutionLang = 71;
 
                 // Can only do one at a time, so that tags work
                 await this.prisma.problem.create({
@@ -42,6 +52,9 @@ export class ProblemsService {
                         title: dataJson.title,
                         description,
                         difficulty: dataJson.difficulty,
+
+                        sol: solution,
+                        sol_lang_id: solutionLang,
 
                         type: dataJson.type,
                         metadata: JSON.stringify(dataJson.metadata),

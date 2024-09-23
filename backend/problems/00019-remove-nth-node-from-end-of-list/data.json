@@ -1,8 +1,0 @@
-{
-    "id": "remove-nth-node-from-end-of-list",
-    "title": "Remove Nth Node From End Of List",
-    "difficulty": "MEDIUM",
-    "tags": ["linked-list","two-pointers"],
-    "type": "ALGO",
-    "metadata": {"function":"removeNthFromEnd","return":{"type":"ListNode"},"args":[{"name":"head","type":"ListNode"},{"name":"n","type":"int"}]}
-}
