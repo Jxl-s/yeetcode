@@ -43,7 +43,9 @@ export const resultStore = writable({
 	correct: []
 });
 
+export const testFocusStore = writable('cases');
 export function resetResultsStore() {
+	testFocusStore.set('cases');
 	resultStore.set({
 		stderr: '',
 		inputs: [],
@@ -53,8 +55,6 @@ export function resetResultsStore() {
 		correct: []
 	});
 }
-
-export const testFocusStore = writable('cases');
 
 export function resetProblemStore() {
 	problemStore.set({

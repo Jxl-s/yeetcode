@@ -16,7 +16,8 @@
 		fetchProblem,
 		fetchSubmissions,
 		problemStore,
-		resetProblemStore
+		resetProblemStore,
+		resetResultsStore
 	} from '$lib/stores/problem';
 
 	onMount(() => {
@@ -27,6 +28,7 @@
 
 	onDestroy(() => {
 		resetProblemStore();
+		resetResultsStore();
 	});
 </script>
 
