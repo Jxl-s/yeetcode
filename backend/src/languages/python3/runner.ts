@@ -1,7 +1,10 @@
-import { MetadataAlgo } from '../common/snippets';
+import { MetadataAlgo, T } from '../common/snippets';
 import { v4 } from 'uuid';
 export class Python3Runner {
     public addAlgoCode(s: string, metadata: MetadataAlgo) {
+        const makeArg = (i: number, arg: T) =>
+            `arg_${i + 1} = deserialize(data['${arg.name}'], ${JSON.stringify(arg.serialize())})`;
+
         const separator = '===' + v4() + '===';
         const code = `from typing import *
 from string import *
@@ -47,10 +50,10 @@ ${s}
 
 with open('user.out', 'w') as f:
     for i, data in enumerate(map(json.loads, sys.stdin)):
-${metadata.args.map((arg, i) => `        arg_${i + 1} = deserialize(data['${arg.name}'], '${arg.type}')`).join('\n')}
+${metadata.args.map((arg, i) => `        ` + makeArg(i, arg)).join('\n')}
 
         result = Solution().${metadata.function}(${metadata.args.map((_, i) => `arg_${i + 1}`).join(', ')})
-        result = serialize(result, '${metadata.return.type}')
+        result = serialize(result, ${JSON.stringify(metadata.return.serialize())})
         print("${separator}")
         result_str = json.dumps(result,separators=(',', ':'))
         print(result_str, file=f)
