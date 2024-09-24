@@ -243,13 +243,20 @@ def transform_metadata(metadata):
 
     return transformed_metadata
 
+def fetch_solution(problem_number):
+    url = f"https://raw.githubusercontent.com/cnkyrpsgl/leetcode/refs/heads/master/solutions/python3/{problem_number}.py"
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an HTTPError for bad responses (4xx and 5xx)
+        return response.text
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred while fetching the solution for problem {problem_number}: {e}")
+        return None
+
 # Example usage
 if __name__ == "__main__":
     questions = fetch_leetcode_questions()[::-1]
     for question in questions:
-        if question['stat']['question_id'] <= 189:
-            continue
-
         # question_id, question__title, question__title_slug
         title_1 = str(question['stat']['question_id']).zfill(5)
         title_2 = question['stat']['question__title_slug']
@@ -303,6 +310,6 @@ if __name__ == "__main__":
             f.write(json.dumps(real_tests))
         
         with open(f"./problems/{title_1}-{title_2}/solution.py", "w") as f:
-            f.write("print('hello')")
+            f.write(fetch_solution(str(question['stat']['question_id'])) or 'print("hello world")')
 
     print(f"Fetched {len(questions)} questions from LeetCode.")
