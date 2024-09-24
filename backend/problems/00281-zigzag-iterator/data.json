@@ -1,0 +1,1 @@
+{"id": "zigzag-iterator", "title": "Zigzag Iterator", "difficulty": "MEDIUM", "tags": ["array", "design", "queue", "iterator"], "metadata": {"function": "ZigzagIterator", "return": {"type": "array", "items": {"type": "int"}}, "args": [{"name": "v1", "type": "array", "items": {"type": "int"}}, {"name": "v2", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "decode-ways", "title": "Decode Ways", "difficulty": "MEDIUM", "tags": ["string", "dynamic-programming"], "metadata": {"function": "numDecodings", "return": {"type": "int"}, "args": [{"name": "s", "type": "str"}]}, "type": "ALGO"}

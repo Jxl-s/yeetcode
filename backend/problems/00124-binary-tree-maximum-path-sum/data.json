@@ -1,0 +1,1 @@
+{"id": "binary-tree-maximum-path-sum", "title": "Binary Tree Maximum Path Sum", "difficulty": "HARD", "tags": ["dynamic-programming", "tree", "depth-first-search", "binary-tree"], "metadata": {"function": "maxPathSum", "return": {"type": "int"}, "args": [{"name": "root", "type": "TreeNode"}]}, "type": "ALGO"}

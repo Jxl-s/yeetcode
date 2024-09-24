@@ -1,0 +1,1 @@
+{"id": "happy-number", "title": "Happy Number", "difficulty": "EASY", "tags": ["hash-table", "math", "two-pointers"], "metadata": {"function": "isHappy", "return": {"type": "bool"}, "args": [{"name": "n", "type": "int"}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "multiply-strings", "title": "Multiply Strings", "difficulty": "MEDIUM", "tags": ["math", "string", "simulation"], "metadata": {"function": "multiply", "return": {"type": "str"}, "args": [{"name": "num1", "type": "str"}, {"name": "num2", "type": "str"}]}, "type": "ALGO"}

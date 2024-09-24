@@ -1,0 +1,1 @@
+{"id": "flip-game-ii", "title": "Flip Game II", "difficulty": "MEDIUM", "tags": ["math", "dynamic-programming", "backtracking", "memoization", "game-theory"], "metadata": {"function": "canWin", "return": {"type": "bool"}, "args": [{"name": "currentState", "type": "str"}]}, "type": "ALGO"}

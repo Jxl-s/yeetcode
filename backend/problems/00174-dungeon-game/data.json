@@ -1,0 +1,1 @@
+{"id": "dungeon-game", "title": "Dungeon Game", "difficulty": "HARD", "tags": ["array", "dynamic-programming", "matrix"], "metadata": {"function": "calculateMinimumHP", "return": {"type": "int"}, "args": [{"name": "dungeon", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}]}, "type": "ALGO"}

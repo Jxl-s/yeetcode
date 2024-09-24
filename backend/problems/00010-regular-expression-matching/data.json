@@ -1,0 +1,1 @@
+{"id": "regular-expression-matching", "title": "Regular Expression Matching", "difficulty": "HARD", "tags": ["string", "dynamic-programming", "recursion"], "metadata": {"function": "isMatch", "return": {"type": "bool"}, "args": [{"name": "s", "type": "str"}, {"name": "p", "type": "str"}]}, "type": "ALGO"}

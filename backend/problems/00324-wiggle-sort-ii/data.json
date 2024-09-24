@@ -1,0 +1,1 @@
+{"id": "wiggle-sort-ii", "title": "Wiggle Sort II", "difficulty": "MEDIUM", "tags": ["array", "divide-and-conquer", "greedy", "sorting", "quickselect"], "metadata": {"function": "wiggleSort", "return": {"type": "void"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

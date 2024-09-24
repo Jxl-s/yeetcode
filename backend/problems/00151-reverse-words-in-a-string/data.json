@@ -1,0 +1,1 @@
+{"id": "reverse-words-in-a-string", "title": "Reverse Words in a String", "difficulty": "MEDIUM", "tags": ["two-pointers", "string"], "metadata": {"function": "reverseWords", "return": {"type": "str"}, "args": [{"name": "s", "type": "str"}]}, "type": "ALGO"}

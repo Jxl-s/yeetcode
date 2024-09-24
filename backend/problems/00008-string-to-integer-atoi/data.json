@@ -1,0 +1,1 @@
+{"id": "string-to-integer-atoi", "title": "String to Integer (atoi)", "difficulty": "MEDIUM", "tags": ["string"], "metadata": {"function": "myAtoi", "return": {"type": "int"}, "args": [{"name": "s", "type": "str"}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "reverse-nodes-in-k-group", "title": "Reverse Nodes in k-Group", "difficulty": "HARD", "tags": ["linked-list", "recursion"], "metadata": {"function": "reverseKGroup", "return": {"type": "ListNode"}, "args": [{"name": "head", "type": "ListNode"}, {"name": "k", "type": "int"}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "length-of-last-word", "title": "Length of Last Word", "difficulty": "EASY", "tags": ["string"], "metadata": {"function": "lengthOfLastWord", "return": {"type": "int"}, "args": [{"name": "s", "type": "str"}]}, "type": "ALGO"}

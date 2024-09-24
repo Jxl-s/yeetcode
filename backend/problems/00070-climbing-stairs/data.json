@@ -1,0 +1,1 @@
+{"id": "climbing-stairs", "title": "Climbing Stairs", "difficulty": "EASY", "tags": ["math", "dynamic-programming", "memoization"], "metadata": {"function": "climbStairs", "return": {"type": "int"}, "args": [{"name": "n", "type": "int"}]}, "type": "ALGO"}

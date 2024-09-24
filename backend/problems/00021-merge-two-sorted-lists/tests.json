@@ -1,0 +1,1 @@
+[{"args": {"list1": [1, 2, 4], "list2": [1, 3, 4]}, "expected": null}, {"args": {"list1": [], "list2": []}, "expected": null}, {"args": {"list1": [], "list2": [0]}, "expected": null}]

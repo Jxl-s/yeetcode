@@ -1,0 +1,1 @@
+{"id": "convert-sorted-list-to-binary-search-tree", "title": "Convert Sorted List to Binary Search Tree", "difficulty": "MEDIUM", "tags": ["linked-list", "divide-and-conquer", "tree", "binary-search-tree", "binary-tree"], "metadata": {"function": "sortedListToBST", "return": {"type": "TreeNode"}, "args": [{"name": "head", "type": "ListNode"}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "subsets", "title": "Subsets", "difficulty": "MEDIUM", "tags": ["array", "backtracking", "bit-manipulation"], "metadata": {"function": "subsets", "return": {"type": "array", "items": {"type": "array", "items": {"type": "int"}}}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

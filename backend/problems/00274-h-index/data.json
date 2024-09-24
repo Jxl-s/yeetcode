@@ -1,0 +1,1 @@
+{"id": "h-index", "title": "H-Index", "difficulty": "MEDIUM", "tags": ["array", "sorting", "counting-sort"], "metadata": {"function": "hIndex", "return": {"type": "int"}, "args": [{"name": "citations", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

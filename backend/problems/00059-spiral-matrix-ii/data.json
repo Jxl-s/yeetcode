@@ -1,0 +1,1 @@
+{"id": "spiral-matrix-ii", "title": "Spiral Matrix II", "difficulty": "MEDIUM", "tags": ["array", "matrix", "simulation"], "metadata": {"function": "generateMatrix", "return": {"type": "array", "items": {"type": "array", "items": {"type": "int"}}}, "args": [{"name": "n", "type": "int"}]}, "type": "ALGO"}

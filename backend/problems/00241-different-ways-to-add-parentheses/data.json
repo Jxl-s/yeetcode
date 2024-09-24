@@ -1,0 +1,1 @@
+{"id": "different-ways-to-add-parentheses", "title": "Different Ways to Add Parentheses", "difficulty": "MEDIUM", "tags": ["math", "string", "dynamic-programming", "recursion", "memoization"], "metadata": {"function": "diffWaysToCompute", "return": {"type": "array", "items": {"type": "int"}}, "args": [{"name": "expression", "type": "str"}]}, "type": "ALGO"}

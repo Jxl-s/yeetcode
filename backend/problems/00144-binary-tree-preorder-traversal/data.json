@@ -1,0 +1,1 @@
+{"id": "binary-tree-preorder-traversal", "title": "Binary Tree Preorder Traversal", "difficulty": "EASY", "tags": ["stack", "tree", "depth-first-search", "binary-tree"], "metadata": {"function": "preorderTraversal", "return": {"type": "array", "items": {"type": "int"}}, "args": [{"name": "root", "type": "TreeNode"}]}, "type": "ALGO"}

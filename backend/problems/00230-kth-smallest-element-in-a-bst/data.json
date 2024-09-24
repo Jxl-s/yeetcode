@@ -1,0 +1,1 @@
+{"id": "kth-smallest-element-in-a-bst", "title": "Kth Smallest Element in a BST", "difficulty": "MEDIUM", "tags": ["tree", "depth-first-search", "binary-search-tree", "binary-tree"], "metadata": {"function": "kthSmallest", "return": {"type": "int"}, "args": [{"name": "root", "type": "TreeNode"}, {"name": "k", "type": "int"}]}, "type": "ALGO"}

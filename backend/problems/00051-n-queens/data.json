@@ -1,0 +1,1 @@
+{"id": "n-queens", "title": "N-Queens", "difficulty": "HARD", "tags": ["array", "backtracking"], "metadata": {"function": "solveNQueens", "return": {"type": "array", "items": {"type": "array", "items": {"type": "str"}}}, "args": [{"name": "n", "type": "int"}]}, "type": "ALGO"}

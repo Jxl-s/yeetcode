@@ -1,0 +1,1 @@
+{"id": "compare-version-numbers", "title": "Compare Version Numbers", "difficulty": "MEDIUM", "tags": ["two-pointers", "string"], "metadata": {"function": "compareVersion", "return": {"type": "int"}, "args": [{"name": "version1", "type": "str"}, {"name": "version2", "type": "str"}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "symmetric-tree", "title": "Symmetric Tree", "difficulty": "EASY", "tags": ["tree", "depth-first-search", "breadth-first-search", "binary-tree"], "metadata": {"function": "isSymmetric", "return": {"type": "bool"}, "args": [{"name": "root", "type": "TreeNode"}]}, "type": "ALGO"}

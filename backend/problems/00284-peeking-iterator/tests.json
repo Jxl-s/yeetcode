@@ -1,0 +1,1 @@
+[{"args": {"nums": ["PeekingIterator", "next", "peek", "next", "next", "hasNext"], "commands": [[[1, 2, 3]], [], [], [], [], []]}, "expected": null}]

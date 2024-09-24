@@ -1,8 +1,1 @@
-{
-    "id": "median-of-two-sorted-arrays",
-    "title": "Median Of Two Sorted Arrays",
-    "difficulty": "HARD",
-    "tags": ["array","binary-search","divide-and-conquer"],
-    "type": "ALGO",
-    "metadata": {"function":"findMedianSortedArrays","return":{"type":"float"},"args":[{"name":"nums1","type":"array","items":{"type":"int"}},{"name":"nums2","type":"array","items":{"type":"int"}}]}
-}
+{"id": "median-of-two-sorted-arrays", "title": "Median of Two Sorted Arrays", "difficulty": "HARD", "tags": ["array", "binary-search", "divide-and-conquer"], "metadata": {"function": "findMedianSortedArrays", "return": {"type": "float"}, "args": [{"name": "nums1", "type": "array", "items": {"type": "int"}}, {"name": "nums2", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

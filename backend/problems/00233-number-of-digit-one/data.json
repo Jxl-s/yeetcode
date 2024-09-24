@@ -1,0 +1,1 @@
+{"id": "number-of-digit-one", "title": "Number of Digit One", "difficulty": "HARD", "tags": ["math", "dynamic-programming", "recursion"], "metadata": {"function": "countDigitOne", "return": {"type": "int"}, "args": [{"name": "n", "type": "int"}]}, "type": "ALGO"}

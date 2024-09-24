@@ -1,0 +1,1 @@
+{"id": "3sum", "title": "3Sum", "difficulty": "MEDIUM", "tags": ["array", "two-pointers", "sorting"], "metadata": {"function": "threeSum", "return": {"type": "array", "items": {"type": "array", "items": {"type": "int"}}}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

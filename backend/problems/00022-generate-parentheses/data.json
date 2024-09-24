@@ -1,0 +1,1 @@
+{"id": "generate-parentheses", "title": "Generate Parentheses", "difficulty": "MEDIUM", "tags": ["string", "dynamic-programming", "backtracking"], "metadata": {"function": "generateParenthesis", "return": {"type": "array", "items": {"type": "str"}}, "args": [{"name": "n", "type": "int"}]}, "type": "ALGO"}

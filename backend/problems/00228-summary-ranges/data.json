@@ -1,0 +1,1 @@
+{"id": "summary-ranges", "title": "Summary Ranges", "difficulty": "EASY", "tags": ["array"], "metadata": {"function": "summaryRanges", "return": {"type": "array", "items": {"type": "str"}}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

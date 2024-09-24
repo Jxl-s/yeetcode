@@ -1,0 +1,1 @@
+{"id": "palindrome-partitioning-ii", "title": "Palindrome Partitioning II", "difficulty": "HARD", "tags": ["string", "dynamic-programming"], "metadata": {"function": "minCut", "return": {"type": "int"}, "args": [{"name": "s", "type": "str"}]}, "type": "ALGO"}

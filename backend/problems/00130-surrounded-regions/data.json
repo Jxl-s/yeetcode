@@ -1,0 +1,1 @@
+{"id": "surrounded-regions", "title": "Surrounded Regions", "difficulty": "MEDIUM", "tags": ["array", "depth-first-search", "breadth-first-search", "union-find", "matrix"], "metadata": {"function": "solve", "return": {"type": "void"}, "args": [{"name": "board", "type": "array", "items": {"type": "array", "items": {"type": "str"}}}]}, "type": "ALGO"}

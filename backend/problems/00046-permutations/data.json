@@ -1,0 +1,1 @@
+{"id": "permutations", "title": "Permutations", "difficulty": "MEDIUM", "tags": ["array", "backtracking"], "metadata": {"function": "permute", "return": {"type": "array", "items": {"type": "array", "items": {"type": "int"}}}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "excel-sheet-column-number", "title": "Excel Sheet Column Number", "difficulty": "EASY", "tags": ["math", "string"], "metadata": {"function": "titleToNumber", "return": {"type": "int"}, "args": [{"name": "columnTitle", "type": "str"}]}, "type": "ALGO"}

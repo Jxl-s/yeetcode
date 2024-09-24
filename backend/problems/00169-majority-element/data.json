@@ -1,0 +1,1 @@
+{"id": "majority-element", "title": "Majority Element", "difficulty": "EASY", "tags": ["array", "hash-table", "divide-and-conquer", "sorting", "counting"], "metadata": {"function": "majorityElement", "return": {"type": "int"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

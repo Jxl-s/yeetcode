@@ -1,0 +1,1 @@
+{"id": "find-the-index-of-the-first-occurrence-in-a-string", "title": "Find the Index of the First Occurrence in a String", "difficulty": "EASY", "tags": ["two-pointers", "string", "string-matching"], "metadata": {"function": "strStr", "return": {"type": "int"}, "args": [{"name": "haystack", "type": "str"}, {"name": "needle", "type": "str"}]}, "type": "ALGO"}

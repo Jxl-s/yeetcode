@@ -1,0 +1,1 @@
+{"id": "bulb-switcher", "title": "Bulb Switcher", "difficulty": "MEDIUM", "tags": ["math", "brainteaser"], "metadata": {"function": "bulbSwitch", "return": {"type": "int"}, "args": [{"name": "n", "type": "int"}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "longest-consecutive-sequence", "title": "Longest Consecutive Sequence", "difficulty": "MEDIUM", "tags": ["array", "hash-table", "union-find"], "metadata": {"function": "longestConsecutive", "return": {"type": "int"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

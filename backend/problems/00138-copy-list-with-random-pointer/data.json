@@ -1,0 +1,1 @@
+{"id": "copy-list-with-random-pointer", "title": "Copy List with Random Pointer", "difficulty": "MEDIUM", "tags": ["hash-table", "linked-list"], "metadata": {"function": "copyRandomList", "return": {"type": "ListNode"}, "args": [{"name": "head", "type": "ListNode"}]}, "type": "ALGO"}

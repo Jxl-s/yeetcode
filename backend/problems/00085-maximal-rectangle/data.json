@@ -1,0 +1,1 @@
+{"id": "maximal-rectangle", "title": "Maximal Rectangle", "difficulty": "HARD", "tags": ["array", "dynamic-programming", "stack", "matrix", "monotonic-stack"], "metadata": {"function": "maximalRectangle", "return": {"type": "int"}, "args": [{"name": "matrix", "type": "array", "items": {"type": "array", "items": {"type": "str"}}}]}, "type": "ALGO"}

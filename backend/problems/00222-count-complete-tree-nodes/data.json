@@ -1,0 +1,1 @@
+{"id": "count-complete-tree-nodes", "title": "Count Complete Tree Nodes", "difficulty": "EASY", "tags": ["binary-search", "bit-manipulation", "tree", "binary-tree"], "metadata": {"function": "countNodes", "return": {"type": "int"}, "args": [{"name": "root", "type": "TreeNode"}]}, "type": "ALGO"}

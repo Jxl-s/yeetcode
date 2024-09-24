@@ -1,0 +1,1 @@
+{"id": "clone-graph", "title": "Clone Graph", "difficulty": "MEDIUM", "tags": ["hash-table", "depth-first-search", "breadth-first-search", "graph"], "metadata": {"function": "cloneGraph", "return": {"type": "bool"}, "args": [{"name": "edges", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "two-sum-ii-input-array-is-sorted", "title": "Two Sum II - Input Array Is Sorted", "difficulty": "MEDIUM", "tags": ["array", "two-pointers", "binary-search"], "metadata": {"function": "twoSum", "return": {"type": "array", "items": {"type": "int"}}, "args": [{"name": "numbers", "type": "array", "items": {"type": "int"}}, {"name": "target", "type": "int"}]}, "type": "ALGO"}

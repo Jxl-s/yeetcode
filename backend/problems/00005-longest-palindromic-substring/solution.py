@@ -1,23 +1,9 @@
 class Solution:
     def longestPalindrome(self, s: str) -> str:
-        left, right = 0, 0
-        n = len(s)
-
-        for i in range(n):
-            j = 0
-            while i - j >= 0 and i + j < n and s[i - j] == s[i + j]:
-                if 2 * j + 1 > right - left + 1:
-                    left = i - j
-                    right = i + j
-
-                j += 1
-            
-            j = 0
-            while i - j - 1 >= 0 and i + j < n and s[i - j - 1] == s[i + j]:
-                if 2 * j + 2 > right - left + 1:
-                    left = i - j - 1
-                    right = i + j
-
-                j += 1
-            
-        return s[left:right+1]
+        def check(l, r):
+            while 0 <= l <= r < len(s) and s[l] == s[r]:
+                l -= 1
+                r += 1
+            return s[l + 1:r]
+        pals = [check(i, i) for i in range(len(s))] + [check(i, i + 1) for i in range(len(s) - 1) if s[i] == s[i + 1]]
+        return sorted(pals, key = len)[-1] if pals else ''

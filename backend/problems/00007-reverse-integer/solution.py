@@ -1,4 +1,3 @@
 class Solution:
-    def reverse(self, x: int) -> int:
-        rev = int(str(abs(x))[::-1])
-        return (-rev if x < 0 else rev) if rev.bit_length() < 32 else 0
+    def reverse(self, x):
+        x = int(str(x)[::-1]) if x >= 0 else int("-" + str(x)[::-1][:-1]); return -2 ** 31 <= x <= 2 ** 31 - 1 and x or 0

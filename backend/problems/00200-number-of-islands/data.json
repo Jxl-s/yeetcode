@@ -1,0 +1,1 @@
+{"id": "number-of-islands", "title": "Number of Islands", "difficulty": "MEDIUM", "tags": ["array", "depth-first-search", "breadth-first-search", "union-find", "matrix"], "metadata": {"function": "numIslands", "return": {"type": "int"}, "args": [{"name": "grid", "type": "array", "items": {"type": "array", "items": {"type": "str"}}}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "binary-tree-right-side-view", "title": "Binary Tree Right Side View", "difficulty": "MEDIUM", "tags": ["tree", "depth-first-search", "breadth-first-search", "binary-tree"], "metadata": {"function": "rightSideView", "return": {"type": "array", "items": {"type": "int"}}, "args": [{"name": "root", "type": "TreeNode"}]}, "type": "ALGO"}

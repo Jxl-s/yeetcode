@@ -1,0 +1,1 @@
+{"id": "longest-valid-parentheses", "title": "Longest Valid Parentheses", "difficulty": "HARD", "tags": ["string", "dynamic-programming", "stack"], "metadata": {"function": "longestValidParentheses", "return": {"type": "int"}, "args": [{"name": "s", "type": "str"}]}, "type": "ALGO"}

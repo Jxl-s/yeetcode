@@ -1,0 +1,1 @@
+[{"args": {"s": "barfoothefoobarman", "words": ["foo", "bar"]}, "expected": null}, {"args": {"s": "wordgoodgoodgoodbestword", "words": ["word", "good", "best", "word"]}, "expected": null}, {"args": {"s": "barfoofoobarthefoobarman", "words": ["bar", "foo", "the"]}, "expected": null}]

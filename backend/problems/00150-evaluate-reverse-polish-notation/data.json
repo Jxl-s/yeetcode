@@ -1,0 +1,1 @@
+{"id": "evaluate-reverse-polish-notation", "title": "Evaluate Reverse Polish Notation", "difficulty": "MEDIUM", "tags": ["array", "math", "stack"], "metadata": {"function": "evalRPN", "return": {"type": "int"}, "args": [{"name": "tokens", "type": "array", "items": {"type": "str"}}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "contains-duplicate", "title": "Contains Duplicate", "difficulty": "EASY", "tags": ["array", "hash-table", "sorting"], "metadata": {"function": "containsDuplicate", "return": {"type": "bool"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

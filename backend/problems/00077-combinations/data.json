@@ -1,0 +1,1 @@
+{"id": "combinations", "title": "Combinations", "difficulty": "MEDIUM", "tags": ["backtracking"], "metadata": {"function": "combine", "return": {"type": "array", "items": {"type": "array", "items": {"type": "int"}}}, "args": [{"name": "n", "type": "int"}, {"name": "k", "type": "int"}]}, "type": "ALGO"}

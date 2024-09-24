@@ -1,0 +1,1 @@
+[{"args": {"gas": [1, 2, 3, 4, 5], "cost": [3, 4, 5, 1, 2]}, "expected": null}, {"args": {"gas": [2, 3, 4], "cost": [3, 4, 3]}, "expected": null}]

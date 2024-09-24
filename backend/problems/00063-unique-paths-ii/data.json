@@ -1,0 +1,1 @@
+{"id": "unique-paths-ii", "title": "Unique Paths II", "difficulty": "MEDIUM", "tags": ["array", "dynamic-programming", "matrix"], "metadata": {"function": "uniquePathsWithObstacles", "return": {"type": "int"}, "args": [{"name": "obstacleGrid", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}]}, "type": "ALGO"}

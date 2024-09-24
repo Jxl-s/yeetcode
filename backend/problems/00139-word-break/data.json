@@ -1,0 +1,1 @@
+{"id": "word-break", "title": "Word Break", "difficulty": "MEDIUM", "tags": ["array", "hash-table", "string", "dynamic-programming", "trie", "memoization"], "metadata": {"function": "wordBreak", "return": {"type": "bool"}, "args": [{"name": "s", "type": "str"}, {"name": "wordDict", "type": "array", "items": {"type": "str"}}]}, "type": "ALGO"}

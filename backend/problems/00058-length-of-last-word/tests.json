@@ -1,0 +1,1 @@
+[{"args": {"s": "Hello World"}, "expected": null}, {"args": {"s": "   fly me   to   the moon  "}, "expected": null}, {"args": {"s": "luffy is still joyboy"}, "expected": null}]

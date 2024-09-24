@@ -1,0 +1,1 @@
+{"id": "shortest-palindrome", "title": "Shortest Palindrome", "difficulty": "HARD", "tags": ["string", "rolling-hash", "string-matching", "hash-function"], "metadata": {"function": "shortestPalindrome", "return": {"type": "str"}, "args": [{"name": "s", "type": "str"}]}, "type": "ALGO"}

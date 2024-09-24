@@ -1,0 +1,1 @@
+{"id": "largest-number", "title": "Largest Number", "difficulty": "MEDIUM", "tags": ["array", "string", "greedy", "sorting"], "metadata": {"function": "largestNumber", "return": {"type": "str"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

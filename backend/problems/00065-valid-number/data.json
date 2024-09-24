@@ -1,0 +1,1 @@
+{"id": "valid-number", "title": "Valid Number", "difficulty": "HARD", "tags": ["string"], "metadata": {"function": "isNumber", "return": {"type": "bool"}, "args": [{"name": "s", "type": "str"}]}, "type": "ALGO"}

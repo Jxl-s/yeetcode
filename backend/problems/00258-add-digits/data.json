@@ -1,0 +1,1 @@
+{"id": "add-digits", "title": "Add Digits", "difficulty": "EASY", "tags": ["math", "simulation", "number-theory"], "metadata": {"function": "addDigits", "return": {"type": "int"}, "args": [{"name": "num", "type": "int"}]}, "type": "ALGO"}

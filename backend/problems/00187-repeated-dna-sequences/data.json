@@ -1,0 +1,1 @@
+{"id": "repeated-dna-sequences", "title": "Repeated DNA Sequences", "difficulty": "MEDIUM", "tags": ["hash-table", "string", "bit-manipulation", "sliding-window", "rolling-hash", "hash-function"], "metadata": {"function": "findRepeatedDnaSequences", "return": {"type": "array", "items": {"type": "str"}}, "args": [{"name": "s", "type": "str"}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "word-ladder", "title": "Word Ladder", "difficulty": "HARD", "tags": ["hash-table", "string", "breadth-first-search"], "metadata": {"function": "ladderLength", "return": {"type": "int"}, "args": [{"name": "beginWord", "type": "str"}, {"name": "endWord", "type": "str"}, {"name": "wordList", "type": "array", "items": {"type": "str"}}]}, "type": "ALGO"}

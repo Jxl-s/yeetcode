@@ -1,0 +1,1 @@
+[{"args": {"prices": [7, 1, 5, 3, 6, 4]}, "expected": null}, {"args": {"prices": [1, 2, 3, 4, 5]}, "expected": null}, {"args": {"prices": [7, 6, 4, 3, 1]}, "expected": null}]

@@ -1,0 +1,1 @@
+{"id": "paint-fence", "title": "Paint Fence", "difficulty": "MEDIUM", "tags": ["dynamic-programming"], "metadata": {"function": "numWays", "return": {"type": "int"}, "args": [{"name": "n", "type": "int"}, {"name": "k", "type": "int"}]}, "type": "ALGO"}

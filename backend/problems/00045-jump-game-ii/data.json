@@ -1,0 +1,1 @@
+{"id": "jump-game-ii", "title": "Jump Game II", "difficulty": "MEDIUM", "tags": ["array", "dynamic-programming", "greedy"], "metadata": {"function": "jump", "return": {"type": "int"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

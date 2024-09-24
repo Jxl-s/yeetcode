@@ -1,0 +1,1 @@
+{"id": "group-shifted-strings", "title": "Group Shifted Strings", "difficulty": "MEDIUM", "tags": ["array", "hash-table", "string"], "metadata": {"function": "groupStrings", "return": {"type": "array", "items": {"type": "array", "items": {"type": "str"}}}, "args": [{"name": "strings", "type": "array", "items": {"type": "str"}}]}, "type": "ALGO"}

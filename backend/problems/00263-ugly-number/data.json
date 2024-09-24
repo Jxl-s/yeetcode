@@ -1,0 +1,1 @@
+{"id": "ugly-number", "title": "Ugly Number", "difficulty": "EASY", "tags": ["math"], "metadata": {"function": "isUgly", "return": {"type": "bool"}, "args": [{"name": "n", "type": "int"}]}, "type": "ALGO"}

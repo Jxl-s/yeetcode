@@ -1,0 +1,1 @@
+{"id": "combination-sum", "title": "Combination Sum", "difficulty": "MEDIUM", "tags": ["array", "backtracking"], "metadata": {"function": "combinationSum", "return": {"type": "array", "items": {"type": "array", "items": {"type": "int"}}}, "args": [{"name": "candidates", "type": "array", "items": {"type": "int"}}, {"name": "target", "type": "int"}]}, "type": "ALGO"}

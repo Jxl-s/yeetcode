@@ -1,8 +1,7 @@
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        complements = {}
-        for i, n in enumerate(nums):
-            if n in complements:
-                return [complements[n], i]
-            
-            complements[target - n] = i
+    def twoSum(self, nums, target):
+        nums_hash = {}
+        for i in range(len(nums)):
+            if target - nums[i] in nums_hash: 
+                return [nums_hash[target - nums[i]], i]
+            nums_hash[nums[i]] = i

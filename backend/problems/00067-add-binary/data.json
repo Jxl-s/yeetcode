@@ -1,0 +1,1 @@
+{"id": "add-binary", "title": "Add Binary", "difficulty": "EASY", "tags": ["math", "string", "bit-manipulation", "simulation"], "metadata": {"function": "addBinary", "return": {"type": "str"}, "args": [{"name": "a", "type": "str"}, {"name": "b", "type": "str"}]}, "type": "ALGO"}

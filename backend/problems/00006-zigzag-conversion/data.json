@@ -1,8 +1,1 @@
-{
-    "id": "zigzag-conversion",
-    "title": "Zigzag Conversion",
-    "difficulty": "MEDIUM",
-    "tags": ["string"],
-    "type": "ALGO",
-    "metadata": {"function":"convert","return":{"type":"str"},"args":[{"name":"s","type":"str"},{"name":"numRows","type":"int"}]}
-}
+{"id": "zigzag-conversion", "title": "Zigzag Conversion", "difficulty": "MEDIUM", "tags": ["string"], "metadata": {"function": "convert", "return": {"type": "str"}, "args": [{"name": "s", "type": "str"}, {"name": "numRows", "type": "int"}]}, "type": "ALGO"}

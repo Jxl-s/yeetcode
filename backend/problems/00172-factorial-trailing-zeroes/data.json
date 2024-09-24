@@ -1,0 +1,1 @@
+{"id": "factorial-trailing-zeroes", "title": "Factorial Trailing Zeroes", "difficulty": "MEDIUM", "tags": ["math"], "metadata": {"function": "trailingZeroes", "return": {"type": "int"}, "args": [{"name": "n", "type": "int"}]}, "type": "ALGO"}

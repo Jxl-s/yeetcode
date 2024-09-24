@@ -1,0 +1,1 @@
+{"id": "binary-tree-postorder-traversal", "title": "Binary Tree Postorder Traversal", "difficulty": "EASY", "tags": ["stack", "tree", "depth-first-search", "binary-tree"], "metadata": {"function": "postorderTraversal", "return": {"type": "array", "items": {"type": "int"}}, "args": [{"name": "root", "type": "TreeNode"}]}, "type": "ALGO"}

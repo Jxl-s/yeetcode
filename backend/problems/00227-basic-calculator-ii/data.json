@@ -1,0 +1,1 @@
+{"id": "basic-calculator-ii", "title": "Basic Calculator II", "difficulty": "MEDIUM", "tags": ["math", "string", "stack"], "metadata": {"function": "calculate", "return": {"type": "int"}, "args": [{"name": "s", "type": "str"}]}, "type": "ALGO"}

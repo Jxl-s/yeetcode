@@ -1,0 +1,1 @@
+{"id": "integer-to-roman", "title": "Integer to Roman", "difficulty": "MEDIUM", "tags": ["hash-table", "math", "string"], "metadata": {"function": "intToRoman", "return": {"type": "str"}, "args": [{"name": "num", "type": "int"}]}, "type": "ALGO"}

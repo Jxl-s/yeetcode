@@ -1,0 +1,1 @@
+{"id": "reverse-linked-list-ii", "title": "Reverse Linked List II", "difficulty": "MEDIUM", "tags": ["linked-list"], "metadata": {"function": "reverseBetween", "return": {"type": "ListNode"}, "args": [{"name": "head", "type": "ListNode"}, {"name": "left", "type": "int"}, {"name": "right", "type": "int"}]}, "type": "ALGO"}

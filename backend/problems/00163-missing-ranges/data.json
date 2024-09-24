@@ -1,0 +1,1 @@
+{"id": "missing-ranges", "title": "Missing Ranges", "difficulty": "EASY", "tags": ["array"], "metadata": {"function": "findMissingRanges", "return": {"type": "array", "items": {"type": "array", "items": {"type": "int"}}}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}, {"name": "lower", "type": "int"}, {"name": "upper", "type": "int"}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "spiral-matrix", "title": "Spiral Matrix", "difficulty": "MEDIUM", "tags": ["array", "matrix", "simulation"], "metadata": {"function": "spiralOrder", "return": {"type": "array", "items": {"type": "int"}}, "args": [{"name": "matrix", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}]}, "type": "ALGO"}

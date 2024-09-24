@@ -1,0 +1,1 @@
+{"id": "permutation-sequence", "title": "Permutation Sequence", "difficulty": "HARD", "tags": ["math", "recursion"], "metadata": {"function": "getPermutation", "return": {"type": "str"}, "args": [{"name": "n", "type": "int"}, {"name": "k", "type": "int"}]}, "type": "ALGO"}

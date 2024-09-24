@@ -1,0 +1,1 @@
+{"id": "gas-station", "title": "Gas Station", "difficulty": "MEDIUM", "tags": ["array", "greedy"], "metadata": {"function": "canCompleteCircuit", "return": {"type": "int"}, "args": [{"name": "gas", "type": "array", "items": {"type": "int"}}, {"name": "cost", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

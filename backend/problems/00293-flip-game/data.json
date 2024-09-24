@@ -1,0 +1,1 @@
+{"id": "flip-game", "title": "Flip Game", "difficulty": "EASY", "tags": ["string"], "metadata": {"function": "generatePossibleNextMoves", "return": {"type": "array", "items": {"type": "str"}}, "args": [{"name": "currentState", "type": "str"}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "search-a-2d-matrix", "title": "Search a 2D Matrix", "difficulty": "MEDIUM", "tags": ["array", "binary-search", "matrix"], "metadata": {"function": "searchMatrix", "return": {"type": "bool"}, "args": [{"name": "matrix", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}, {"name": "target", "type": "int"}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "pascals-triangle-ii", "title": "Pascal's Triangle II", "difficulty": "EASY", "tags": ["array", "dynamic-programming"], "metadata": {"function": "getRow", "return": {"type": "array", "items": {"type": "int"}}, "args": [{"name": "rowIndex", "type": "int"}]}, "type": "ALGO"}

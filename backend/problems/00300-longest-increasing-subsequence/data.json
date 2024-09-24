@@ -1,0 +1,1 @@
+{"id": "longest-increasing-subsequence", "title": "Longest Increasing Subsequence", "difficulty": "MEDIUM", "tags": ["array", "binary-search", "dynamic-programming"], "metadata": {"function": "lengthOfLIS", "return": {"type": "int"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

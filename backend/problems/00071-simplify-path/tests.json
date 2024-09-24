@@ -1,0 +1,1 @@
+[{"args": {"path": "/home/"}, "expected": null}, {"args": {"path": "/home//foo/"}, "expected": null}, {"args": {"path": "/home/user/Documents/../Pictures"}, "expected": null}, {"args": {"path": "/../"}, "expected": null}, {"args": {"path": "/.../a/../b/c/../d/./"}, "expected": null}]

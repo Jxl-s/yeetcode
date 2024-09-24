@@ -1,0 +1,1 @@
+{"id": "search-in-rotated-sorted-array", "title": "Search in Rotated Sorted Array", "difficulty": "MEDIUM", "tags": ["array", "binary-search"], "metadata": {"function": "search", "return": {"type": "int"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}, {"name": "target", "type": "int"}]}, "type": "ALGO"}

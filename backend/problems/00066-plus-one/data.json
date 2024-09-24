@@ -1,0 +1,1 @@
+{"id": "plus-one", "title": "Plus One", "difficulty": "EASY", "tags": ["array", "math"], "metadata": {"function": "plusOne", "return": {"type": "array", "items": {"type": "int"}}, "args": [{"name": "digits", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

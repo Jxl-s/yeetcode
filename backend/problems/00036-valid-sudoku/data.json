@@ -1,0 +1,1 @@
+{"id": "valid-sudoku", "title": "Valid Sudoku", "difficulty": "MEDIUM", "tags": ["array", "hash-table", "matrix"], "metadata": {"function": "isValidSudoku", "return": {"type": "bool"}, "args": [{"name": "board", "type": "array", "items": {"type": "array", "items": {"type": "str"}}}]}, "type": "ALGO"}

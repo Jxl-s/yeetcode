@@ -1,0 +1,1 @@
+{"id": "sudoku-solver", "title": "Sudoku Solver", "difficulty": "HARD", "tags": ["array", "hash-table", "backtracking", "matrix"], "metadata": {"function": "solveSudoku", "return": {"type": "void"}, "args": [{"name": "board", "type": "array", "items": {"type": "array", "items": {"type": "str"}}}]}, "type": "ALGO"}

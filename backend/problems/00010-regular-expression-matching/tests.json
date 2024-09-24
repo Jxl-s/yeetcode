@@ -1,0 +1,1 @@
+[{"args": {"s": "aa", "p": "a"}, "expected": null}, {"args": {"s": "aa", "p": "a*"}, "expected": null}, {"args": {"s": "ab", "p": ".*"}, "expected": null}]

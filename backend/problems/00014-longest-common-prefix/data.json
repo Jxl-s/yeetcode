@@ -1,0 +1,1 @@
+{"id": "longest-common-prefix", "title": "Longest Common Prefix", "difficulty": "EASY", "tags": ["string", "trie"], "metadata": {"function": "longestCommonPrefix", "return": {"type": "str"}, "args": [{"name": "strs", "type": "array", "items": {"type": "str"}}]}, "type": "ALGO"}

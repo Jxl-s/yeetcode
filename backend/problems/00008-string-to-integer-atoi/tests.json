@@ -1,0 +1,1 @@
+[{"args": {"s": "42"}, "expected": null}, {"args": {"s": "   -042"}, "expected": null}, {"args": {"s": "1337c0d3"}, "expected": null}, {"args": {"s": "0-1"}, "expected": null}, {"args": {"s": "words and 987"}, "expected": null}]

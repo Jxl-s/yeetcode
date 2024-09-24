@@ -1,0 +1,1 @@
+{"id": "word-pattern-ii", "title": "Word Pattern II", "difficulty": "MEDIUM", "tags": ["hash-table", "string", "backtracking"], "metadata": {"function": "wordPatternMatch", "return": {"type": "bool"}, "args": [{"name": "pattern", "type": "str"}, {"name": "s", "type": "str"}]}, "type": "ALGO"}

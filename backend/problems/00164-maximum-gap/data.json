@@ -1,0 +1,1 @@
+{"id": "maximum-gap", "title": "Maximum Gap", "difficulty": "MEDIUM", "tags": ["array", "sorting", "bucket-sort", "radix-sort"], "metadata": {"function": "maximumGap", "return": {"type": "int"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

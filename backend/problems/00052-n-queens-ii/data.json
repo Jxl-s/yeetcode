@@ -1,0 +1,1 @@
+{"id": "n-queens-ii", "title": "N-Queens II", "difficulty": "HARD", "tags": ["backtracking"], "metadata": {"function": "totalNQueens", "return": {"type": "int"}, "args": [{"name": "n", "type": "int"}]}, "type": "ALGO"}

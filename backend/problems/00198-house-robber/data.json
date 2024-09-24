@@ -1,0 +1,1 @@
+{"id": "house-robber", "title": "House Robber", "difficulty": "MEDIUM", "tags": ["array", "dynamic-programming"], "metadata": {"function": "rob", "return": {"type": "int"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

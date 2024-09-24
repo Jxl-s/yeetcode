@@ -1,0 +1,1 @@
+{"id": "binary-tree-paths", "title": "Binary Tree Paths", "difficulty": "EASY", "tags": ["string", "backtracking", "tree", "depth-first-search", "binary-tree"], "metadata": {"function": "binaryTreePaths", "return": {"type": "array", "items": {"type": "str"}}, "args": [{"name": "root", "type": "TreeNode"}]}, "type": "ALGO"}

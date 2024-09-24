@@ -1,0 +1,1 @@
+{"id": "first-missing-positive", "title": "First Missing Positive", "difficulty": "HARD", "tags": ["array", "hash-table"], "metadata": {"function": "firstMissingPositive", "return": {"type": "int"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "count-primes", "title": "Count Primes", "difficulty": "MEDIUM", "tags": ["array", "math", "enumeration", "number-theory"], "metadata": {"function": "countPrimes", "return": {"type": "int"}, "args": [{"name": "n", "type": "int"}]}, "type": "ALGO"}

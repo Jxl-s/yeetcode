@@ -1,0 +1,1 @@
+{"id": "shortest-distance-from-all-buildings", "title": "Shortest Distance from All Buildings", "difficulty": "HARD", "tags": ["array", "breadth-first-search", "matrix"], "metadata": {"function": "shortestDistance", "return": {"type": "int"}, "args": [{"name": "grid", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}]}, "type": "ALGO"}

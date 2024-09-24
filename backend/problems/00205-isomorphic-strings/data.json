@@ -1,0 +1,1 @@
+{"id": "isomorphic-strings", "title": "Isomorphic Strings", "difficulty": "EASY", "tags": ["hash-table", "string"], "metadata": {"function": "isIsomorphic", "return": {"type": "bool"}, "args": [{"name": "s", "type": "str"}, {"name": "t", "type": "str"}]}, "type": "ALGO"}

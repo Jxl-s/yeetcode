@@ -1,0 +1,1 @@
+{"id": "container-with-most-water", "title": "Container With Most Water", "difficulty": "MEDIUM", "tags": ["array", "two-pointers", "greedy"], "metadata": {"function": "maxArea", "return": {"type": "int"}, "args": [{"name": "height", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

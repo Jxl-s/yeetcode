@@ -1,0 +1,1 @@
+{"id": "trapping-rain-water", "title": "Trapping Rain Water", "difficulty": "HARD", "tags": ["array", "two-pointers", "dynamic-programming", "stack", "monotonic-stack"], "metadata": {"function": "trap", "return": {"type": "int"}, "args": [{"name": "height", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

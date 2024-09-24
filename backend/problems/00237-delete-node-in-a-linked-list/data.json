@@ -1,0 +1,1 @@
+{"id": "delete-node-in-a-linked-list", "title": "Delete Node in a Linked List", "difficulty": "MEDIUM", "tags": ["linked-list"], "metadata": {"function": "deleteNode", "return": {"type": "void"}, "args": [{"name": "head", "type": "ListNode"}, {"name": "node", "type": "int"}]}, "type": "ALGO"}

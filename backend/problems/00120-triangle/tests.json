@@ -1,0 +1,1 @@
+[{"args": {"triangle": [[2], [3, 4], [6, 5, 7], [4, 1, 8, 3]]}, "expected": null}, {"args": {"triangle": [[-10]]}, "expected": null}]

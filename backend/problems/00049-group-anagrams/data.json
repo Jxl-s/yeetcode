@@ -1,0 +1,1 @@
+{"id": "group-anagrams", "title": "Group Anagrams", "difficulty": "MEDIUM", "tags": ["array", "hash-table", "string", "sorting"], "metadata": {"function": "groupAnagrams", "return": {"type": "array", "items": {"type": "array", "items": {"type": "str"}}}, "args": [{"name": "strs", "type": "array", "items": {"type": "str"}}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "triangle", "title": "Triangle", "difficulty": "MEDIUM", "tags": ["array", "dynamic-programming"], "metadata": {"function": "minimumTotal", "return": {"type": "int"}, "args": [{"name": "triangle", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}]}, "type": "ALGO"}

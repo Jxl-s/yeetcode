@@ -1,8 +1,1 @@
-{
-    "id": "reverse-integer",
-    "title": "Reverse Integer",
-    "difficulty": "MEDIUM",
-    "tags": ["math"],
-    "type": "ALGO",
-    "metadata": {"function":"reverse","return":{"type":"int"},"args":[{"name":"x","type":"int"}]}
-}
+{"id": "reverse-integer", "title": "Reverse Integer", "difficulty": "MEDIUM", "tags": ["math"], "metadata": {"function": "reverse", "return": {"type": "int"}, "args": [{"name": "x", "type": "int"}]}, "type": "ALGO"}

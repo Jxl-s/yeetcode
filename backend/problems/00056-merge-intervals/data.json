@@ -1,0 +1,1 @@
+{"id": "merge-intervals", "title": "Merge Intervals", "difficulty": "MEDIUM", "tags": ["array", "sorting"], "metadata": {"function": "merge", "return": {"type": "array", "items": {"type": "array", "items": {"type": "int"}}}, "args": [{"name": "intervals", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}]}, "type": "ALGO"}

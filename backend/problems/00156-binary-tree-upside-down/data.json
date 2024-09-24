@@ -1,0 +1,1 @@
+{"id": "binary-tree-upside-down", "title": "Binary Tree Upside Down", "difficulty": "MEDIUM", "tags": ["tree", "depth-first-search", "binary-tree"], "metadata": {"function": "upsideDownBinaryTree", "return": {"type": "TreeNode"}, "args": [{"name": "root", "type": "TreeNode"}]}, "type": "ALGO"}

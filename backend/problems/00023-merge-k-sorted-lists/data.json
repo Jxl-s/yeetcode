@@ -1,0 +1,1 @@
+{"id": "merge-k-sorted-lists", "title": "Merge k Sorted Lists", "difficulty": "HARD", "tags": ["linked-list", "divide-and-conquer", "heap-priority-queue", "merge-sort"], "metadata": {"function": "mergeKLists", "return": {"type": "ListNode"}, "args": [{"name": "lists", "type": "array", "items": {"type": "ListNode"}}]}, "type": "ALGO"}

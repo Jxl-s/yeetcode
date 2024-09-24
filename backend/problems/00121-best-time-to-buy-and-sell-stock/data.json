@@ -1,0 +1,1 @@
+{"id": "best-time-to-buy-and-sell-stock", "title": "Best Time to Buy and Sell Stock", "difficulty": "EASY", "tags": ["array", "dynamic-programming"], "metadata": {"function": "maxProfit", "return": {"type": "int"}, "args": [{"name": "prices", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

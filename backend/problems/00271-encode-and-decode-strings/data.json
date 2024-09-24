@@ -1,0 +1,1 @@
+{"id": "encode-and-decode-strings", "title": "Encode and Decode Strings", "difficulty": "MEDIUM", "tags": ["array", "string", "design"], "metadata": {"function": "encode", "return": {"type": "array", "items": {"type": "str"}}, "args": [{"name": "dummy_input", "type": "array", "items": {"type": "str"}}]}, "type": "ALGO"}

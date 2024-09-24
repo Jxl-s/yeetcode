@@ -1,0 +1,1 @@
+{"id": "largest-rectangle-in-histogram", "title": "Largest Rectangle in Histogram", "difficulty": "HARD", "tags": ["array", "stack", "monotonic-stack"], "metadata": {"function": "largestRectangleArea", "return": {"type": "int"}, "args": [{"name": "heights", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

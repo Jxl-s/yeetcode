@@ -1,0 +1,1 @@
+{"id": "scramble-string", "title": "Scramble String", "difficulty": "HARD", "tags": ["string", "dynamic-programming"], "metadata": {"function": "isScramble", "return": {"type": "bool"}, "args": [{"name": "s1", "type": "str"}, {"name": "s2", "type": "str"}]}, "type": "ALGO"}

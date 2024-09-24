@@ -1,0 +1,1 @@
+{"id": "remove-duplicates-from-sorted-array-ii", "title": "Remove Duplicates from Sorted Array II", "difficulty": "MEDIUM", "tags": ["array", "two-pointers"], "metadata": {"function": "removeDuplicates", "return": {"type": "int"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

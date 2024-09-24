@@ -1,0 +1,1 @@
+{"id": "populating-next-right-pointers-in-each-node", "title": "Populating Next Right Pointers in Each Node", "difficulty": "MEDIUM", "tags": ["linked-list", "tree", "depth-first-search", "breadth-first-search", "binary-tree"], "metadata": {"function": "connect", "return": {"type": "TreeNode"}, "args": [{"name": "root", "type": "TreeNode"}]}, "type": "ALGO"}

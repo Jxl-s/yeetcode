@@ -1,0 +1,1 @@
+{"id": "super-ugly-number", "title": "Super Ugly Number", "difficulty": "MEDIUM", "tags": ["array", "math", "dynamic-programming"], "metadata": {"function": "nthSuperUglyNumber", "return": {"type": "int"}, "args": [{"name": "n", "type": "int"}, {"name": "primes", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+[{"args": {"preorder": [5, 2, 1, 3, 6]}, "expected": null}, {"args": {"preorder": [5, 2, 6, 1, 3]}, "expected": null}]

@@ -1,0 +1,1 @@
+{"id": "read-n-characters-given-read4", "title": "Read N Characters Given Read4", "difficulty": "EASY", "tags": ["array", "simulation", "interactive"], "metadata": {"function": "read", "return": {"type": "str"}, "args": [{"name": "file", "type": "str"}, {"name": "n", "type": "int"}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+[{"args": {"numCourses": 2, "prerequisites": [[1, 0]]}, "expected": null}, {"args": {"numCourses": 2, "prerequisites": [[1, 0], [0, 1]]}, "expected": null}]

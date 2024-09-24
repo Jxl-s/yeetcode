@@ -1,0 +1,1 @@
+{"id": "remove-duplicates-from-sorted-list-ii", "title": "Remove Duplicates from Sorted List II", "difficulty": "MEDIUM", "tags": ["linked-list", "two-pointers"], "metadata": {"function": "deleteDuplicates", "return": {"type": "ListNode"}, "args": [{"name": "head", "type": "ListNode"}]}, "type": "ALGO"}

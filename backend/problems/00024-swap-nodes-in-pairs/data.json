@@ -1,0 +1,1 @@
+{"id": "swap-nodes-in-pairs", "title": "Swap Nodes in Pairs", "difficulty": "MEDIUM", "tags": ["linked-list", "recursion"], "metadata": {"function": "swapPairs", "return": {"type": "ListNode"}, "args": [{"name": "head", "type": "ListNode"}]}, "type": "ALGO"}

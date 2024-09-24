@@ -1,0 +1,1 @@
+{"id": "maximum-subarray", "title": "Maximum Subarray", "difficulty": "MEDIUM", "tags": ["array", "divide-and-conquer", "dynamic-programming"], "metadata": {"function": "maxSubArray", "return": {"type": "int"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

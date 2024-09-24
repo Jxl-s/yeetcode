@@ -1,0 +1,1 @@
+{"id": "powx-n", "title": "Pow(x, n)", "difficulty": "MEDIUM", "tags": ["math", "recursion"], "metadata": {"function": "myPow", "return": {"type": "float"}, "args": [{"name": "x", "type": "float"}, {"name": "n", "type": "int"}]}, "type": "ALGO"}

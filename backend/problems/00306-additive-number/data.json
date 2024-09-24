@@ -1,0 +1,1 @@
+{"id": "additive-number", "title": "Additive Number", "difficulty": "MEDIUM", "tags": ["string", "backtracking"], "metadata": {"function": "isAdditiveNumber", "return": {"type": "bool"}, "args": [{"name": "num", "type": "str"}]}, "type": "ALGO"}

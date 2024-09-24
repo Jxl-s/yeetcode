@@ -1,0 +1,1 @@
+{"id": "longest-substring-with-at-most-two-distinct-characters", "title": "Longest Substring with At Most Two Distinct Characters", "difficulty": "MEDIUM", "tags": ["hash-table", "string", "sliding-window"], "metadata": {"function": "lengthOfLongestSubstringTwoDistinct", "return": {"type": "int"}, "args": [{"name": "s", "type": "str"}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "move-zeroes", "title": "Move Zeroes", "difficulty": "EASY", "tags": ["array", "two-pointers"], "metadata": {"function": "moveZeroes", "return": {"type": "void"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

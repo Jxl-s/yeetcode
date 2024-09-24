@@ -1,0 +1,1 @@
+{"id": "wildcard-matching", "title": "Wildcard Matching", "difficulty": "HARD", "tags": ["string", "dynamic-programming", "greedy", "recursion"], "metadata": {"function": "isMatch", "return": {"type": "bool"}, "args": [{"name": "s", "type": "str"}, {"name": "p", "type": "str"}]}, "type": "ALGO"}

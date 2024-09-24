@@ -1,0 +1,1 @@
+{"id": "merge-two-sorted-lists", "title": "Merge Two Sorted Lists", "difficulty": "EASY", "tags": ["linked-list", "recursion"], "metadata": {"function": "mergeTwoLists", "return": {"type": "ListNode"}, "args": [{"name": "list1", "type": "ListNode"}, {"name": "list2", "type": "ListNode"}]}, "type": "ALGO"}

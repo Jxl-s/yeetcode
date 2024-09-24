@@ -1,0 +1,1 @@
+{"id": "best-meeting-point", "title": "Best Meeting Point", "difficulty": "HARD", "tags": ["array", "math", "sorting", "matrix"], "metadata": {"function": "minTotalDistance", "return": {"type": "int"}, "args": [{"name": "grid", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}]}, "type": "ALGO"}

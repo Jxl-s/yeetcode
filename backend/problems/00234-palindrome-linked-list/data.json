@@ -1,0 +1,1 @@
+{"id": "palindrome-linked-list", "title": "Palindrome Linked List", "difficulty": "EASY", "tags": ["linked-list", "two-pointers", "stack", "recursion"], "metadata": {"function": "isPalindrome", "return": {"type": "bool"}, "args": [{"name": "head", "type": "ListNode"}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+[{"args": {"s": "the sky is blue"}, "expected": null}, {"args": {"s": "  hello world  "}, "expected": null}, {"args": {"s": "a good   example"}, "expected": null}]

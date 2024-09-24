@@ -1,0 +1,1 @@
+{"id": "binary-tree-level-order-traversal", "title": "Binary Tree Level Order Traversal", "difficulty": "MEDIUM", "tags": ["tree", "breadth-first-search", "binary-tree"], "metadata": {"function": "levelOrder", "return": {"type": "array", "items": {"type": "array", "items": {"type": "int"}}}, "args": [{"name": "root", "type": "TreeNode"}]}, "type": "ALGO"}

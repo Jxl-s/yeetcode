@@ -1,8 +1,1 @@
-{
-    "id": "longest-palindromic-substring",
-    "title": "Longest Palindromic Substring",
-    "difficulty": "MEDIUM",
-    "tags": ["string","dynamic-programming"],
-    "type": "ALGO",
-    "metadata": {"function":"longestPalindrome","return":{"type":"str"},"args":[{"name":"s","type":"str"}]}
-}
+{"id": "longest-palindromic-substring", "title": "Longest Palindromic Substring", "difficulty": "MEDIUM", "tags": ["two-pointers", "string", "dynamic-programming"], "metadata": {"function": "longestPalindrome", "return": {"type": "str"}, "args": [{"name": "s", "type": "str"}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "sum-root-to-leaf-numbers", "title": "Sum Root to Leaf Numbers", "difficulty": "MEDIUM", "tags": ["tree", "depth-first-search", "binary-tree"], "metadata": {"function": "sumNumbers", "return": {"type": "int"}, "args": [{"name": "root", "type": "TreeNode"}]}, "type": "ALGO"}

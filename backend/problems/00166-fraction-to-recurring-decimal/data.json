@@ -1,0 +1,1 @@
+{"id": "fraction-to-recurring-decimal", "title": "Fraction to Recurring Decimal", "difficulty": "MEDIUM", "tags": ["hash-table", "math", "string"], "metadata": {"function": "fractionToDecimal", "return": {"type": "str"}, "args": [{"name": "numerator", "type": "int"}, {"name": "denominator", "type": "int"}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "linked-list-cycle", "title": "Linked List Cycle", "difficulty": "EASY", "tags": ["hash-table", "linked-list", "two-pointers"], "metadata": {"function": "hasCycle", "return": {"type": "bool"}, "args": [{"name": "head", "type": "ListNode"}, {"name": "pos", "type": "int"}]}, "type": "ALGO"}

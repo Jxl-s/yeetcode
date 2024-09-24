@@ -1,0 +1,1 @@
+{"id": "candy", "title": "Candy", "difficulty": "HARD", "tags": ["array", "greedy"], "metadata": {"function": "candy", "return": {"type": "int"}, "args": [{"name": "ratings", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

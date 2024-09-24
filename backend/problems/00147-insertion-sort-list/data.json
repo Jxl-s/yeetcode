@@ -1,0 +1,1 @@
+{"id": "insertion-sort-list", "title": "Insertion Sort List", "difficulty": "MEDIUM", "tags": ["linked-list", "sorting"], "metadata": {"function": "insertionSortList", "return": {"type": "ListNode"}, "args": [{"name": "head", "type": "ListNode"}]}, "type": "ALGO"}

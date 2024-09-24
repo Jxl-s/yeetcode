@@ -1,0 +1,1 @@
+{"id": "peeking-iterator", "title": "Peeking Iterator", "difficulty": "MEDIUM", "tags": ["array", "design", "iterator"], "metadata": {"function": "PeekingIterator", "return": {"type": "array", "items": {"type": "str"}}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}, {"name": "commands", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

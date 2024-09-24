@@ -1,0 +1,1 @@
+{"id": "find-minimum-in-rotated-sorted-array", "title": "Find Minimum in Rotated Sorted Array", "difficulty": "MEDIUM", "tags": ["array", "binary-search"], "metadata": {"function": "findMin", "return": {"type": "int"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

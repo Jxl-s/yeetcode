@@ -1,0 +1,1 @@
+{"id": "unique-binary-search-trees-ii", "title": "Unique Binary Search Trees II", "difficulty": "MEDIUM", "tags": ["dynamic-programming", "backtracking", "tree", "binary-search-tree", "binary-tree"], "metadata": {"function": "generateTrees", "return": {"type": "array", "items": {"type": "TreeNode"}}, "args": [{"name": "n", "type": "int"}]}, "type": "ALGO"}

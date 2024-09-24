@@ -1,0 +1,1 @@
+{"id": "3sum-smaller", "title": "3Sum Smaller", "difficulty": "MEDIUM", "tags": ["array", "two-pointers", "binary-search", "sorting"], "metadata": {"function": "threeSumSmaller", "return": {"type": "int"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}, {"name": "target", "type": "int"}]}, "type": "ALGO"}

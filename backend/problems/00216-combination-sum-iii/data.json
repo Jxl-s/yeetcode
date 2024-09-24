@@ -1,0 +1,1 @@
+{"id": "combination-sum-iii", "title": "Combination Sum III", "difficulty": "MEDIUM", "tags": ["array", "backtracking"], "metadata": {"function": "combinationSum3", "return": {"type": "array", "items": {"type": "array", "items": {"type": "int"}}}, "args": [{"name": "k", "type": "int"}, {"name": "n", "type": "int"}]}, "type": "ALGO"}

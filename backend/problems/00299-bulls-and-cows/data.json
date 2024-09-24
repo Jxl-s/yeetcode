@@ -1,0 +1,1 @@
+{"id": "bulls-and-cows", "title": "Bulls and Cows", "difficulty": "MEDIUM", "tags": ["hash-table", "string", "counting"], "metadata": {"function": "getHint", "return": {"type": "str"}, "args": [{"name": "secret", "type": "str"}, {"name": "guess", "type": "str"}]}, "type": "ALGO"}

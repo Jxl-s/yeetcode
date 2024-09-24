@@ -1,0 +1,1 @@
+{"id": "path-sum-ii", "title": "Path Sum II", "difficulty": "MEDIUM", "tags": ["backtracking", "tree", "depth-first-search", "binary-tree"], "metadata": {"function": "pathSum", "return": {"type": "array", "items": {"type": "array", "items": {"type": "int"}}}, "args": [{"name": "root", "type": "TreeNode"}, {"name": "targetSum", "type": "int"}]}, "type": "ALGO"}

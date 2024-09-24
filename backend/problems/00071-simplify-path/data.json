@@ -1,0 +1,1 @@
+{"id": "simplify-path", "title": "Simplify Path", "difficulty": "MEDIUM", "tags": ["string", "stack"], "metadata": {"function": "simplifyPath", "return": {"type": "str"}, "args": [{"name": "path", "type": "str"}]}, "type": "ALGO"}

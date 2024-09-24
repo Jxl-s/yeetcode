@@ -1,0 +1,1 @@
+{"id": "count-and-say", "title": "Count and Say", "difficulty": "MEDIUM", "tags": ["string"], "metadata": {"function": "countAndSay", "return": {"type": "str"}, "args": [{"name": "n", "type": "int"}]}, "type": "ALGO"}

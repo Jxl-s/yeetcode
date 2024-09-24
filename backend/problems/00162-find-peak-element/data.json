@@ -1,0 +1,1 @@
+{"id": "find-peak-element", "title": "Find Peak Element", "difficulty": "MEDIUM", "tags": ["array", "binary-search"], "metadata": {"function": "findPeakElement", "return": {"type": "int"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

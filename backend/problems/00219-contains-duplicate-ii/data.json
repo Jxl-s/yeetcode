@@ -1,0 +1,1 @@
+{"id": "contains-duplicate-ii", "title": "Contains Duplicate II", "difficulty": "EASY", "tags": ["array", "hash-table", "sliding-window"], "metadata": {"function": "containsNearbyDuplicate", "return": {"type": "bool"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}, {"name": "k", "type": "int"}]}, "type": "ALGO"}

@@ -1,0 +1,1 @@
+{"id": "generalized-abbreviation", "title": "Generalized Abbreviation", "difficulty": "MEDIUM", "tags": ["string", "backtracking", "bit-manipulation"], "metadata": {"function": "generateAbbreviations", "return": {"type": "array", "items": {"type": "str"}}, "args": [{"name": "word", "type": "str"}]}, "type": "ALGO"}

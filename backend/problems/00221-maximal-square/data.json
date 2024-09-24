@@ -1,0 +1,1 @@
+{"id": "maximal-square", "title": "Maximal Square", "difficulty": "MEDIUM", "tags": ["array", "dynamic-programming", "matrix"], "metadata": {"function": "maximalSquare", "return": {"type": "int"}, "args": [{"name": "matrix", "type": "array", "items": {"type": "array", "items": {"type": "str"}}}]}, "type": "ALGO"}

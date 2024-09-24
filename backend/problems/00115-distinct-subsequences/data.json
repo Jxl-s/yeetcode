@@ -1,0 +1,1 @@
+{"id": "distinct-subsequences", "title": "Distinct Subsequences", "difficulty": "HARD", "tags": ["string", "dynamic-programming"], "metadata": {"function": "numDistinct", "return": {"type": "int"}, "args": [{"name": "s", "type": "str"}, {"name": "t", "type": "str"}]}, "type": "ALGO"}

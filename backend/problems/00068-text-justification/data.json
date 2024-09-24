@@ -1,0 +1,1 @@
+{"id": "text-justification", "title": "Text Justification", "difficulty": "HARD", "tags": ["array", "string", "simulation"], "metadata": {"function": "fullJustify", "return": {"type": "array", "items": {"type": "str"}}, "args": [{"name": "words", "type": "array", "items": {"type": "str"}}, {"name": "maxWidth", "type": "int"}]}, "type": "ALGO"}

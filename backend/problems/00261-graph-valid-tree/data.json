@@ -1,0 +1,1 @@
+{"id": "graph-valid-tree", "title": "Graph Valid Tree", "difficulty": "MEDIUM", "tags": ["depth-first-search", "breadth-first-search", "union-find", "graph"], "metadata": {"function": "validTree", "return": {"type": "bool"}, "args": [{"name": "n", "type": "int"}, {"name": "edges", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}]}, "type": "ALGO"}

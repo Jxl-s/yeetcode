@@ -1,0 +1,1 @@
+{"id": "one-edit-distance", "title": "One Edit Distance", "difficulty": "MEDIUM", "tags": ["two-pointers", "string"], "metadata": {"function": "isOneEditDistance", "return": {"type": "bool"}, "args": [{"name": "s", "type": "str"}, {"name": "t", "type": "str"}]}, "type": "ALGO"}

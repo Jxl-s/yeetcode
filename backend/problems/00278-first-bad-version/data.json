@@ -1,0 +1,1 @@
+{"id": "first-bad-version", "title": "First Bad Version", "difficulty": "EASY", "tags": ["binary-search", "interactive"], "metadata": {"function": "firstBadVersion", "return": {"type": "int"}, "args": [{"name": "n", "type": "int"}, {"name": "bad", "type": "int"}]}, "type": "ALGO"}

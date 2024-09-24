@@ -1,0 +1,1 @@
+{"id": "bitwise-and-of-numbers-range", "title": "Bitwise AND of Numbers Range", "difficulty": "MEDIUM", "tags": ["bit-manipulation"], "metadata": {"function": "rangeBitwiseAnd", "return": {"type": "int"}, "args": [{"name": "left", "type": "int"}, {"name": "right", "type": "int"}]}, "type": "ALGO"}

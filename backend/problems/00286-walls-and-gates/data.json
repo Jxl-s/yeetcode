@@ -1,0 +1,1 @@
+{"id": "walls-and-gates", "title": "Walls and Gates", "difficulty": "MEDIUM", "tags": ["array", "breadth-first-search", "matrix"], "metadata": {"function": "wallsAndGates", "return": {"type": "void"}, "args": [{"name": "rooms", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}]}, "type": "ALGO"}

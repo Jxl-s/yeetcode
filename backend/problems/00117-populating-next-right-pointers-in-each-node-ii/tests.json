@@ -1,0 +1,1 @@
+[{"args": {"root": [1, 2, 3, 4, 5, null, 7]}, "expected": null}, {"args": {"root": []}, "expected": null}]

@@ -1,0 +1,1 @@
+{"id": "max-points-on-a-line", "title": "Max Points on a Line", "difficulty": "HARD", "tags": ["array", "hash-table", "math", "geometry"], "metadata": {"function": "maxPoints", "return": {"type": "int"}, "args": [{"name": "points", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}]}, "type": "ALGO"}

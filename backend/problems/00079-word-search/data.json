@@ -1,0 +1,1 @@
+{"id": "word-search", "title": "Word Search", "difficulty": "MEDIUM", "tags": ["array", "string", "backtracking", "matrix"], "metadata": {"function": "exist", "return": {"type": "bool"}, "args": [{"name": "board", "type": "array", "items": {"type": "array", "items": {"type": "str"}}}, {"name": "word", "type": "str"}]}, "type": "ALGO"}

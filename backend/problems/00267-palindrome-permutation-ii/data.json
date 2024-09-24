@@ -1,0 +1,1 @@
+{"id": "palindrome-permutation-ii", "title": "Palindrome Permutation II", "difficulty": "MEDIUM", "tags": ["hash-table", "string", "backtracking"], "metadata": {"function": "generatePalindromes", "return": {"type": "array", "items": {"type": "str"}}, "args": [{"name": "s", "type": "str"}]}, "type": "ALGO"}

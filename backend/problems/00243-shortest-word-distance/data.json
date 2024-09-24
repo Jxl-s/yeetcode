@@ -1,0 +1,1 @@
+{"id": "shortest-word-distance", "title": "Shortest Word Distance", "difficulty": "EASY", "tags": ["array", "string"], "metadata": {"function": "shortestDistance", "return": {"type": "int"}, "args": [{"name": "wordsDict", "type": "array", "items": {"type": "str"}}, {"name": "word1", "type": "str"}, {"name": "word2", "type": "str"}]}, "type": "ALGO"}

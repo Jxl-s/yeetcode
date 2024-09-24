@@ -1,0 +1,1 @@
+{"id": "palindrome-partitioning", "title": "Palindrome Partitioning", "difficulty": "MEDIUM", "tags": ["string", "dynamic-programming", "backtracking"], "metadata": {"function": "partition", "return": {"type": "array", "items": {"type": "array", "items": {"type": "str"}}}, "args": [{"name": "s", "type": "str"}]}, "type": "ALGO"}

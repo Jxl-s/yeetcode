@@ -1,0 +1,1 @@
+{"id": "edit-distance", "title": "Edit Distance", "difficulty": "MEDIUM", "tags": ["string", "dynamic-programming"], "metadata": {"function": "minDistance", "return": {"type": "int"}, "args": [{"name": "word1", "type": "str"}, {"name": "word2", "type": "str"}]}, "type": "ALGO"}
