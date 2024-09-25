@@ -32,7 +32,7 @@ rl.on('close', () => {
     inputLines.forEach((line, i) => {
         const data = JSON.parse(line);
 
-${metadata.args.map((arg, i) => `        const arg_${i + 1} = deserialize(data['${arg.name}'], ${JSON.stringify(arg.serialize())}`).join('\n')});
+${metadata.args.map((arg, i) => `        const arg_${i + 1} = deserialize(data['${arg.name}'], ${JSON.stringify(arg.serialize())})`).join('\n')};
 
         const result = ${metadata.function}(${metadata.args.map((_, i) => `arg_${i + 1}`).join(', ')});
         const serializedResult = serialize(result, ${JSON.stringify(metadata.return.serialize())});
@@ -49,6 +49,8 @@ ${metadata.args.map((arg, i) => `        const arg_${i + 1} = deserialize(data['
     });
 });
         `;
+
+        console.log(code);
         return [code, separator];
     }
 }
