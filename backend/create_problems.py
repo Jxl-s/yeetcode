@@ -229,6 +229,9 @@ def transform_metadata(metadata):
         "args": []
     }
 
+    if 'output' in metadata:
+        transformed_metadata['output'] = metadata["output"]['paramindex']
+
     for param in metadata['params']:
         tran = transform_type(param['type'])
         transformed_param = {
@@ -257,6 +260,9 @@ def fetch_solution(problem_number):
 if __name__ == "__main__":
     questions = fetch_leetcode_questions()[::-1]
     for question in questions:
+        if question['stat']['question_id'] <= 145:
+            continue
+
         # question_id, question__title, question__title_slug
         title_1 = str(question['stat']['question_id']).zfill(5)
         title_2 = question['stat']['question__title_slug']
@@ -279,7 +285,9 @@ if __name__ == "__main__":
         os.mkdir(f"./problems/{title_1}-{title_2}")
 
         real_tests = None
+        question_type = "ALGO"
         if "classname" in metadata:
+            question_type = "DESIGN"
             real_tests = []
         else:
             real_tests = convert_to_test_objects(metadata, test_cases) or []
@@ -297,7 +305,7 @@ if __name__ == "__main__":
             "difficulty": DIFF_LEVELS[question['difficulty']['level']],
             "tags": tags,
             "metadata": real_meta,
-            "type": "ALGO",
+            "type": question_type,
         }
 
         with open(f"./problems/{title_1}-{title_2}/data.json", "w") as f:
