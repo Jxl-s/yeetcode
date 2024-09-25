@@ -1,1 +1,0 @@
-[{"args": {"graph": [[1, 1, 0], [0, 1, 0], [1, 1, 1]]}, "expected": null}, {"args": {"graph": [[1, 0, 1], [1, 1, 0], [0, 1, 1]]}, "expected": null}]

@@ -1,1 +1,0 @@
-{"id": "integer-to-english-words", "title": "Integer to English Words", "difficulty": "HARD", "tags": ["math", "string", "recursion"], "metadata": {"function": "numberToWords", "return": {"type": "str"}, "args": [{"name": "num", "type": "int"}]}, "type": "ALGO"}

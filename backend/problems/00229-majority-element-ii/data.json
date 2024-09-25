@@ -1,1 +1,0 @@
-{"id": "majority-element-ii", "title": "Majority Element II", "difficulty": "MEDIUM", "tags": ["array", "hash-table", "sorting", "counting"], "metadata": {"function": "majorityElement", "return": {"type": "array", "items": {"type": "int"}}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

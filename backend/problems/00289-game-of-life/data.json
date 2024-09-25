@@ -1,1 +1,0 @@
-{"id": "game-of-life", "title": "Game of Life", "difficulty": "MEDIUM", "tags": ["array", "matrix", "simulation"], "metadata": {"function": "gameOfLife", "return": {"type": "void"}, "args": [{"name": "board", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}]}, "type": "ALGO"}

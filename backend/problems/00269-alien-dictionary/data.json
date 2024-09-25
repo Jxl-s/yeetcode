@@ -1,1 +1,0 @@
-{"id": "alien-dictionary", "title": "Alien Dictionary", "difficulty": "HARD", "tags": ["array", "string", "depth-first-search", "breadth-first-search", "graph", "topological-sort"], "metadata": {"function": "alienOrder", "return": {"type": "str"}, "args": [{"name": "words", "type": "array", "items": {"type": "str"}}]}, "type": "ALGO"}

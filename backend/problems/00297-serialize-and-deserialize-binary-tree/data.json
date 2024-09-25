@@ -1,1 +1,0 @@
-{"id": "serialize-and-deserialize-binary-tree", "title": "Serialize and Deserialize Binary Tree", "difficulty": "HARD", "tags": ["string", "tree", "depth-first-search", "breadth-first-search", "design", "binary-tree"], "metadata": {"function": "Codec", "return": {"type": "str"}, "args": [{"name": "root", "type": "TreeNode"}]}, "type": "ALGO"}

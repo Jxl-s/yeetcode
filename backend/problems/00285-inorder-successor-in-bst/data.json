@@ -1,1 +1,0 @@
-{"id": "inorder-successor-in-bst", "title": "Inorder Successor in BST", "difficulty": "MEDIUM", "tags": ["tree", "depth-first-search", "binary-search-tree", "binary-tree"], "metadata": {"function": "inorderSuccessor", "return": {"type": "TreeNode"}, "args": [{"name": "root", "type": "TreeNode"}, {"name": "p", "type": "int"}]}, "type": "ALGO"}

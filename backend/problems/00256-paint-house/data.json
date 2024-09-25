@@ -1,1 +1,0 @@
-{"id": "paint-house", "title": "Paint House", "difficulty": "MEDIUM", "tags": ["array", "dynamic-programming"], "metadata": {"function": "minCost", "return": {"type": "int"}, "args": [{"name": "costs", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}]}, "type": "ALGO"}

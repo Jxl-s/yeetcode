@@ -1,1 +1,0 @@
-{"id": "meeting-rooms", "title": "Meeting Rooms", "difficulty": "EASY", "tags": ["array", "sorting"], "metadata": {"function": "canAttendMeetings", "return": {"type": "bool"}, "args": [{"name": "intervals", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}]}, "type": "ALGO"}

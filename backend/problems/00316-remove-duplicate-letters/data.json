@@ -1,1 +1,0 @@
-{"id": "remove-duplicate-letters", "title": "Remove Duplicate Letters", "difficulty": "MEDIUM", "tags": ["string", "stack", "greedy", "monotonic-stack"], "metadata": {"function": "removeDuplicateLetters", "return": {"type": "str"}, "args": [{"name": "s", "type": "str"}]}, "type": "ALGO"}

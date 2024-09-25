@@ -1,1 +1,0 @@
-{"id": "paint-house-ii", "title": "Paint House II", "difficulty": "HARD", "tags": ["array", "dynamic-programming"], "metadata": {"function": "minCostII", "return": {"type": "int"}, "args": [{"name": "costs", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}]}, "type": "ALGO"}

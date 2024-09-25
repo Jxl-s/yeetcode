@@ -1,1 +1,0 @@
-{"id": "meeting-rooms-ii", "title": "Meeting Rooms II", "difficulty": "MEDIUM", "tags": ["array", "two-pointers", "greedy", "sorting", "heap-priority-queue", "prefix-sum"], "metadata": {"function": "minMeetingRooms", "return": {"type": "int"}, "args": [{"name": "intervals", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}]}, "type": "ALGO"}

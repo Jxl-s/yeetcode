@@ -77,7 +77,7 @@ export class Python3Snippets implements BaseSnippets {
     }
 
     public makeDesign(metadata: MetadataDesign) {
-        let snippet = `class ${metadata.className}():\n`;
+        let snippet = `class ${metadata.className}:\n`;
 
         const methods = metadata.methods.map((method) => {
             const m = new Method({

@@ -1,1 +1,0 @@
-[{"args": {"n": 5, "edges": [[0, 1], [1, 2], [3, 4]]}, "expected": null}, {"args": {"n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4]]}, "expected": null}]

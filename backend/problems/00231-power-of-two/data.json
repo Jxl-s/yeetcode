@@ -1,1 +1,0 @@
-{"id": "power-of-two", "title": "Power of Two", "difficulty": "EASY", "tags": ["math", "bit-manipulation", "recursion"], "metadata": {"function": "isPowerOfTwo", "return": {"type": "bool"}, "args": [{"name": "n", "type": "int"}]}, "type": "ALGO"}

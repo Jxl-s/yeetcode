@@ -1,1 +1,0 @@
-{"id": "ugly-number-ii", "title": "Ugly Number II", "difficulty": "MEDIUM", "tags": ["hash-table", "math", "dynamic-programming", "heap-priority-queue"], "metadata": {"function": "nthUglyNumber", "return": {"type": "int"}, "args": [{"name": "n", "type": "int"}]}, "type": "ALGO"}

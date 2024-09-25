@@ -1,1 +1,0 @@
-{"id": "shortest-word-distance-iii", "title": "Shortest Word Distance III", "difficulty": "MEDIUM", "tags": ["array", "string"], "metadata": {"function": "shortestWordDistance", "return": {"type": "int"}, "args": [{"name": "wordsDict", "type": "array", "items": {"type": "str"}}, {"name": "word1", "type": "str"}, {"name": "word2", "type": "str"}]}, "type": "ALGO"}

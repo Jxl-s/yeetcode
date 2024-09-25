@@ -1,1 +1,0 @@
-{"id": "basic-calculator", "title": "Basic Calculator", "difficulty": "HARD", "tags": ["math", "string", "stack", "recursion"], "metadata": {"function": "calculate", "return": {"type": "int"}, "args": [{"name": "s", "type": "str"}]}, "type": "ALGO"}

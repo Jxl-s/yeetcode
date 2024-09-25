@@ -1,1 +1,0 @@
-{"id": "search-a-2d-matrix-ii", "title": "Search a 2D Matrix II", "difficulty": "MEDIUM", "tags": ["array", "binary-search", "divide-and-conquer", "matrix"], "metadata": {"function": "searchMatrix", "return": {"type": "bool"}, "args": [{"name": "matrix", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}, {"name": "target", "type": "int"}]}, "type": "ALGO"}

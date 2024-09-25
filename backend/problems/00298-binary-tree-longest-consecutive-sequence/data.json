@@ -1,1 +1,0 @@
-{"id": "binary-tree-longest-consecutive-sequence", "title": "Binary Tree Longest Consecutive Sequence", "difficulty": "MEDIUM", "tags": ["tree", "depth-first-search", "binary-tree"], "metadata": {"function": "longestConsecutive", "return": {"type": "int"}, "args": [{"name": "root", "type": "TreeNode"}]}, "type": "ALGO"}

@@ -1,1 +1,0 @@
-{"id": "perfect-squares", "title": "Perfect Squares", "difficulty": "MEDIUM", "tags": ["math", "dynamic-programming", "breadth-first-search"], "metadata": {"function": "numSquares", "return": {"type": "int"}, "args": [{"name": "n", "type": "int"}]}, "type": "ALGO"}

@@ -1,1 +1,0 @@
-{"id": "single-number-iii", "title": "Single Number III", "difficulty": "MEDIUM", "tags": ["array", "bit-manipulation"], "metadata": {"function": "singleNumber", "return": {"type": "array", "items": {"type": "int"}}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

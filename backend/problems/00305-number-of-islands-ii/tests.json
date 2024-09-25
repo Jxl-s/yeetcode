@@ -1,1 +1,0 @@
-[{"args": {"m": 3, "n": 3, "positions": [[0, 0], [0, 1], [1, 2], [2, 1]]}, "expected": null}, {"args": {"m": 1, "n": 1, "positions": [[0, 0]]}, "expected": null}]

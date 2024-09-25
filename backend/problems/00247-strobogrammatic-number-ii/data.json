@@ -1,1 +1,0 @@
-{"id": "strobogrammatic-number-ii", "title": "Strobogrammatic Number II", "difficulty": "MEDIUM", "tags": ["array", "string", "recursion"], "metadata": {"function": "findStrobogrammatic", "return": {"type": "array", "items": {"type": "str"}}, "args": [{"name": "n", "type": "int"}]}, "type": "ALGO"}

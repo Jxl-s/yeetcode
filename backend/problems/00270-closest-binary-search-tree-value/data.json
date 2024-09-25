@@ -1,1 +1,0 @@
-{"id": "closest-binary-search-tree-value", "title": "Closest Binary Search Tree Value", "difficulty": "EASY", "tags": ["binary-search", "tree", "depth-first-search", "binary-search-tree", "binary-tree"], "metadata": {"function": "closestValue", "return": {"type": "int"}, "args": [{"name": "root", "type": "TreeNode"}, {"name": "target", "type": "float"}]}, "type": "ALGO"}

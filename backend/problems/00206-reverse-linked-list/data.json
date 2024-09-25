@@ -1,1 +1,0 @@
-{"id": "reverse-linked-list", "title": "Reverse Linked List", "difficulty": "EASY", "tags": ["linked-list", "recursion"], "metadata": {"function": "reverseList", "return": {"type": "ListNode"}, "args": [{"name": "head", "type": "ListNode"}]}, "type": "ALGO"}

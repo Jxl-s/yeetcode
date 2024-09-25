@@ -1,1 +1,1 @@
-{"id": "reorder-list", "title": "Reorder List", "difficulty": "MEDIUM", "tags": ["linked-list", "two-pointers", "stack", "recursion"], "metadata": {"function": "reorderList", "return": {"type": "void"}, "args": [{"name": "head", "type": "ListNode"}]}, "type": "ALGO"}
+{"id": "reorder-list", "title": "Reorder List", "difficulty": "MEDIUM", "tags": ["linked-list", "two-pointers", "stack", "recursion"], "metadata": {"function": "reorderList", "return": {"type": "void"}, "args": [{"name": "head", "type": "ListNode"}], "output": 0}, "type": "ALGO"}

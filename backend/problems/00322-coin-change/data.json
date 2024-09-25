@@ -1,1 +1,0 @@
-{"id": "coin-change", "title": "Coin Change", "difficulty": "MEDIUM", "tags": ["array", "dynamic-programming", "breadth-first-search"], "metadata": {"function": "coinChange", "return": {"type": "int"}, "args": [{"name": "coins", "type": "array", "items": {"type": "int"}}, {"name": "amount", "type": "int"}]}, "type": "ALGO"}

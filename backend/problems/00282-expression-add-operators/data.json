@@ -1,1 +1,0 @@
-{"id": "expression-add-operators", "title": "Expression Add Operators", "difficulty": "HARD", "tags": ["math", "string", "backtracking"], "metadata": {"function": "addOperators", "return": {"type": "array", "items": {"type": "str"}}, "args": [{"name": "num", "type": "str"}, {"name": "target", "type": "int"}]}, "type": "ALGO"}

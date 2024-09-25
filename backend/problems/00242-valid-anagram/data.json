@@ -1,1 +1,0 @@
-{"id": "valid-anagram", "title": "Valid Anagram", "difficulty": "EASY", "tags": ["hash-table", "string", "sorting"], "metadata": {"function": "isAnagram", "return": {"type": "bool"}, "args": [{"name": "s", "type": "str"}, {"name": "t", "type": "str"}]}, "type": "ALGO"}

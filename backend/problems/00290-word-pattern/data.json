@@ -1,1 +1,0 @@
-{"id": "word-pattern", "title": "Word Pattern", "difficulty": "EASY", "tags": ["hash-table", "string"], "metadata": {"function": "wordPattern", "return": {"type": "bool"}, "args": [{"name": "pattern", "type": "str"}, {"name": "s", "type": "str"}]}, "type": "ALGO"}

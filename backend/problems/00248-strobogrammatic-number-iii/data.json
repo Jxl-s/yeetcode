@@ -1,1 +1,0 @@
-{"id": "strobogrammatic-number-iii", "title": "Strobogrammatic Number III", "difficulty": "HARD", "tags": ["array", "string", "recursion"], "metadata": {"function": "strobogrammaticInRange", "return": {"type": "int"}, "args": [{"name": "low", "type": "str"}, {"name": "high", "type": "str"}]}, "type": "ALGO"}

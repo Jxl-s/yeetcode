@@ -1,1 +1,0 @@
-{"id": "count-univalue-subtrees", "title": "Count Univalue Subtrees", "difficulty": "MEDIUM", "tags": ["tree", "depth-first-search", "binary-tree"], "metadata": {"function": "countUnivalSubtrees", "return": {"type": "int"}, "args": [{"name": "root", "type": "TreeNode"}]}, "type": "ALGO"}

@@ -1,1 +1,0 @@
-{"id": "minimum-size-subarray-sum", "title": "Minimum Size Subarray Sum", "difficulty": "MEDIUM", "tags": ["array", "binary-search", "sliding-window", "prefix-sum"], "metadata": {"function": "minSubArrayLen", "return": {"type": "int"}, "args": [{"name": "target", "type": "int"}, {"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

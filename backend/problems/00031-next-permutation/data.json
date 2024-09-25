@@ -1,1 +1,1 @@
-{"id": "next-permutation", "title": "Next Permutation", "difficulty": "MEDIUM", "tags": ["array", "two-pointers"], "metadata": {"function": "nextPermutation", "return": {"type": "void"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}
+{"id": "next-permutation", "title": "Next Permutation", "difficulty": "MEDIUM", "tags": ["array", "two-pointers"], "metadata": {"function": "nextPermutation", "return": {"type": "void"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}], "output": 0}, "type": "ALGO"}

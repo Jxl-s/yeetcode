@@ -1,1 +1,0 @@
-{"id": "maximum-product-of-word-lengths", "title": "Maximum Product of Word Lengths", "difficulty": "MEDIUM", "tags": ["array", "string", "bit-manipulation"], "metadata": {"function": "maxProduct", "return": {"type": "int"}, "args": [{"name": "words", "type": "array", "items": {"type": "str"}}]}, "type": "ALGO"}

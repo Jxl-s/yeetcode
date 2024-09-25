@@ -1,1 +1,0 @@
-{"id": "find-the-duplicate-number", "title": "Find the Duplicate Number", "difficulty": "MEDIUM", "tags": ["array", "two-pointers", "binary-search", "bit-manipulation"], "metadata": {"function": "findDuplicate", "return": {"type": "int"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

@@ -1,1 +1,0 @@
-{"id": "find-the-celebrity", "title": "Find the Celebrity", "difficulty": "MEDIUM", "tags": ["two-pointers", "graph", "interactive"], "metadata": {"function": "findCelebrity", "return": {"type": "int"}, "args": [{"name": "graph", "type": "array", "items": {"type": "array", "items": {"type": "int"}}}]}, "type": "ALGO"}

@@ -1,1 +1,0 @@
-{"id": "invert-binary-tree", "title": "Invert Binary Tree", "difficulty": "EASY", "tags": ["tree", "depth-first-search", "breadth-first-search", "binary-tree"], "metadata": {"function": "invertTree", "return": {"type": "TreeNode"}, "args": [{"name": "root", "type": "TreeNode"}]}, "type": "ALGO"}

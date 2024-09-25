@@ -1,1 +1,0 @@
-[{"args": {"nums": [-2, 0, 1, 3], "target": 2}, "expected": null}, {"args": {"nums": [], "target": 0}, "expected": null}, {"args": {"nums": [0], "target": 0}, "expected": null}]

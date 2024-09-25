@@ -1,1 +1,0 @@
-{"id": "strobogrammatic-number", "title": "Strobogrammatic Number", "difficulty": "EASY", "tags": ["hash-table", "two-pointers", "string"], "metadata": {"function": "isStrobogrammatic", "return": {"type": "bool"}, "args": [{"name": "num", "type": "str"}]}, "type": "ALGO"}

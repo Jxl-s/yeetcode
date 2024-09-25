@@ -1,1 +1,0 @@
-{"id": "h-index-ii", "title": "H-Index II", "difficulty": "MEDIUM", "tags": ["array", "binary-search"], "metadata": {"function": "hIndex", "return": {"type": "int"}, "args": [{"name": "citations", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

@@ -1,1 +1,0 @@
-{"id": "burst-balloons", "title": "Burst Balloons", "difficulty": "HARD", "tags": ["array", "dynamic-programming"], "metadata": {"function": "maxCoins", "return": {"type": "int"}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}

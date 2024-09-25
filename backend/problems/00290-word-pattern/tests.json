@@ -1,1 +1,0 @@
-[{"args": {"pattern": "abba", "s": "dog cat cat dog"}, "expected": null}, {"args": {"pattern": "abba", "s": "dog cat cat fish"}, "expected": null}, {"args": {"pattern": "aaaa", "s": "dog cat cat dog"}, "expected": null}]

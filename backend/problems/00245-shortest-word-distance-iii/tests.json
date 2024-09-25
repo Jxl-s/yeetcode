@@ -1,1 +1,0 @@
-[{"args": {"wordsDict": ["practice", "makes", "perfect", "coding", "makes"], "word1": "makes", "word2": "coding"}, "expected": null}, {"args": {"wordsDict": ["practice", "makes", "perfect", "coding", "makes"], "word1": "makes", "word2": "makes"}, "expected": null}]

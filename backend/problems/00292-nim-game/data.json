@@ -1,1 +1,0 @@
-{"id": "nim-game", "title": "Nim Game", "difficulty": "EASY", "tags": ["math", "brainteaser", "game-theory"], "metadata": {"function": "canWinNim", "return": {"type": "bool"}, "args": [{"name": "n", "type": "int"}]}, "type": "ALGO"}

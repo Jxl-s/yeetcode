@@ -1,1 +1,0 @@
-{"id": "palindrome-permutation", "title": "Palindrome Permutation", "difficulty": "EASY", "tags": ["hash-table", "string", "bit-manipulation"], "metadata": {"function": "canPermutePalindrome", "return": {"type": "bool"}, "args": [{"name": "s", "type": "str"}]}, "type": "ALGO"}

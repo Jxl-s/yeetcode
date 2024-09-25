@@ -1,1 +1,0 @@
-{"id": "product-of-array-except-self", "title": "Product of Array Except Self", "difficulty": "MEDIUM", "tags": ["array", "prefix-sum"], "metadata": {"function": "productExceptSelf", "return": {"type": "array", "items": {"type": "int"}}, "args": [{"name": "nums", "type": "array", "items": {"type": "int"}}]}, "type": "ALGO"}
