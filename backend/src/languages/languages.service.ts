@@ -19,14 +19,14 @@ const LANGUAGES = [
         snippets: new Python3Snippets(),
         runner: new Python3Runner(),
     },
-    {
-        id: 62,
-        name: 'java',
-        entry: 'Main.java',
-        display: 'Java',
-        snippets: new JavaSnippets(),
-        runner: new JavaRunner(),
-    },
+    // {
+    //     id: 62,
+    //     name: 'java',
+    //     entry: 'Main.java',
+    //     display: 'Java',
+    //     snippets: new JavaSnippets(),
+    //     runner: new JavaRunner(),
+    // },
     {
         id: 63,
         name: 'javascript',
@@ -35,14 +35,14 @@ const LANGUAGES = [
         snippets: new JavaScriptSnippets(),
         runner: new JavaScriptRunner(),
     },
-    {
-        id: 54,
-        name: 'cpp',
-        entry: 'main.cpp',
-        display: 'C++',
-        snippets: new CppSnippets(),
-        runner: new CppRunner(),
-    },
+    // {
+    //     id: 54,
+    //     name: 'cpp',
+    //     entry: 'main.cpp',
+    //     display: 'C++',
+    //     snippets: new CppSnippets(),
+    //     runner: new CppRunner(),
+    // },
 ] as const;
 
 export function getLanguageArr() {

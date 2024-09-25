@@ -99,6 +99,7 @@ export class Method {
 export class MetadataAlgo {
     public function: string;
     public return: T;
+    public output?: number;
     public args: T[];
     public types: string[] = [];
 
@@ -106,14 +107,17 @@ export class MetadataAlgo {
         function: func,
         return: ret,
         args: args,
+        output: output,
     }: {
         function: string;
         return: T;
         args: T[];
+        output?: number;
     }) {
         this.function = func;
         this.return = ret;
         this.args = args;
+        this.output = output;
 
         // recursively get all types
         const getTypes = (t: T) => {
@@ -126,17 +130,21 @@ export class MetadataAlgo {
     }
 
     public serialize() {
-        return {
+        const obj = {
             function: this.function,
             return: this.return.serialize(),
             args: this.args.map((arg) => arg.serialize()),
-        };
+        } as Record<string, Object>;
+
+        if (this.output !== undefined) obj.output = this.output;
+        return obj;
     }
 
     public static fromObject(obj: any): MetadataAlgo {
         return new MetadataAlgo({
             function: obj.function,
             return: T.fromObject(obj.return),
+            output: obj.output,
             args: obj.args.map((arg: any) => T.fromObject(arg)),
         });
     }

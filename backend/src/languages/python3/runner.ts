@@ -53,7 +53,7 @@ with open('user.out', 'w') as f:
 ${metadata.args.map((arg, i) => `        ` + makeArg(i, arg)).join('\n')}
 
         result = Solution().${metadata.function}(${metadata.args.map((_, i) => `arg_${i + 1}`).join(', ')})
-        result = serialize(result, ${JSON.stringify(metadata.return.serialize())})
+        result = serialize(${metadata.output !== undefined ? 'arg_' + (metadata.output + 1) : 'result'}, ${JSON.stringify(metadata.return.serialize())})
         print("${separator}")
         result_str = json.dumps(result,separators=(',', ':'))
         print(result_str, file=f)
