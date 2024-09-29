@@ -16,6 +16,18 @@ The folder `backend/problems` contains a list of problems, and will be the defau
 
 The folder `backend/judge_files` contains the dependencies for the code runner for Judge0.
 
+## TO-DO
+
+A lot of things to-do, including:
+
+- [ ] Add more languages (C++ and Kava) to the code runner
+- [ ] Code-judging support for design-style questions
+- [ ] Code-judging for custom test runners
+- [ ] Administration pages for managing problems
+- [ ] User profile pages
+
+... and much more
+
 ## Development
 
 The project runs through Docker. To start the development environment, run:
