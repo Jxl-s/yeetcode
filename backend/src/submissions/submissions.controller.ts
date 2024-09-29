@@ -11,7 +11,7 @@ import {
 import { SubmissionsService } from './submissions.service';
 import { GetUser } from 'src/auth/decorator/get-user.decorator';
 import { JwtGuard } from 'src/auth/guards/jwt.guard';
-import { CreateRunDto } from './dto';
+import { CreateRunDto, CreateSubmitDto } from './dto';
 
 @Controller('submissions')
 export class SubmissionsController {
@@ -27,10 +27,13 @@ export class SubmissionsController {
     }
 
     @Post('/run')
+    @UseGuards(JwtGuard)
     @HttpCode(200)
-    async createSubmissionRun(
-        @Body() dto: CreateRunDto,
-    ) {
+    async createSubmissionRun(@Body() dto: CreateRunDto) {
         return this.submissionsService.createRun(dto);
     }
+
+    @Post('/submit')
+    @UseGuards(JwtGuard)
+    async createSubmission(@Body() dto: CreateSubmitDto) {}
 }

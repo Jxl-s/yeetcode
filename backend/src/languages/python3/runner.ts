@@ -6,7 +6,8 @@ export class Python3Runner {
             `arg_${i + 1} = deserialize(data['${arg.name}'], ${JSON.stringify(arg.serialize())})`;
 
         const separator = '===' + v4() + '===';
-        const code = `from typing import *
+        const code = `
+from typing import *
 from string import *
 from re import *
 from datetime import *
@@ -49,17 +50,18 @@ from yeetcode.util import serialize, deserialize
 ${s}
 
 with open('user.out', 'w') as f:
-    for i, data in enumerate(map(json.loads, sys.stdin)):
-${metadata.args.map((arg, i) => `        ` + makeArg(i, arg)).join('\n')}
+\tfor i, data in enumerate(map(json.loads, sys.stdin)):
 
-        result = Solution().${metadata.function}(${metadata.args.map((_, i) => `arg_${i + 1}`).join(', ')})
-        result = serialize(${metadata.output !== undefined ? 'arg_' + (metadata.output + 1) : 'result'}, ${JSON.stringify(metadata.return.serialize())})
-        print("${separator}")
-        result_str = json.dumps(result,separators=(',', ':'))
-        print(result_str, file=f)
+${metadata.args.map((arg, i) => `\t\t` + makeArg(i, arg)).join('\n')}
+
+\t\tresult = Solution().${metadata.function}(${metadata.args.map((_, i) => `arg_${i + 1}`).join(', ')})
+\t\tresult = serialize(${metadata.output !== undefined ? 'arg_' + (metadata.output + 1) : 'result'}, ${JSON.stringify(metadata.return.serialize())})
+\t\tprint("${separator}")
+\t\tresult_str = json.dumps(result,separators=(',', ':'))
+\t\tprint(result_str, file=f)
 
 with open('user.out', 'r') as f:
-    print(f.read())
+\tprint(f.read())
 `;
         return [code, separator];
     }

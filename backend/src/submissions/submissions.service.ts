@@ -283,4 +283,6 @@ export class SubmissionsService {
 
         throw new BadRequestException('Invalid problem type');
     }
+
+    public async createSubmit(dto: CreateRunDto) {}
 }
