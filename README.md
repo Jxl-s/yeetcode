@@ -1,6 +1,8 @@
 # YeetCode
 
-A clone of a certain popular code-challenge website. Implements a front-end with [SvelteKit](https://github.com/sveltejs/kit), back-end in [Nest](https://github.com/nestjs/nest), and code-judging provided by [Judge0](https://github.com/judge0/judge0). Uses [PostgreSQL](https://www.postgresql.org/) as the database, with [Prisma](https://www.prisma.io/) as the ORM. Uses [Docker](https://www.docker.com/) for development and deployment of the project.
+A clone of a certain popular code-challenge website. Implements a front-end with [SvelteKit](https://github.com/sveltejs/kit), back-end in [Nest](https://github.com/nestjs/nest), and code-judging provided by [Judge0](https://github.com/judge0/judge0), all proxied through [NGINX](https://www.nginx.com/).
+
+Uses [PostgreSQL](https://www.postgresql.org/) as the database, with [Prisma](https://www.prisma.io/) as the ORM, and [Docker](https://www.docker.com/) for development and deployment.
 
 ## Features
 
