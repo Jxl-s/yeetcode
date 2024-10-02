@@ -7,4 +7,8 @@
 </script>
 
 <h1 class="text-3xl font-bold">Welcome to YeetCode</h1>
-<p>A clone of a certain popular code execution platform.</p>
+<p class="text-muted-foreground">A clone of a certain popular code execution platform.</p>
+
+{#if signedOut}
+	<p class="text-muted-foreground">Sign in to unlock the ability to run your code.</p>
+{/if}
